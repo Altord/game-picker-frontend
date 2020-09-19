@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Example from '../API/api'
+import Header from '../Home/Home'
 
 
 
@@ -10,8 +10,7 @@ function App() {
       <header className="App-header">
 
         <p>
-            <Example/>
-          Edit <code>src/App.js</code> and save to reload.
+            <Header/>
         </p>
       </header>
     </div>
