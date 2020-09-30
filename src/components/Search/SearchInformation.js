@@ -1,6 +1,6 @@
 import React from "react";
 
-const BasicInformation = ({name, platforms, genres, score, cover}) => {
+const SearchInformation = ({name, platforms, genres, score, cover}) => {
 
     return(
         <div>
@@ -20,4 +20,4 @@ const BasicInformation = ({name, platforms, genres, score, cover}) => {
 
 
 }
-export default BasicInformation
+export default SearchInformation

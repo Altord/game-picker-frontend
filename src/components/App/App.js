@@ -1,18 +1,18 @@
 import React from 'react';
 import './App.css';
-import Header from '../Home/Home'
+import Header from '../Header/Header'
+import BasicSearch from "../Search/Search";
 
 
 
 function App() {
     return (
     <div className="App">
-      <header className="App-header">
 
-        <p>
-            <Header/>
-        </p>
-      </header>
+        <Header/>
+        <div>
+            <BasicSearch/>
+        </div>
     </div>
   );
 }

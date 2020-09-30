@@ -1,0 +1,98 @@
+/* Import Font */
+
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+
+
+/* Container */
+
+
+/** Nav Bar */
+.container {
+    background-color: #215e7c;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 68px;
+    .wrap{
+        align-items: center;
+        height: 100%;
+        margin: 0 50px 0 50px;
+        max-width: 1050px;
+        display: inline-flex;
+
+      .igdb-icon{
+          width: 3rem;
+
+
+        }
+
+      .links {
+              align-items: center;
+              font-family: "Josefin Sans", sans-serif;
+              font-size: 1.1rem;
+              width: 1000px;
+              text-align: center;
+
+              a {
+                  color: white;
+                  text-decoration: none;
+                  padding: 14px;
+                  transition: .5s;
+                  &:hover{
+                      color: #abd8d9 ;
+                  }
+              }
+          }
+      .user{
+        display: inline-flex;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 1.1rem;
+        text-align: center;
+        min-width: 25%;
+        .new{
+          background-color: #2b2d42;
+          border-radius: 6px;
+          transition: transform 1s;
+          &:hover{
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: .5s;
+          }
+        }
+        a {
+          color: white;
+          text-decoration: none;
+          padding: 13px;
+          transition: .5s;
+          &:hover{
+            color: #abd8d9 ;
+
+          }
+        }
+      }
+
+    }
+}
+
+
+.svg-icon {
+    width: 1.6em;
+    height: 1.6em;
+  margin-right: 10px;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+    fill: white;
+
+
+}
+
+.svg-icon circle {
+    stroke: #4691f6;
+    stroke-width: 1;
+}
+.content {
+    text-align: center;
+}
