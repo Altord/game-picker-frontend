@@ -1,0 +1,108 @@
+
+*{
+  box-sizing: border-box;
+}
+div{
+  display: block;
+}
+
+.page-content{
+  display: block;
+  min-height: 100vh;
+
+}
+
+.wrap{
+  margin-top: 50px;
+}
+.preview{
+  font-family: Overpass,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  background: rgb(var(--color-background-200));
+  min-height: 100vh;
+}
+.content-container{
+  margin: 0 auto;
+  min-width: 320px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+
+}
+@media(min-width: 1540px) {
+  .content-container {
+    max-width: 1520px;
+    padding-left: 125px;
+    padding-right: 125px;
+  }
+}
+.base-landing{
+
+}
+
+.landing-section{
+  margin-bottom: 30px;
+}
+
+.title{
+  color: rgb(var(--color-gray-800));
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.link{
+  align-items: flex-end;
+  display: flex;
+  .expand{
+    color: rgb(var(--color-gray-600));
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: auto;
+    text-transform: none;
+    transition: color .2s ease;
+  }
+  }
+
+
+
+.results{
+  display: grid;
+  grid-gap: 28px 30px;
+  grid-template-columns: repeat(auto-fill,12%);
+
+  .media-card{
+    display: grid;
+    grid-template-rows: min-content auto;
+    position: relative;
+    width: 100%;
+    .cover{
+      background: rgba(var(--color-background-300),.8);
+      border-radius: 4px;
+      box-shadow: 0 14px 30px rgba(var(--color-shadow-blue),.15),0 4px 4px rgba(var(--color-shadow-blue),.05);
+      cursor: pointer;
+      display: inline-block;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      z-index: 5;
+    }
+    .title{
+      color: rgb(var(--color-gray-700));
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 21px;
+      margin-top: 10px;
+      overflow: hidden;
+      transition: color .2s ease;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+    }
+  }
+}
+
+img{
+  max-height: 185px;
+  max-width: 185px;
+}

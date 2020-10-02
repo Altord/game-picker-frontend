@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from "axios"
 import SearchInformation from "../Search/SearchInformation";
+
 const BasicSearch = () => {
     const [searchValue, setSearchValue] = useState('')
     const [information, setInformation] = useState({
@@ -18,7 +19,7 @@ const BasicSearch = () => {
         evt.preventDefault()
         axios({
             method: 'post',
-            url: 'http://localhost:3001/api-router-requests',
+            url: 'http://localhost:3001/api-router-search',
             data: {
                 searchValue
             }

@@ -2,26 +2,21 @@ import React from 'react'
 import './header.scss'
 
 
-//Basic search bar with a tool bar beside it
+//Header for navigation
 
 const Header = () => {
     return(
         <div>
             <div className={"container"}>
                 <div className={"wrap"}>
-                        <a><img className={"igdb-icon"} src={require('../../images/icons/IDGBicon.png')}/></a>
+                        <a href={"https://www.igdb.com/discover"}><img className={"igdb-icon"} alt="" src={require('../../images/icons/IDGBicon.png')}/></a>
                         <div className={"links"}>
                                 <a href={"/games"}>Games</a>
-                                <a href={"/database"}>Database</a>
                                 <a href={"/browse"}>Browse</a>
-
-                               <a href={"/help"}>Help</a>
-                            {/*    <a href={"/signup"}>Sign Up</a>
-                                <a href={"/login"}>Log In</a>
-                                <a href={"/test"}>Test</a> */}
+                                <a href={"/game-picker-main"}>Game Picker</a>
+                                <a href={"/help"}>Help</a>
                         </div>
                         <div className={"search"}>
-
                             <svg className={"svg-icon"} viewBox="0 0 20 20">
                                 <path fill="none" d="M19.129,18.164l-4.518-4.52c1.152-1.373,1.852-3.143,1.852-5.077c0-4.361-3.535-7.896-7.896-7.896
                             c-4.361,0-7.896,3.535-7.896,7.896s3.535,7.896,7.896,7.896c1.934,0,3.705-0.698,5.078-1.853l4.52,4.519
@@ -36,32 +31,6 @@ const Header = () => {
                 </div>
             </div>
         </div>
-
-
-    /*    <div>
-            <div className={'container'}>
-               <nav>
-                   <ul>
-                       <li>
-                           <a href={"/games"}>Games</a>
-                           <a href={"/database"}>Database</a>
-                           <a href={"/help"}>Help</a>
-                           <a href={"/signup"}>Sign Up</a>
-                           <a href={"/login"}>Log In</a>
-                           <a href={"/test"}>Test</a>
-                           <img src={require('../../images/search.svg')} alt={'search_icon'}/>
-                       </li>
-                       <li>
-
-
-
-                       </li>
-                   </ul>
-               </nav>
-
-
-            </div>
-        </div> */
     )
 }
 
