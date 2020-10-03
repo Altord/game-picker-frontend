@@ -4,6 +4,9 @@ import './FrontPageSearch.scss'
 
 
 
+
+
+
 const ReleasingSoon = () =>{
     const [information, setInformation] = useState([])
 
@@ -16,13 +19,15 @@ const ReleasingSoon = () =>{
         })
 
             .then(returnedResponse => setInformation(
-                [{key: returnedResponse.data[0].id, name: returnedResponse.data[0].name, aggregated_rating: returnedResponse.data[0].aggregated_rating, cover: returnedResponse.data[0].cover ? returnedResponse.data[0].cover.url.replace("t_thumb", "t_cover_big") : null },
-                    {key: returnedResponse.data[1].id, name: returnedResponse.data[1].name, aggregated_rating: returnedResponse.data[1].aggregated_rating, cover: returnedResponse.data[1].cover ? returnedResponse.data[1].cover.url.replace("t_thumb", "t_cover_big") : null },
-                    {key: returnedResponse.data[2].id, name: returnedResponse.data[2].name, aggregated_rating: returnedResponse.data[2].aggregated_rating, cover: returnedResponse.data[2].cover ? returnedResponse.data[2].cover.url.replace("t_thumb", "t_cover_big") : null },
-                    {key: returnedResponse.data[3].id, name: returnedResponse.data[3].name, aggregated_rating: returnedResponse.data[3].aggregated_rating, cover: returnedResponse.data[3].cover ? returnedResponse.data[3].cover.url.replace("t_thumb", "t_cover_big") : null },
-                    {key: returnedResponse.data[4].id, name: returnedResponse.data[4].name, aggregated_rating: returnedResponse.data[4].aggregated_rating, cover: returnedResponse.data[4].cover ? returnedResponse.data[4].cover.url.replace("t_thumb", "t_cover_big") : null },
-                    {key: returnedResponse.data[5].id, name: returnedResponse.data[5].name, aggregated_rating: returnedResponse.data[5].aggregated_rating, cover: returnedResponse.data[5].cover ? returnedResponse.data[5].cover.url.replace("t_thumb", "t_cover_big") : null },
-                    {key: returnedResponse.data[6].id, name: returnedResponse.data[6].name, aggregated_rating: returnedResponse.data[6].aggregated_rating, cover: returnedResponse.data[6].cover ? returnedResponse.data[6].cover.url.replace("t_thumb", "t_cover_big") : null }]
+
+
+                [{key: returnedResponse.data[0].game.id, name: returnedResponse.data[0].game.name, aggregated_rating: returnedResponse.data[0].game.aggregated_rating, cover: returnedResponse.data[0].game.cover.url ? returnedResponse.data[0].game.cover.url.replace("t_thumb", "t_cover_big") : null },
+                    {key: returnedResponse.data[1].game.id, name: returnedResponse.data[1].game.name, aggregated_rating: returnedResponse.data[1].game.aggregated_rating, cover: returnedResponse.data[1].game.cover.url ? returnedResponse.data[1].game.cover.url.replace("t_thumb", "t_cover_big") : null },
+                    {key: returnedResponse.data[2].game.id, name: returnedResponse.data[2].game.name, aggregated_rating: returnedResponse.data[2].game.aggregated_rating, cover: returnedResponse.data[2].game.cover.url ? returnedResponse.data[2].game.cover.url.replace("t_thumb", "t_cover_big") : null },
+                    {key: returnedResponse.data[3].game.id, name: returnedResponse.data[3].game.name, aggregated_rating: returnedResponse.data[3].game.aggregated_rating, cover: returnedResponse.data[3].game.cover.url ? returnedResponse.data[3].game.cover.url.replace("t_thumb", "t_cover_big") : null },
+                    {key: returnedResponse.data[4].game.id, name: returnedResponse.data[4].game.name, aggregated_rating: returnedResponse.data[4].game.aggregated_rating, cover: returnedResponse.data[4].game.cover.url ? returnedResponse.data[4].game.cover.url.replace("t_thumb", "t_cover_big") : null },
+                    {key: returnedResponse.data[5].game.id, name: returnedResponse.data[5].game.name, aggregated_rating: returnedResponse.data[5].game.aggregated_rating, cover: returnedResponse.data[5].game.cover.url ? returnedResponse.data[5].game.cover.url.replace("t_thumb", "t_cover_big") : null },
+                    {key: returnedResponse.data[6].game.id, name: returnedResponse.data[6].game.name, aggregated_rating: returnedResponse.data[6].game.aggregated_rating, cover: returnedResponse.data[6].game.cover.url ? returnedResponse.data[6].game.cover.url.replace("t_thumb", "t_cover_big") : null }]
 
 
                 ,console.log(returnedResponse.data)))

@@ -29,7 +29,7 @@ const LandingPage = () =>{
                                     </div>
                             </div>
                             <div  className={"landing-section upcomming"}>
-                                <a className={"title link"} href={""}>Releasing Soon</a>
+                                <a className={"title link"} href={""}>Recently Released</a>
                                     <div className={"results"}>
                                             <ReleasingSoon/>
                                     </div>
