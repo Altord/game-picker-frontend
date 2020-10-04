@@ -1,6 +1,8 @@
 
+//Base page CSS
 *{
   box-sizing: border-box;
+  text-decoration: none;
 }
 div{
   display: block;
@@ -12,12 +14,13 @@ div{
 
 }
 
+
+//Body/Results CSS
 .wrap{
   margin-top: 50px;
 }
 .preview{
-  font-family: Overpass,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-  background: rgb(var(--color-background-200));
+
   min-height: 100vh;
 }
 .content-container{
@@ -35,9 +38,7 @@ div{
     padding-right: 125px;
   }
 }
-.base-landing{
 
-}
 
 .landing-section{
   margin-bottom: 30px;
@@ -50,6 +51,7 @@ div{
   letter-spacing: .03em;
   text-transform: uppercase;
   margin-bottom: 20px;
+
 }
 .link{
   align-items: flex-end;
@@ -70,23 +72,73 @@ div{
   display: grid;
   grid-gap: 28px 30px;
   grid-template-columns: repeat(auto-fill,12%);
-
+  :hover{
+    transform: scale(1.15);
+    transition: .5s;
+  }
   .media-card{
     display: grid;
     grid-template-rows: min-content auto;
     position: relative;
     width: 100%;
-    .cover{
-      background: rgba(var(--color-background-300),.8);
+
+    .cover {
       border-radius: 4px;
-      box-shadow: 0 14px 30px rgba(var(--color-shadow-blue),.15),0 4px 4px rgba(var(--color-shadow-blue),.05);
       cursor: pointer;
       display: inline-block;
       height: 200px;
       overflow: hidden;
       position: relative;
       width: 100%;
-      z-index: 5;
+
+      .image-loaded {
+        border-radius: 8px;
+        height: 100%;
+        box-shadow: 0 8px 6px -6px black;
+        width: 100%;
+        :hover{
+          -webkit-filter: blur(2px);
+          filter: blur(2px);
+        }
+      }
+
+      .more-details {
+        line-height: 1.6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        height: 172px;
+        transition: 0.3s linear all;
+        overflow: hidden;
+        position: absolute;
+        top: -1;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-bottom: 28px;
+        color: white;
+        background: rgba(0,0,0,0.5);
+        text-shadow: 1px 1px 1px black;
+        text-decoration: none;
+        h2 {
+          font-family: 'Droid Serif', serif;
+        }
+
+        p {
+          font-family: 'Julius Sans One', sans-serif;
+        }
+        &:hover {
+            opacity: 1;
+          img
+          h2{
+            transform: scale(1)
+          }
+
+        }
+      }
+
+
     }
     .title{
       color: rgb(var(--color-gray-700));
@@ -98,6 +150,8 @@ div{
       transition: color .2s ease;
       display: -webkit-box;
       -webkit-box-orient: vertical;
+
+
     }
   }
 }

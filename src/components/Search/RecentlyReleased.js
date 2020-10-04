@@ -4,25 +4,28 @@ import './FrontPageSearch.scss'
 
 
 
-const NewTrendSearch = () =>{
+
+
+
+const RecentlyReleased = () =>{
     const [information, setInformation] = useState([])
 
     useEffect(()=>{
         axios({
             method: 'post',
-            url: 'http://localhost:3001/api-router-trending',
+            url: 'http://localhost:3001/api-router-soon',
             data: `limit: 1;`
 
         })
 
+
             .then(returnedResponse =>{
                 let copy = []
                 for (var i = 0; i < 7; i++){
-                    copy.push({key: returnedResponse.data[i].id, name: returnedResponse.data[i].name, aggregated_rating: returnedResponse.data[i].aggregated_rating, cover: returnedResponse.data[i].cover.url ? returnedResponse.data[i].cover.url.replace("t_thumb", "t_cover_big") : null })
+                       copy.push({key: returnedResponse.data[i].game.id, name: returnedResponse.data[i].game.name, aggregated_rating: returnedResponse.data[i].game.aggregated_rating, cover: returnedResponse.data[i].game.cover.url ? returnedResponse.data[i].game.cover.url.replace("t_thumb", "t_cover_big") : null })
                 }setInformation(copy)})
-
             .catch(err => {
-                console.error(err +" Trending");
+                console.error(err +" Recently Released");
 
             })
     },[])
@@ -38,6 +41,4 @@ const NewTrendSearch = () =>{
 }
 
 
-export default NewTrendSearch;
-
-
+export default RecentlyReleased;

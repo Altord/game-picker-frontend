@@ -4,13 +4,13 @@ import './FrontPageSearch.scss'
 
 
 
-const NewTrendSearch = () =>{
+const Anticipated = () =>{
     const [information, setInformation] = useState([])
 
     useEffect(()=>{
         axios({
             method: 'post',
-            url: 'http://localhost:3001/api-router-trending',
+            url: 'http://localhost:3001/api-router-anticipated',
             data: `limit: 1;`
 
         })
@@ -22,12 +22,12 @@ const NewTrendSearch = () =>{
                 }setInformation(copy)})
 
             .catch(err => {
-                console.error(err +" Trending");
+                console.error(err +" All Time Pop");
 
             })
     },[])
 
-//conditionally render the images/cover otherwise it'll end up being improper
+//I need to conditionally render the images/cover otherwise it'll end up being improper
     return(
 
         information.map(info=> <div className={"media-card"} key={info.key}><a className={"cover"} href={""}><img className={"image-loaded"} src={info.cover}/></a><a className={"title"} href={""}>{info.name}</a></div>)
@@ -38,6 +38,6 @@ const NewTrendSearch = () =>{
 }
 
 
-export default NewTrendSearch;
+export default Anticipated;
 
 
