@@ -71,6 +71,7 @@
       <workItem from="1601556847380" duration="26804000" />
       <workItem from="1601646554800" duration="6321000" />
       <workItem from="1601735591568" duration="23521000" />
+      <workItem from="1601816860951" duration="22284000" />
     </task>
     <servers />
   </component>
@@ -94,13 +95,25 @@
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
     <state x="2348" y="950" key="#com.intellij.fileTypes.FileTypeChooser/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1601559093360" />
-    <state x="2263" y="557" key="run.anything.popup" timestamp="1601765463432">
+    <state x="2263" y="557" key="run.anything.popup" timestamp="1601866497028">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2263" y="557" key="run.anything.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1601765463432" />
-    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup" timestamp="1601765019638">
+    <state x="2263" y="557" key="run.anything.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1601866497028" />
+    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup" timestamp="1601833192071">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1601765019638" />
+    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1601833192071" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Main/LandingPage.js</url>
+          <line>29</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

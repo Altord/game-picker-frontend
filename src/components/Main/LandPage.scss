@@ -3,6 +3,7 @@
 *{
   box-sizing: border-box;
   text-decoration: none;
+  color: white;
 }
 div{
   display: block;
@@ -72,16 +73,16 @@ div{
   display: grid;
   grid-gap: 28px 30px;
   grid-template-columns: repeat(auto-fill,12%);
-  :hover{
-    transform: scale(1.15);
-    transition: .5s;
-  }
+
   .media-card{
     display: grid;
     grid-template-rows: min-content auto;
     position: relative;
     width: 100%;
-
+    &:hover{
+      transform: scale(1.15);
+      transition: .5s;
+    }
     .cover {
       border-radius: 4px;
       cursor: pointer;
@@ -90,49 +91,100 @@ div{
       overflow: hidden;
       position: relative;
       width: 100%;
+      &:hover{
+        transform: scale(1.15);
+        transition: .5s;
+      }
+      &:hover{
+        .image-loaded{
+          -webkit-filter: blur(2px);
+          filter: blur(2px);
+        }
 
+      }
       .image-loaded {
         border-radius: 8px;
         height: 100%;
         box-shadow: 0 8px 6px -6px black;
         width: 100%;
-        :hover{
-          -webkit-filter: blur(2px);
-          filter: blur(2px);
-        }
+
       }
 
       .more-details {
+
         line-height: 1.6;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         opacity: 0;
-        height: 172px;
-        transition: 0.3s linear all;
+        height: 189px;
+        transition: 0.3s;
         overflow: hidden;
         position: absolute;
-        top: -1;
+        top: 0;
         bottom: 0;
         left: 0;
         right: 0;
-        margin-bottom: 28px;
-        color: white;
+        border-radius: 0 0 8px 8px;
         background: rgba(0,0,0,0.5);
         text-shadow: 1px 1px 1px black;
-        text-decoration: none;
-        h2 {
-          font-family: 'Droid Serif', serif;
+        text-align: center;
+        .clearing{
+          position:relative;
+          height: 189px;
+
+          .rating{
+            display: inline-flex;
+            right: 0;
+            position: absolute;
+            margin-right: 3px;
+            font-size: 14px;
+            .emoji{
+              margin-top: 7px;
+              padding-left: 3px;
+
+
+            }
+            .rating-info{
+              margin-top: 7px;
+              margin-right: 2px;
+            }
+          }
+          .platform-info{
+            font-size: 14px;
+            display: block;
+            padding-left: 8px;
+            float: left;
+            margin-top: 7px;
+
+            &:hover{
+              transform: scale(1.15);
+              transition: .5s;
+
+            }
+          }
+          .genre-info{
+
+            font-size: 14px;
+            display: block;
+            padding-left: 12px;
+            bottom: 0;
+            position: absolute;
+            margin-bottom: 7px;
+            &:hover{
+              transform: scale(1.15);
+              transition: .5s;
+
+            }
+          }
+
+
+
+
         }
 
-        p {
-          font-family: 'Julius Sans One', sans-serif;
-        }
         &:hover {
             opacity: 1;
-          img
           h2{
-            transform: scale(1)
+            transform: scale(1);
+
           }
 
         }
