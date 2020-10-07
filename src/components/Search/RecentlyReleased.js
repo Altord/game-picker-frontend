@@ -22,7 +22,7 @@ const RecentlyReleased = () =>{
             .then(returnedResponse =>{
                 let copy = []
                 for (var i = 0; i < 7; i++){
-                       copy.push({key: returnedResponse.data[i].game.id, name: returnedResponse.data[i].game.name, aggregated_rating: returnedResponse.data[i].game.aggregated_rating, cover: returnedResponse.data[i].game.cover.url ? returnedResponse.data[i].game.cover.url.replace("t_thumb", "t_cover_big") : null })
+                       copy.push({key: returnedResponse.data[i].game.id, name: returnedResponse.data[i].game.name, cover: returnedResponse.data[i].game.cover.url ? returnedResponse.data[i].game.cover.url.replace("t_thumb", "t_cover_big") : null })
                 }setInformation(copy)})
             .catch(err => {
                 console.error(err +" Recently Released");
