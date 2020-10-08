@@ -3,12 +3,13 @@ import axios from "axios"
 import './FrontPageSearch.scss'
 
 
-const PopSearch = ({mouseIn, mouseOut, emoji}) =>{
+
+const Trending = ({mouseIn, mouseOut, emoji}) =>{
     const [information, setInformation] = useState([])
     useEffect(()=>{
         axios({
             method: 'post',
-            url: 'http://localhost:3001/api-router-popularity',
+            url: 'http://localhost:3001/api-router-trending',
             data: `limit: 1;`
 
         })
@@ -67,6 +68,6 @@ const PopSearch = ({mouseIn, mouseOut, emoji}) =>{
 }
 
 
-export default PopSearch;
+export default Trending;
 
 
