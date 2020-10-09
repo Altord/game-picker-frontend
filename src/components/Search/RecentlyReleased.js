@@ -36,7 +36,7 @@ const RecentlyReleased = ({mouseIn, mouseOut, emoji}) =>{
 //conditionally render the images/cover otherwise it'll end up being improper
     return(
         information.map(info=>
-            <div className={"media-card"} key={info.key}  id={`media-card + ${info.key}`}  >
+            <div onMouseEnter={(evt)=>{mouseIn(evt, info.resColor, info.key)}} className={"media-card"} key={info.key}  id={`media-card + ${info.key}`}  >
                 <a className={"cover"} href={""} id={`cover + ${info.key}`}  >
                     <img className={"image-loaded"} src={info.cover}  id={`image-loaded + ${info.key}`}/>
                     <div onMouseEnter={(evt)=>{mouseIn(evt, info.resColor, info.key)}} onMouseLeave={(evt)=>{mouseOut(evt,info.key)}} className={"more-details"}  id={`more-details + ${info.key}`} >

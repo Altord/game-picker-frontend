@@ -1,6 +1,2 @@
 
-^javascript:S1481"8Remove the declaration of the unused 'element' variable.(ˆžªþûÿÿÿÿ8Ê¦ÆýÏ.
-[javascript:S1854"5Remove this useless assignment to variable "element".(ˆžªþûÿÿÿÿ8Ê¦ÆýÏ.
-^javascript:S1481"8Remove the declaration of the unused 'element' variable.(ˆžªþûÿÿÿÿ8Ê¦ÆýÏ.
-[javascript:S1854"5Remove this useless assignment to variable "element".(ˆžªþûÿÿÿÿ8Ê¦ÆýÏ.
-„javascript:S4165"aReview this useless assignment: "url" already holds the assigned value along all execution paths.(ÊÿÏ•8Ê¦ÆýÏ.
+„javascript:S4165"aReview this useless assignment: "url" already holds the assigned value along all execution paths.(ÊÿÏ•8Ê¦ÆýÏ.

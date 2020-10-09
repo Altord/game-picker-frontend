@@ -11,6 +11,7 @@ const Header = () => {
                 <div className={"wrap"}>
                         <a href={"https://www.igdb.com/discover"}><img className={"igdb-icon"} alt="" src={require('../../images/icons/IDGBicon.png')}/></a>
                         <div className={"links"}>
+                                <a href={"/"}>Home</a>
                                 <a href={"/games"}>Games</a>
                                 <a href={"/browse"}>Browse</a>
                                 <a href={"/game-picker-main"}>Game Picker</a>

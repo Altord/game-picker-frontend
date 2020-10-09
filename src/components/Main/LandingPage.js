@@ -11,9 +11,9 @@ import Anticipated from "../Search/Anticipated";
 const mouseIn = (evt, resColor, key) =>{
     let title = document.getElementById(`title + ${key}`)
     let cover = document.getElementById(`cover + ${key}`)
-
     cover.style.boxShadow = `0 8px 6px -6px rgb(${resColor[0]},${resColor[1]},${resColor[2]})`
     title.style.color=`rgb(${resColor[0]},${resColor[1]},${resColor[2]})`
+
 }
 const mouseOut = (evt, key) =>{
     let title = document.getElementById(`title + ${key}`) // Grabs the ids

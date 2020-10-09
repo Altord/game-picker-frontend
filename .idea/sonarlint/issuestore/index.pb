@@ -9,11 +9,21 @@ O
 src/components/Header/Header.js,c\a\caa79197723a9578d728293db3f20893a9c66c89
 <
 src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
-Z
-*src/components/Search/NewTrendingSearch.js,6\8\6829f1d460cfb1bbc99f28906d66e8d8894fde1f
 Y
 )src/components/Search/RecentlyReleased.js,3\a\3aafd70fbdf5ded5bf7c629c04dac54feb050d30
 R
 "src/components/Search/PopSearch.js,3\0\30f9d78400c2b22e22eb879194bbf81645307ecc
 R
 "src/components/Main/LandingPage.js,4\4\449f6e3996dd95d453df091ffc87031b8fe28918
+Z
+*src/components/Search/FrontPageSearch.scss,a\f\afc790d1430fc629dcfb6b039eac3bd287bfbc2a
+T
+$src/components/Search/BasicSearch.js,f\9\f9085a64f72d8a9551672f36d5b12bcf1dc8d7ab
+Z
+*src/components/Search/SearchInformation.js,f\8\f86abecacf80d71b9b389eb3bb2ab4241a65d6ea
+I
+src/components/App/App.js,0\e\0e0456ef151500587d05f053b8624a4f4ddd30fb
+Q
+!src/components/Header/header.scss,3\e\3e40d1a5857e244e067394a4568cedd896403ec6
+Q
+!src/components/Search/Trending.js,6\9\695b77045b9e8da8e82ac357d2059331be18edbe

@@ -100,9 +100,9 @@ div{
         }
       }
       .image-loaded {
-        border-radius: 8px;
+        border-radius: 2px;
         height: 100%;
-        box-shadow: 0 0 10px #000000;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.45);
         width: 100%;
 
       }
@@ -202,7 +202,7 @@ div{
       transition: color .2s ease;
       display: -webkit-box;
       -webkit-box-orient: vertical;
-
+      text-shadow: 1px 1px 1px black;
 
     }
   }
