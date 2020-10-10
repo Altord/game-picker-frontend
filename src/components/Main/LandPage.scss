@@ -208,6 +208,15 @@ div{
   }
 }
 
+.top-100-results{
+  grid-template-columns: 1fr;
+  grid-gap: 24px;
+  display: grid;
+  justify-content: space-between;
+  .media-card{
+    margin-left: 80px;
+  }
+}
 img{
   max-height: 185px;
   max-width: 185px;

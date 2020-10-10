@@ -4,6 +4,7 @@ import PopSearch from "../Search/PopSearch";
 import Trending from "../Search/Trending";
 import RecentlyReleased from "../Search/RecentlyReleased";
 import Anticipated from "../Search/Anticipated";
+import Top100 from "../Search/Top100";
 
 
 //Mouseover events to change the colors of the text
@@ -21,6 +22,14 @@ const mouseOut = (evt, key) =>{
     cover.style.boxShadow = `none`;
     title.style.color=`white`
 }
+
+const mouseIn100 = (evt, key) => {
+
+}
+const mouseOut100 = (evt, key)=>{
+
+}
+
 const emojiDisplay = (rating, resColor, key)=>{
     let url = ''
     rating > 89 ? url= <svg  id={"best"} xmlns="http://www.w3.org/2000/svg"  fill="#F0E68C" width="22" height="22" viewBox="0 0 26 26"><path id={"best"} d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-3.5 8c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5-.672-1.5-1.5-1.5zm7 0c-.828 0-1.5.671-1.5 1.5s.672 1.5 1.5 1.5 1.5-.671 1.5-1.5-.672-1.5-1.5-1.5zm-3.499 4c-1.658 0-3.001 1.567-3.001 3.501 0 1.932 1.343 3.499 3.001 3.499 1.656 0 2.999-1.567 2.999-3.499 0-1.934-1.343-3.501-2.999-3.501z"/></svg>
@@ -67,9 +76,9 @@ const LandingPage = () =>{
                                 </div>
                             </div>
                             <div  className={"top-100"}>
-                                <a className={"title link"}>Top 100</a>
-                                <div className={"results"}>
-
+                                <div className={"title link"}><a><h3>Top 100</h3></a><a className={"expand"}>View All</a></div>
+                                <div className={"top-100-results"}>
+                                    <Top100 emoji={emojiDisplay}/>
                                 </div>
                             </div>
                         </div>
