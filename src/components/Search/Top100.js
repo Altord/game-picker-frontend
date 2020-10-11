@@ -19,17 +19,20 @@ const Top100 = ({mouseIn, mouseOut, emoji}) => {
                     dataCopy.push({
                         key: returnedResponse.data[0][i].id,
                         name: returnedResponse.data[0][i].name,
+                        date: returnedResponse.data[0][i].first_release_date,
                         summary: returnedResponse.data[0][i].summary,
                         aggregated_rating: returnedResponse.data[0][i].aggregated_rating,
                         genres: returnedResponse.data[0][i].genres,
                         platforms: returnedResponse.data[0][i].platforms,
                         cover: returnedResponse.data[0][i].cover.url ? returnedResponse.data[0][i].cover.url.replace("t_thumb", "t_cover_big") : null,
-                        resColor: returnedResponse.data[1][i][0].SAC
+                        SACresColor: returnedResponse.data[1][i][0].SAC,
+                        SQACresColor: returnedResponse.data[1][i][1].SQAC,
+                        DACresColor: returnedResponse.data[1][i][2].DAC
                     })
                 }
                 console.log(dataCopy)
                 setInformation(dataCopy);
-                colorCopy.push(information.resColor)
+                colorCopy.push(information.info.SQACresColor)
             })
             .catch(err => {
                 console.error(err + " check maping or routes");
@@ -44,26 +47,23 @@ const Top100 = ({mouseIn, mouseOut, emoji}) => {
                     <span className={"hash"}>#</span>{index + 1}
                 </div>
                 <a className={"cover"}>
-                    <img src={info.cover}/>
+                    <img className={"image-loaded"} src={info.cover}/>
                 </a>
                 <div className={"content"}>
                     <div className={"row title"}>
                         <div className={"title-wrap"}>
                             <a className={"title-link"}>{info.name}</a>
                         </div>
+                        <div key={info.key} id={"genres"}>
                         {info.genres === undefined ?
-                            <div key={info.key} id={"100-gen-index"}>
-                                <a className={"top100-genre-info"} id={`genre-info + ${info.key}`}></a>
-                            </div>
+                                <a className={"genre"} id={`genre-info + ${info.key}`} style={{backgroundColor: `rgb(${info.SQACresColor[0]},${info.SQACresColor[1]},${info.SQACresColor[2]})`}}></a>
                         : info.genres.slice(0,3).map((gen,index)=>
-                            <div key={index} id={"100-gen-index"}>
-                                <a className={"top100-genre-info"} id={`genre-info + ${info.key}`}>{gen.name === undefined ? `Unknown`: gen.name}</a>
-                            </div>)}
-
+                                <a className={"genre"} id={`genre-info + ${info.key}`} style={{backgroundColor: `rgb(${info.SQACresColor[0]},${info.SQACresColor[1]},${info.SQACresColor[2]})`}}>{gen.name === undefined ? `Unknown`: gen.name}</a>)}
+                        </div>
                     </div>
                     <div className={"row score"}>
-                        <div className={"100-emoji"} id={`emoji + ${info.key}`} >{emoji(Math.round(info.aggregated_rating),info.resColor, info.key)}</div>
-                        <p className={"100-rating-info"} id={`rating-info + ${info.key}`} >{info.aggregated_rating !== undefined ? `${Math.round( info.aggregated_rating)}%` : 'Unrated'}</p>
+                        <div className={"emoji"} id={`emoji + ${info.key}`} >{emoji(Math.round(info.aggregated_rating),info.SQACresColor, info.key)}</div>
+                        <p className={"rating-info"} id={`rating-info + ${info.key}`} >{info.aggregated_rating !== undefined ? `${Math.round( info.aggregated_rating)}%` : 'Unrated'}</p>
 
                     </div>
                     <div className={"row plat"}>
@@ -76,7 +76,7 @@ const Top100 = ({mouseIn, mouseOut, emoji}) => {
                     </div>
                     <div className={"row date"}>
                         <div>
-
+                            {new Date((info.date * 1000)).toLocaleDateString()}
                         </div>
                     </div>
                 </div>

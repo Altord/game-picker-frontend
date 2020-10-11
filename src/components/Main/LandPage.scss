@@ -102,7 +102,7 @@ div{
       .image-loaded {
         border-radius: 2px;
         height: 100%;
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.45);
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.45),0 2px 2px black;;
         width: 100%;
 
       }
@@ -120,7 +120,7 @@ div{
         right: 0;
         border-radius: 0 0 8px 8px;
         background: rgba(0,0,0,0.5);
-        text-shadow: 1px 1px 1px black;
+        text-shadow: 0 1px 1px black;
         text-align: center;
         justify-content: center;
         .clearing{
@@ -213,9 +213,119 @@ div{
   grid-gap: 24px;
   display: grid;
   justify-content: space-between;
-  .media-card{
+  .media-card.has-rank{
     margin-left: 80px;
+    box-shadow: 0 1px 7px #274e88,0 2px 2px black;
   }
+  .rank-box{
+    display: flex;
+    font-size: 2.4rem;
+    font-weight: 900;
+    height: 50px;
+    left: -70px;
+    line-height: 0;
+    padding: 10px;
+    position: absolute;
+    top: 18px;
+    width: 50px;
+    z-index: 2;
+  }
+  .media-card{
+    background-color: #1e3d6a;
+    border-radius: 4px;
+    padding: 10px;
+    display: inline-grid;
+    grid-template-columns: 48px auto;
+    position: relative;
+    text-align: left;
+    min-height: 80px;
+
+    .cover{
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      width: 100%;
+      .image-loaded{
+        left: 0;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+    }
+    .content{
+      display: grid;
+      grid-template-columns: minmax(auto,calc(100% - 440px)) 130px 130px 150px;
+      grid-gap: 10px;
+      text-align: left;
+      padding-left: 10px;
+
+      .row{
+        font-size: 1.4rem;
+        font-weight: 600;
+
+        .title-wrap{
+          display: block;
+          font-size: 1.5rem;
+          font-weight: 600;
+          margin-bottom: 8px;
+          .title-link{
+            display: block;
+            overflow: hidden;
+          }
+        }
+        .genres{
+          align-items: center;
+          display: flex;
+          flex-wrap: wrap;
+          height: 18px;
+          overflow: hidden;
+          margin-left: -2px;
+        }
+        .genre{
+
+           border-radius: 10px;
+
+           display: inline-block;
+           font-size: 1.1rem;
+           font-weight: 700;
+           height: 18px;
+           line-height: 1.8rem;
+           margin-right: 8px;
+           padding: 0 10px;
+           text-transform: capitalize;
+
+         }
+
+      }
+      .title{
+        margin: auto 0;
+      }
+      .score{
+        display: inline-flex;
+        margin: auto auto;
+        text-align: center;
+        height: 40px;
+        .emoji{
+          display: inline-flex;
+          margin-top: 14px;
+          padding-right: 10px;
+        }
+      }
+      .plat{
+        margin: auto auto;
+        text-align: center;
+      }
+      .date{
+        margin: auto auto;
+        text-align: center;
+      }
+    }
+
+  }
+
 }
 img{
   max-height: 185px;
