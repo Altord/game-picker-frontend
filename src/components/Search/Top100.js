@@ -52,7 +52,7 @@ const Top100 = ({mouseIn, mouseOut, emoji}) => {
                 <div className={"content"}>
                     <div className={"row title"}>
                         <div className={"title-wrap"}>
-                            <a className={"title-link"}>{info.name}</a>
+                            <a href={`/games/${info.key}`}onMouseEnter={(evt)=>{mouseIn(evt, info.SACresColor, info.key)}} onMouseOut={(evt)=>{mouseOut(evt,info.key)}} className={"title-link"} id={`title + ${info.key}`}>{info.name}</a>
                         </div>
                         <div key={info.key} id={"genres"}>
                         {info.genres === undefined ?

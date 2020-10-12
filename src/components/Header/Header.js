@@ -6,8 +6,8 @@ import './header.scss'
 
 const Header = () => {
     return(
-        <div>
-            <div className={"container"}>
+
+            <div className={"nav-container"} id={"nav-container"}>
                 <div className={"wrap"}>
                         <a href={"https://www.igdb.com/discover"}><img className={"igdb-icon"} alt="" src={require('../../images/icons/IDGBicon.png')}/></a>
                         <div className={"links"}>
@@ -31,7 +31,7 @@ const Header = () => {
                         </div>
                 </div>
             </div>
-        </div>
+
     )
 }
 

@@ -9,25 +9,28 @@ import Top100 from "../Search/Top100";
 
 //Mouseover events to change the colors of the text
 
-const mouseIn = (evt, resColor, key) =>{
+const mouseInMain = (evt, resColor, key) =>{
     let title = document.getElementById(`title + ${key}`)
     let cover = document.getElementById(`cover + ${key}`)
     cover.style.boxShadow = `0 8px 6px -6px rgb(${resColor[0]},${resColor[1]},${resColor[2]})`
     title.style.color=`rgb(${resColor[0]},${resColor[1]},${resColor[2]})`
-
 }
-const mouseOut = (evt, key) =>{
+const mouseOutMain = (evt, key) =>{
     let title = document.getElementById(`title + ${key}`) // Grabs the ids
     let cover = document.getElementById(`cover + ${key}`)
     cover.style.boxShadow = `none`;
     title.style.color=`white`
 }
 
-const mouseIn100 = (evt, key) => {
+const mouseIn100 = (evt, resColor, key) => {
+    let title = document.getElementById(`title + ${key}`)
+    title.style.color=`rgb(${resColor[0]},${resColor[1]},${resColor[2]})`
+    title.style.transition= `.3s`
 
 }
 const mouseOut100 = (evt, key)=>{
-
+    let title = document.getElementById(`title + ${key}`)
+    title.style.color=`white`
 }
 
 const emojiDisplay = (rating, resColor, key)=>{
@@ -53,32 +56,32 @@ const LandingPage = () =>{
                             <div className={"landing-section popular-30"}>
                                 <div className={"title link"}><a><h3>Popular</h3></a><div className={"expand"}>View All</div></div>
                                 <div className={"results"}>
-                                    <PopSearch mouseIn={mouseIn} mouseOut={mouseOut} emoji={emojiDisplay} />
+                                    <PopSearch mouseIn={mouseInMain} mouseOut={mouseOutMain} emoji={emojiDisplay} />
                                 </div>
 
                             </div>
                             <div  className={"landing-section trending"}>
                                 <div className={"title link"}><a><h3>Trending</h3></a><div className={"expand"}>View All</div></div>
                                 <div className={"results"}>
-                                    <Trending mouseIn={mouseIn} mouseOut={mouseOut} emoji={emojiDisplay}/>
+                                    <Trending mouseIn={mouseInMain} mouseOut={mouseOutMain} emoji={emojiDisplay}/>
                                 </div>
                             </div>
                             <div  className={"landing-section upcomming"}>
                                 <div className={"title link"}><a><h3>Recently Released</h3></a><div className={"expand"}>View All</div></div>
                                 <div className={"results"}>
-                                    <RecentlyReleased mouseIn={mouseIn} mouseOut={mouseOut} emoji={emojiDisplay}/>
+                                    <RecentlyReleased mouseIn={mouseInMain} mouseOut={mouseOutMain} emoji={emojiDisplay}/>
                                 </div>
                             </div>
                             <div  className={"landing-section all-time-pop"}>
                                 <div className={"title link"}><a><h3>Anticipated</h3></a><a className={"expand"}>View All</a></div>
                                 <div className={"results"}>
-                                    <Anticipated mouseIn={mouseIn} mouseOut={mouseOut} emoji={emojiDisplay}/>
+                                    <Anticipated mouseIn={mouseInMain} mouseOut={mouseOutMain} emoji={emojiDisplay}/>
                                 </div>
                             </div>
                             <div  className={"top-100"}>
                                 <div className={"title link"}><a><h3>Top 100</h3></a><a className={"expand"}>View All</a></div>
                                 <div className={"top-100-results"}>
-                                    <Top100 emoji={emojiDisplay}/>
+                                    <Top100 emoji={emojiDisplay} mouseIn={mouseIn100} mouseOut={mouseOut100}/>
                                 </div>
                             </div>
                         </div>

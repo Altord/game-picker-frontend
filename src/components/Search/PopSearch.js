@@ -31,7 +31,7 @@ const PopSearch = ({mouseIn, mouseOut, emoji}) =>{
 //conditionally render the images/cover otherwise it'll end up being improper
     return(
         information.map(info=>
-            <div  onMouseEnter={(evt)=>{mouseIn(evt, info.resColor, info.key)}}  className={"media-card"} key={info.key}  id={`media-card + ${info.key}`}  >
+            <div  onMouseEnter={(evt)=>{mouseIn(evt, info.resColor, info.key)}} onMouseLeave={(evt)=>{mouseOut(evt,info.key)}} className={"media-card"} key={info.key}  id={`media-card + ${info.key}`}  >
                 <a className={"cover"} href={`games/${info.key}`} id={`cover + ${info.key}`}  >
                     <img className={"image-loaded"} src={info.cover}  id={`image-loaded + ${info.key}`}/>
                     <div onMouseEnter={(evt)=>{mouseIn(evt, info.resColor, info.key)}} onMouseLeave={(evt)=>{mouseOut(evt,info.key)}} className={"more-details"}  id={`more-details + ${info.key}`} >
@@ -40,10 +40,13 @@ const PopSearch = ({mouseIn, mouseOut, emoji}) =>{
                                 <p className={"rating-info"} id={`rating-info + ${info.key}`} >{info.aggregated_rating !== undefined ? `${Math.round( info.aggregated_rating)}%` : 'Unrated'}</p>
                                 <div className={"emoji"} id={`emoji + ${info.key}`} >{emoji(Math.round(info.aggregated_rating),info.resColor, info.key)}</div>
                             </div>
-                            {info.genres.slice(0,1).map((gen,index)=>
-                                <div key={index} id={"gen-index"}>
-                                    <h2 className={"genre-info"} id={`genre-info + ${info.key}`}>{gen.name}</h2>
-                                </div>)}
+                            {info.genres === undefined ? <div key={info.key} id={"gen-index"}>
+                                    <h2 className={"genre-info"} id={`genre-info + ${info.key}`}></h2>
+                                </div>
+                                : info.genres.slice(0,1).map((gen,index)=>
+                                    <div key={index} id={"gen-index"}>
+                                        <h2 className={"genre-info"} id={`genre-info + ${info.key}`}>{gen.name === undefined ? `Unknown`: gen.name}</h2>
+                                    </div>)}
                             {info.platforms.slice(0,2).map((plat,index)=>
                                 <div key={index} id={"plat-index"}>
                                     <p key={index} className={"platform-info"} id={`plat + ${info.key}`}>{plat.abbreviation}</p>

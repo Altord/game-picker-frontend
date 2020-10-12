@@ -79,6 +79,7 @@ div{
     grid-template-rows: min-content auto;
     position: relative;
     width: 100%;
+    transition: .5s;
     &:hover{
       transform: scale(1.15);
       transition: .5s;
@@ -91,6 +92,7 @@ div{
       overflow: hidden;
       position: relative;
       width: 100%;
+      transition: .5s;
       &:hover{
         transform: scale(1.15);
         transition: .5s;
@@ -193,13 +195,14 @@ div{
 
     }
     .title{
+
       color: rgb(var(--color-gray-700));
       font-size: 1.4rem;
       font-weight: 600;
       line-height: 21px;
       padding-top: 20px;
       overflow: hidden;
-      transition: color .2s ease;
+      transition: .5s;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       text-shadow: 1px 1px 1px black;
@@ -226,9 +229,10 @@ div{
     line-height: 0;
     padding: 10px;
     position: absolute;
-    top: 18px;
+    top: 28px;
     width: 50px;
     z-index: 2;
+
   }
   .media-card{
     background-color: #1e3d6a;
@@ -271,6 +275,7 @@ div{
           font-size: 1.5rem;
           font-weight: 600;
           margin-bottom: 8px;
+          text-shadow: 0 1px 1px black;
           .title-link{
             display: block;
             overflow: hidden;
