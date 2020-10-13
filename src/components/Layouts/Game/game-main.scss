@@ -11,7 +11,7 @@
   }
 }
 
-.page-content{
+.game-page-content{
   h1, h2{
     color: #a5b1c2;
     margin: 0;
@@ -35,7 +35,7 @@
       .container{
         display: grid;
         grid-column-gap: 30px;
-        grid-template-columns: 215px auto;
+        grid-template-columns: 215px auto auto;
         max-width: 1520px;
         padding-left: 100px;
         padding-right: 100px;
@@ -133,17 +133,23 @@
             margin: 0;
             max-width: 900px;
             padding: 15px 0;
-            transition: .2s;
 
           }
 
-        }
-        .score-wrapper{
-          display: block;
+
         }
       }
     }
 
   }
-  .content-container{}
+  .content-container{
+    display: grid;
+    grid-column-gap: 40px;
+    grid-template-columns: 208px auto;
+    margin-top: 30px;
+    position: relative;
+    max-width: 1520px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }

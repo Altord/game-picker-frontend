@@ -81,6 +81,7 @@
       <workItem from="1602271095416" duration="11218000" />
       <workItem from="1602349407922" duration="12612000" />
       <workItem from="1602420559805" duration="26118000" />
+      <workItem from="1602521518955" duration="21325000" />
     </task>
     <servers />
   </component>
@@ -108,13 +109,25 @@
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
     <state x="2186" y="781" key="FileChooserDialogImpl/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1602097108409" />
-    <state x="2263" y="557" key="run.anything.popup" timestamp="1602430207264">
+    <state x="2263" y="557" key="run.anything.popup" timestamp="1602558133547">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2263" y="557" key="run.anything.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1602430207264" />
+    <state x="2263" y="557" key="run.anything.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1602558133547" />
     <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup" timestamp="1602431075963">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
     <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1602431075963" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Layouts/Game/GameMain.js</url>
+          <line>65</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -32,7 +32,7 @@ const Top100 = ({mouseIn, mouseOut, emoji}) => {
                 }
                 console.log(dataCopy)
                 setInformation(dataCopy);
-                colorCopy.push(information.info.SQACresColor)
+                colorCopy.push(information.SQACresColor)
             })
             .catch(err => {
                 console.error(err + " check maping or routes");
@@ -42,7 +42,7 @@ const Top100 = ({mouseIn, mouseOut, emoji}) => {
 
     return (
         information.map((info,index)=>
-            <div className={"media-card has-rank"}>
+            <div key={index} className={"media-card has-rank"}>
                 <div className={"rank-box"}>
                     <span className={"hash"}>#</span>{index + 1}
                 </div>
@@ -54,7 +54,7 @@ const Top100 = ({mouseIn, mouseOut, emoji}) => {
                         <div className={"title-wrap"}>
                             <a href={`/games/${info.key}`}onMouseEnter={(evt)=>{mouseIn(evt, info.SACresColor, info.key)}} onMouseOut={(evt)=>{mouseOut(evt,info.key)}} className={"title-link"} id={`title + ${info.key}`}>{info.name}</a>
                         </div>
-                        <div key={info.key} id={"genres"}>
+                        <div id={"genres"}>
                         {info.genres === undefined ?
                                 <a className={"genre"} id={`genre-info + ${info.key}`} style={{backgroundColor: `rgb(${info.SQACresColor[0]},${info.SQACresColor[1]},${info.SQACresColor[2]})`}}></a>
                         : info.genres.slice(0,3).map((gen,index)=>

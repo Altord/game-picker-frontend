@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import Header from '../Header/Header'
 import LandingPage from "../Main/LandingPage";
-import GameLayout from "../Layouts/Game/game-main";
+import GameMain from "../Layouts/Game/GameMain";
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import GameHome from "../Layouts/Game/game-home";
 
@@ -28,8 +28,7 @@ function App() {
                 <Header/>
                 <br/>
                 <Route exact path="/"  component={LandingPage}/>
-
-                <Route exact path="/games/:gameId" component={GameLayout}/>
+                <Route exact path="/games/:gameId" component={GameMain}/>
             </div>
         </Router>
 

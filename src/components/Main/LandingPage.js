@@ -49,7 +49,7 @@ const LandingPage = () =>{
 
     return(
         <div className={"page-content"}>
-            <div className={"wrap"}>
+            <div  className={"wrap"}>
                 <div className={"preview"}>
                     <div className={"content-container"} id={"content-container"}>
                         <div className={"base-landing"} id={"base-landing"}>
