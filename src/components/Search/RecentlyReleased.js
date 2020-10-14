@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios"
 import './FrontPageSearch.scss'
+import LoaderMapped from "../Utils/SkeletonBasic";
 
 
 
@@ -9,6 +10,7 @@ import './FrontPageSearch.scss'
 
 const RecentlyReleased = ({mouseIn, mouseOut, emoji}) =>{
     const [information, setInformation] = useState([])
+    const [loading, setLoading] = useState(false);
     useEffect(()=>{
         axios({
             method: 'post',
@@ -32,9 +34,18 @@ const RecentlyReleased = ({mouseIn, mouseOut, emoji}) =>{
 
             })
     },[])
+    useEffect(() => {
+        setLoading(true);
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 3000);
+        // Cancel the timer while unmounting
+        return () => clearTimeout(timer);
+    }, []);
 
 //conditionally render the images/cover otherwise it'll end up being improper
     return(
+        loading ? <LoaderMapped/> :
         information.map(info=>
             <div onMouseEnter={(evt)=>{mouseIn(evt, info.resColor, info.key)}} onMouseLeave={(evt)=>{mouseOut(evt,info.key)}} className={"media-card"} key={info.key}  id={`media-card + ${info.key}`}  >
                 <a className={"cover"} href={""} id={`cover + ${info.key}`}  >

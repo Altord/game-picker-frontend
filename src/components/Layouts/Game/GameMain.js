@@ -4,8 +4,9 @@ import './game-main.scss'
 
 
 
-
+// Displays main game information
 const GameMain = ({match}) =>{
+    // Captures the id and send it to the backend
     const {
         params: { gameId },
     } = match;
@@ -18,7 +19,7 @@ const GameMain = ({match}) =>{
 
 
         })
-
+            //The axios response data being pushed to an array and then informations state being set by it
             .then(returnedResponse =>{
                 let dataCopy = []
                 let colorCopy = []
@@ -30,7 +31,8 @@ const GameMain = ({match}) =>{
                     age: returnedResponse.data[0][0].age_ratings,
                     artworks: returnedResponse.data[0][0].artworks,
                     franchises: returnedResponse.data[0][0].franchises,
-                    involved_companies: returnedResponse.data[0][0].involved_companies ,
+                    date: new Date(returnedResponse.data[0][0].first_release_date * 1000),
+                    involved_companies: returnedResponse.data[0][0].involved_companies,
                     storyline: returnedResponse.data[0][0].storyline ,
                     themes : returnedResponse.data[0][0].themes ,
                     total_rating : returnedResponse.data[0][0].total_rating ,
@@ -61,6 +63,7 @@ const GameMain = ({match}) =>{
     },[gameId])
 
     return(
+        //Initial rendering of the page
         information.map(info=>
             <div className={"game-page-content"}>
                 <div className={"header-wrap"}>
@@ -87,36 +90,64 @@ const GameMain = ({match}) =>{
                             </div>
                             <div className={"content"}>
                                 <h1>{info.name}</h1>
-                                <p className={"summary"}>{info.summary}</p>
+                                <p style={{whiteSpace: "pre-wrap"}} className={"summary"}>{info.summary}</p>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
                 <div className={"content-container"}>
                     <div className={"sidebar"}>
                         <div className={"data"}>
-                            {info.aggregated_rating === undefined ? <div className={"dataset"}>
+                            {info.aggregated_rating === undefined ?
+                                <div className={"data-set"}>
                                     <div className={"type"}>Total Rating</div>
                                     <div className={"value"}>Unrated</div>
-                                </div> : <div className={"dataset"}>
+                                </div> : <div className={"data-set"}>
                                     <div className={"type"}>Aggregated Rating</div>
-                                    <div className={"value"}>{info.aggregated_rating}</div>
+                                    <div className={"value"}>{Math.round(info.aggregated_rating)}</div>
                                 </div>}
-                            {info.total_rating === undefined ? <div className={"dataset"}>
+                            {info.total_rating === undefined ? <div className={"data-set"}>
                                     <div className={"type"}>Total Rating</div>
                                     <div className={"value"}>Unrated</div>
-                                </div> : <div className={"dataset"}>
+                                </div> : <div className={"data-set"}>
                                     <div className={"type"}>Total Rating</div>
-                                    <div className={"value"}>{info.total_rating}</div>
+                                    <div className={"value"}>{Math.round(info.total_rating)}</div>
                                 </div>}
                             {info.franchises === undefined ? null :
-                                <div className={"dataset"}>
+                                <div className={"data-set"}>
                                     <div className={"type"}>Franchises</div>
                                     <div className={"value"}>{info.franchises.slice(0,info.franchises.length).map(names=>names.name)}</div>
                                 </div>
                             }
+                            {info.involved_companies === undefined ? null :
+                                    <div className={"data-set"}>
+                                        <div className={"type"}>Companies</div>
+                                        <div className={"value"}>{info.involved_companies.slice(0,info.involved_companies.length).map(names=>`${names.company.name},`.replace(/,(?=[^,]*$)/ ,"\n"))}</div>
+                                    </div>
+                            }
+
+                            {info.platforms === undefined ? null:
+                                <div className={"data-set"}>
+                                    <div className={"type"}>Platforms</div>
+                                    <div className={"value"}>{info.platforms.slice(0,info.platforms.length).map(names=>`${names.name},`.replace(/,(?=[^,]*$)/ ,"\n"))}</div>
+                                </div>
+                            }
+                            {info.date === undefined ? null :
+                                <div className={"data-set"}>
+                                    <div className={"type"}>Release Date</div>
+                                    <div className={"value"}>{(info.date).toLocaleDateString('en-US',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                                </div>
+                            }
+                            {info.themes === undefined ? null :
+                                <div className={"data-set"}>
+                                    <div className={"type"}>Themes</div>
+                                    <div className={"value"}>{info.themes.slice(0,info.platforms.length).map(names=>`${names.name} `)}</div>
+                                </div>
+
+                            }
+
+
+
 
                         </div>
                     </div>

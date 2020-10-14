@@ -1,11 +1,10 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import './LandPage.scss'
 import PopSearch from "../Search/PopSearch";
 import Trending from "../Search/Trending";
 import RecentlyReleased from "../Search/RecentlyReleased";
 import Anticipated from "../Search/Anticipated";
 import Top100 from "../Search/Top100";
-
 
 //Mouseover events to change the colors of the text
 
@@ -46,6 +45,15 @@ const emojiDisplay = (rating, resColor, key)=>{
 
 //The main page, what's shown when a user isn't logged in
 const LandingPage = () =>{
+    const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        setLoading(true);
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 5000);
+        // Cancel the timer while unmounting
+        return () => clearTimeout(timer);
+    }, []);
 
     return(
         <div className={"page-content"}>
@@ -56,6 +64,7 @@ const LandingPage = () =>{
                             <div className={"landing-section popular-30"}>
                                 <div className={"title link"}><a><h3>Popular</h3></a><div className={"expand"}>View All</div></div>
                                 <div className={"results"}>
+
                                     <PopSearch mouseIn={mouseInMain} mouseOut={mouseOutMain} emoji={emojiDisplay} />
                                 </div>
 

@@ -4,7 +4,6 @@ import Header from '../Header/Header'
 import LandingPage from "../Main/LandingPage";
 import GameMain from "../Layouts/Game/GameMain";
 import {BrowserRouter as Router, Route} from "react-router-dom"
-import GameHome from "../Layouts/Game/game-home";
 
 var prevScrollpos = window.pageYOffset;
     window.onscroll = function(){

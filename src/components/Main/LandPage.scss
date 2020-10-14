@@ -68,6 +68,15 @@ div{
   }
 
 
+@keyframes fadein {
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
+}
+
 
 .results{
   display: grid;
@@ -80,6 +89,7 @@ div{
     position: relative;
     width: 100%;
     transition: .5s;
+    animation: fadein 3s;
     &:hover{
       transform: scale(1.15);
       transition: .5s;
