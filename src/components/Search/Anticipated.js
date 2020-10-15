@@ -45,7 +45,7 @@ const Anticipated = ({mouseIn, mouseOut, emoji}) =>{
         loading ? <LoaderMapped/> :
         information.map(info=>
             <div onMouseEnter={(evt)=>{mouseIn(evt, info.resColor, info.key)}} onMouseLeave={(evt)=>{mouseOut(evt,info.key)}} className={"media-card"} key={info.key}  id={`media-card + ${info.key}`}  >
-                <a className={"cover"} href={""} id={`cover + ${info.key}`}  >
+                <a className={"cover"} href={`games/${info.key}`} id={`cover + ${info.key}`}  >
                     <img className={"image-loaded"} src={info.cover}  id={`image-loaded + ${info.key}`}/>
                     <div onMouseEnter={(evt)=>{mouseIn(evt, info.resColor, info.key)}} onMouseLeave={(evt)=>{mouseOut(evt,info.key)}} className={"more-details"}  id={`more-details + ${info.key}`} >
                         <div  className={"clearing"} id={`clearing + ${info.key}`}  >
@@ -71,7 +71,7 @@ const Anticipated = ({mouseIn, mouseOut, emoji}) =>{
                     </div>
 
                 </a>
-                <a onMouseEnter={(evt)=>{mouseIn(evt, info.resColor, info.key)}} onMouseOut={(evt)=>{mouseOut(evt,info.key)}} className={"title"} href={""} id={`title + ${info.key}`}>{info.name} </a>
+                <a onMouseEnter={(evt)=>{mouseIn(evt, info.resColor, info.key)}} onMouseOut={(evt)=>{mouseOut(evt,info.key)}} className={"title"} href={`games/${info.key}`} id={`title + ${info.key}`}>{info.name} </a>
             </div>)
 
 

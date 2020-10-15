@@ -176,5 +176,67 @@
         }
       }
     }
+    .overview{
+      max-width: 1520px;
+      .carousel-container{
+        margin-left: 30px;
+        .slick-arrow{
+
+          &:hover{
+            opacity: 1;
+            transition: .5s;
+          }
+
+        }
+        .slick-prev{
+          left: -40px;
+        }
+        img{
+          max-height: 270px;
+          max-width: 480px;
+          width: 480px;
+          height: 270px;
+        }
+        max-width: 100%;
+        max-height: 100%;
+      }
+      .media-websites{
+        display: grid;
+        grid-column-gap: 30px;
+        grid-template-columns: 215px auto auto;
+
+      }
+      .shop-websites{
+        display: grid;
+        grid-column-gap: 30px;
+        grid-template-columns: auto auto auto auto;
+        margin-top: 50px;
+        font-size: 3rem;
+        .website-container{
+
+        }
+        .gog{
+          background-color: lightgrey;
+          border: 2.5px mediumpurple solid;
+          border-radius: 10px;
+
+
+        }
+        .steam{
+          background-color: lightgrey;
+          border-radius: 10px;
+          border: 2.5px black solid;
+        }
+        .itch{
+          background-color: lightgrey;
+          border-radius: 10px;
+          border: 2.5px deeppink solid;
+        }
+      }
+      .website-logo{
+        width: 65px;
+        height: 65px;
+      }
+    }
   }
 }

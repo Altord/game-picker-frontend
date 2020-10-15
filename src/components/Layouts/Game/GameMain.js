@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import './game-main.scss'
-
-
+import Carousel from "../../Utils/Carousel";
 
 // Displays main game information
 const GameMain = ({match}) =>{
@@ -24,19 +23,36 @@ const GameMain = ({match}) =>{
                 let dataCopy = []
                 let colorCopy = []
                 let screenShotArray = []
-                for (let i = 0; i < returnedResponse.data[0][0].screenshots.length; i++) {
-                    screenShotArray.push(returnedResponse.data[0][0].screenshots[i].url ? returnedResponse.data[0][0].screenshots[i].url.replace("t_thumb","t_1080p") : null)
+                let artWorkArray = []
+                let videosArray = []
+
+                if (returnedResponse.data[0][0].videos === undefined){}else{
+                    for (let i = 0; i < returnedResponse.data[0][0].videos.length; i++) {
+                        videosArray.push(returnedResponse.data[0][0].videos[i].video_id)
+                    }
+                }
+
+                if (returnedResponse.data[0][0].screenshots === undefined){}else{
+                    for (let i = 0; i < returnedResponse.data[0][0].screenshots.length; i++) {
+                        screenShotArray.push(returnedResponse.data[0][0].screenshots[i].url ? returnedResponse.data[0][0].screenshots[i].url.replace("t_thumb","t_1080p") : null)
+                    }
+                }
+                if (returnedResponse.data[0][0].artworks === undefined){}
+                else{
+                    for (let i = 0; i < returnedResponse.data[0][0].artworks.length; i++) {
+                        artWorkArray.push(returnedResponse.data[0][0].artworks[i].url ? returnedResponse.data[0][0].artworks[i].url.replace("t_thumb","t_1080p") : null)
+                    }
                 }
                 dataCopy.push({
                     age: returnedResponse.data[0][0].age_ratings,
-                    artworks: returnedResponse.data[0][0].artworks,
+                    artworks: artWorkArray,
                     franchises: returnedResponse.data[0][0].franchises,
                     date: new Date(returnedResponse.data[0][0].first_release_date * 1000),
                     involved_companies: returnedResponse.data[0][0].involved_companies,
                     storyline: returnedResponse.data[0][0].storyline ,
                     themes : returnedResponse.data[0][0].themes ,
                     total_rating : returnedResponse.data[0][0].total_rating ,
-                    videos : returnedResponse.data[0][0].videos ,
+                    videos : videosArray,
                     key: returnedResponse.data[0][0].id,
                     name: returnedResponse.data[0][0].name,
                     summary: returnedResponse.data[0][0].summary,
@@ -46,10 +62,7 @@ const GameMain = ({match}) =>{
                     aggregated_rating: returnedResponse.data[0][0].aggregated_rating,
                     genres: returnedResponse.data[0][0].genres,
                     platforms: returnedResponse.data[0][0].platforms,
-
-
-
-
+                    websites: returnedResponse.data[0][0].websites
 
                 })
                 console.log(dataCopy)
@@ -67,7 +80,8 @@ const GameMain = ({match}) =>{
         information.map(info=>
             <div className={"game-page-content"}>
                 <div className={"header-wrap"}>
-                    <div className={"banner"} style={{backgroundImage: `url(${info.screenShots[0]})`}}/>
+                    {info.screenShots.length === 0 ? <div className={"banner"} style={{backgroundImage: `url(https://w.wallhaven.cc/full/45/wallhaven-453xr1.jpg)`}}/> :
+                    <div className={"banner"} style={{backgroundImage: `url(${info.screenShots[0]})`}}/>}
                     <div className={"header"}>
                         <div className={"container"}>
                             <div className={"cover-wrap overelap-banner"}>
@@ -151,7 +165,149 @@ const GameMain = ({match}) =>{
 
                         </div>
                     </div>
-                    <div className={"overview"}></div>
+                    <div className={"overview"}>
+                        <div className={"carousel-container"}>
+                            {console.log(info.videos)}
+                            {info.videos.length === 0 && info.artworks.length === 0 && info.screenShots.length === 0 ? null :
+                                <Carousel videos={info.videos} screenshots={info.screenShots} artworks={info.artworks}/>
+                            }
+
+
+                        </div>
+                        Media Links
+                        <div className={"media-websites"}>
+
+                            {info.websites.slice(0,info.websites.length).map(website=>
+                                website.category === 1
+                                    ?
+                                    <div className={"website-container"}>
+                                        <a href={website.url}>Official Site</a>
+                                    </div>
+                                    :
+                                    website.category === 2
+                                        ?
+                                        <div className={"website-container"}>
+                                            <a href={website.url}>Wikia</a>
+                                        </div>
+                                        :
+                                        website.category === 3
+                                            ?
+                                            <div className={"website-container"}>
+                                                <a href={website.url}>Wikipedia</a>
+                                            </div>
+                                            :
+                                            website.category === 4
+                                                ?
+                                                <div className={"website-container"}>
+                                                    <a href={website.url}>Facebook</a>
+                                                </div>
+                                                :
+                                                website.category === 5
+                                                    ?
+                                                    <div className={"website-container"}>
+                                                        <a href={website.url}>Twitter</a>
+                                                    </div>
+                                                    :
+                                                    website.category === 6
+                                                        ?
+                                                        <div className={"website-container"}>
+                                                            <a href={website.url}>twitch</a>
+                                                        </div>
+                                                        :
+                                                        website.category === 7
+                                                            ?
+                                                            <div className={"website-container"}>
+                                                                <a href={website.url}>???</a>
+                                                            </div>
+                                                            :
+                                                            website.category === 8
+                                                                ?
+                                                                <div className={"website-container"}>
+                                                                    <a href={website.url}>instagram</a>
+                                                                </div>
+                                                                :
+                                                                website.category === 9
+                                                                    ?
+                                                                    <div className={"website-container"}>
+                                                                        <a href={website.url}>youtube</a>
+                                                                    </div>
+                                                                    :
+                                                                    website.category === 11
+                                                                        ?
+                                                                        <div className={"website-container"}>
+                                                                            <a href={website.url}>Ipad</a>
+                                                                        </div>
+                                                                        :
+                                                                        website.category === 14
+                                                                            ?
+                                                                            <div className={"website-container"}>
+                                                                                <a href={website.url}>Reddit</a>
+                                                                            </div>
+                                                                            :
+                                                                            website.category === 18
+                                                                                ?
+                                                                                <div className={"website-container"}>
+                                                                                    <a href={website.url}>Discord</a>
+                                                                                </div>
+                                                                                : null
+                            )}
+                        </div>
+                        Shop Links
+                        <div className={"shop-websites"}>
+
+                            {info.websites.slice(0,info.websites.length).map(website=>
+                                website.category === 10
+                                    ?
+                                    <div className={"website-container"}>
+                                        <a href={website.url}>Iphone</a>
+                                    </div>
+                                    :
+                                website.category === 12
+                                    ?
+                                    <div className={"website-container"}>
+                                        <a href={website.url}>Android</a>
+                                    </div>
+                                    :
+                                website.category === 13
+                                    ?
+                                    <div className={"website-container steam"}>
+
+                                        <a href={website.url}><img className={"website-logo "} src={require("../../../images/company_logos/steam_logo.png")}/></a>
+                                    </div>
+                                    :
+                                website.category === 15
+                                    ?
+                                    <div className={"website-container itch"}>
+                                        <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/itchio_logo.png")}/></a>
+                                    </div>
+                                    :
+                                website.category === 16
+                                    ?
+                                    <div className={"website-container"}>
+                                        <a href={website.url}>Epic</a>
+                                    </div>
+                                    :
+                                website.category === 17
+                                    ?
+                                    <div className={"website-container gog"}>
+
+                                        <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/gog_logo.jpg")}/></a>
+                                    </div>
+                                    :
+                                 null
+
+
+
+
+
+
+
+
+                            )}
+                            {console.log(info.websites)}
+                        </div>
+
+                    </div>
                 </div>
             </div>
         )

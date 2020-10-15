@@ -45,16 +45,6 @@ const emojiDisplay = (rating, resColor, key)=>{
 
 //The main page, what's shown when a user isn't logged in
 const LandingPage = () =>{
-    const [loading, setLoading] = useState(false);
-    useEffect(() => {
-        setLoading(true);
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 5000);
-        // Cancel the timer while unmounting
-        return () => clearTimeout(timer);
-    }, []);
-
     return(
         <div className={"page-content"}>
             <div  className={"wrap"}>
