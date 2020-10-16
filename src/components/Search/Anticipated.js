@@ -7,7 +7,6 @@ import LoaderMapped from "../Utils/SkeletonBasic";
 
 const Anticipated = ({mouseIn, mouseOut, emoji}) =>{
     const [information, setInformation] = useState([])
-    const [loading, setLoading] = useState(false);
     useEffect(()=>{
         axios({
             method: 'post',
@@ -32,17 +31,8 @@ const Anticipated = ({mouseIn, mouseOut, emoji}) =>{
             })
     },[])
 
-    useEffect(() => {
-        setLoading(true);
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 3000);
-        // Cancel the timer while unmounting
-        return () => clearTimeout(timer);
-    }, []);
-//conditionally render the images/cover otherwise it'll end up being improper
     return(
-        loading ? <LoaderMapped/> :
+        information.length === 0 ? <LoaderMapped/> :
         information.map(info=>
             <div onMouseEnter={(evt)=>{mouseIn(evt, info.resColor, info.key)}} onMouseLeave={(evt)=>{mouseOut(evt,info.key)}} className={"media-card"} key={info.key}  id={`media-card + ${info.key}`}  >
                 <a className={"cover"} href={`games/${info.key}`} id={`cover + ${info.key}`}  >

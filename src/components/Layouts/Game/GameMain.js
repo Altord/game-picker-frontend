@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import './game-main.scss'
 import Carousel from "../../Utils/Carousel";
+import RecomCarousel from "../../Utils/Recommendations";
 
 // Displays main game information
 const GameMain = ({match}) =>{
@@ -9,6 +10,7 @@ const GameMain = ({match}) =>{
     const {
         params: { gameId },
     } = match;
+    //Set state
     const [information, setInformation] = useState([])
     useEffect(()=>{
         axios({
@@ -25,7 +27,8 @@ const GameMain = ({match}) =>{
                 let screenShotArray = []
                 let artWorkArray = []
                 let videosArray = []
-
+                let websiteCatArray = []
+                //Bunch of looping to get desired information quickly
                 if (returnedResponse.data[0][0].videos === undefined){}else{
                     for (let i = 0; i < returnedResponse.data[0][0].videos.length; i++) {
                         videosArray.push(returnedResponse.data[0][0].videos[i].video_id)
@@ -43,6 +46,13 @@ const GameMain = ({match}) =>{
                         artWorkArray.push(returnedResponse.data[0][0].artworks[i].url ? returnedResponse.data[0][0].artworks[i].url.replace("t_thumb","t_1080p") : null)
                     }
                 }
+                if (returnedResponse.data[0][0].websites === undefined){}
+                else{
+                    for (let i = 0; i < returnedResponse.data[0][0].websites.length; i++) {
+                        websiteCatArray.push(returnedResponse.data[0][0].websites[i].category)
+                    }
+                }
+                //Push to array that will then have information set its state too
                 dataCopy.push({
                     age: returnedResponse.data[0][0].age_ratings,
                     artworks: artWorkArray,
@@ -62,10 +72,10 @@ const GameMain = ({match}) =>{
                     aggregated_rating: returnedResponse.data[0][0].aggregated_rating,
                     genres: returnedResponse.data[0][0].genres,
                     platforms: returnedResponse.data[0][0].platforms,
-                    websites: returnedResponse.data[0][0].websites
+                    websites: returnedResponse.data[0][0].websites,
+                    websiteCategory: websiteCatArray
 
                 })
-                console.log(dataCopy)
                 setInformation(dataCopy);
                 colorCopy.push(information.resColor)
             })
@@ -112,6 +122,7 @@ const GameMain = ({match}) =>{
                 <div className={"content-container"}>
                     <div className={"sidebar"}>
                         <div className={"data"}>
+                            {console.log(info)}
                             {info.aggregated_rating === undefined ?
                                 <div className={"data-set"}>
                                     <div className={"type"}>Total Rating</div>
@@ -147,164 +158,172 @@ const GameMain = ({match}) =>{
                                 </div>
                             }
                             {info.date === undefined ? null :
-                                <div className={"data-set"}>
+                                <div className={"data-set"} >
                                     <div className={"type"}>Release Date</div>
-                                    <div className={"value"}>{(info.date).toLocaleDateString('en-US',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</div>
+                                    <div className={"value"} >{(info.date).toLocaleDateString('en-US',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</div>
                                 </div>
                             }
                             {info.themes === undefined ? null :
                                 <div className={"data-set"}>
                                     <div className={"type"}>Themes</div>
-                                    <div className={"value"}>{info.themes.slice(0,info.platforms.length).map(names=>`${names.name} `)}</div>
+                                    <div className={"value"}>{info.themes.slice(0,info.platforms.length).map(names=>`${names.name},`.replace(/,(?=[^,]*$)/ ,"\n"))}</div>
                                 </div>
 
                             }
+                            {info.genres === undefined ? null :
+                                <div className={"data-set"} >
+                                    <div className={"type"}>Genres</div>
+                                    <div className={"value"}>{info.genres.slice(0,info.platforms.length).map(names=>`${names.name},`.replace(/,(?=[^,]*$)/ ,"\n"))}</div>
+                                </div>
+
+                            }
+                            {info.websites.length === 0 ? null :
+                                <div>
+                            <div className={"media-websites"}>
+
+                                {info.websites.slice(0,info.websites.length).map(website=>
+                                    website.category === 1
+                                        ?
+                                        <div className={"website-container external"}>
+                                            <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/external-link-symbol.png")}/></a>
+                                        </div>
+                                        :
+                                        website.category === 2
+                                            ?
+                                            <div className={"website-container wikia"}>
+                                                <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/wikia_logo.png")}/></a>
+                                            </div>
+                                            :
+                                            website.category === 3
+                                                ?
+                                                <div className={"website-container wiki"}>
+                                                    <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/wikipedia.png")}/></a>
+                                                </div>
+                                                :
+                                                website.category === 4
+                                                    ?
+                                                    <div className={"website-container facebook"}>
+                                                        <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/facebook-icon.svg")}/></a>
+                                                    </div>
+                                                    :
+                                                    website.category === 5
+                                                        ?
+                                                        <div className={"website-container twitter"}>
+                                                            <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/twitter.png")}/></a>
+                                                        </div>
+                                                        :
+                                                        website.category === 6
+                                                            ?
+                                                            <div className={"website-container twitch"}>
+                                                                <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/twitch.png")}/></a>
+                                                            </div>
+                                                            :
+                                                            website.category === 8
+                                                                ?
+                                                                <div className={"website-container instagram"}>
+                                                                    <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/instagram.png")}/></a>
+                                                                </div>
+                                                                :
+                                                                website.category === 9
+                                                                    ?
+                                                                    <div className={"website-container youtube"}>
+                                                                        <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/youtube.png")}/></a>
+                                                                    </div>
+                                                                    :
+                                                                    website.category === 14
+                                                                        ?
+                                                                        <div className={"website-container reddit"}>
+                                                                            <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/Reddit-Icon.png")}/></a>
+                                                                        </div>
+                                                                        :
+                                                                        website.category === 18
+                                                                            ?
+                                                                            <div className={"website-container discord"}>
+                                                                                <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/discord-seeklogo.com.svg")}/></a>
+                                                                            </div>
+                                                                            : null
+                                )}
+                            </div>
+                            <div className={"shop-websites"}>
+
+                                {info.websites.slice(0,info.websites.length).map(website=>
+                                    website.category === 10
+                                        ?
+
+                                            <div className={"website-container apple"}>
+                                                <a href={website.url}> <img className={"website-logo "} src={require("../../../images/company_logos/app-store.png")}/></a>
+                                            </div>
+
+                                        :
+                                        website.category === 12
+                                            ?
+
+                                                <div className={"website-container google"}>
+                                                    <a href={website.url}> <img className={"website-logo"} src={require("../../../images/company_logos/google-play.png")}/> </a>
+                                                </div>
+
+                                            :
+                                            website.category === 13
+                                                ?
+
+                                                    <div className={"website-container steam"}>
+                                                        <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/steam_logo.png")}/> </a>
+                                                    </div>
+
+                                                :
+                                                website.category === 15
+                                                    ?
+                                                    <div className={"website-container itch"}>
+                                                        <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/itchio_logo.png")}/></a>
+                                                    </div>
+                                                    :
+                                                    website.category === 16
+                                                        ?
+                                                        <div className={"website-container epic"}>
+                                                            <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/epicgames_logo.png")}/></a>
+                                                        </div>
+                                                        :
+                                                        website.category === 17
+                                                            ?
+                                                            <div className={"website-container gog"}>
+                                                                <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/gog_logo.jpg")}/></a>
+                                                            </div>
+                                                            :
+                                                            null
 
 
+
+
+
+
+
+
+
+                                )}
+                            </div>
+                                </div>
+                            }
 
 
                         </div>
                     </div>
                     <div className={"overview"}>
+
                         <div className={"carousel-container"}>
-                            {console.log(info.videos)}
                             {info.videos.length === 0 && info.artworks.length === 0 && info.screenShots.length === 0 ? null :
-                                <Carousel videos={info.videos} screenshots={info.screenShots} artworks={info.artworks}/>
+                                <div>
+                                    <div className={"cat-title"}>Gallery</div>
+                                    <Carousel videos={info.videos} screenshots={info.screenShots} artworks={info.artworks}/>
+                                </div>
                             }
 
 
                         </div>
-                        Media Links
-                        <div className={"media-websites"}>
 
-                            {info.websites.slice(0,info.websites.length).map(website=>
-                                website.category === 1
-                                    ?
-                                    <div className={"website-container"}>
-                                        <a href={website.url}>Official Site</a>
-                                    </div>
-                                    :
-                                    website.category === 2
-                                        ?
-                                        <div className={"website-container"}>
-                                            <a href={website.url}>Wikia</a>
-                                        </div>
-                                        :
-                                        website.category === 3
-                                            ?
-                                            <div className={"website-container"}>
-                                                <a href={website.url}>Wikipedia</a>
-                                            </div>
-                                            :
-                                            website.category === 4
-                                                ?
-                                                <div className={"website-container"}>
-                                                    <a href={website.url}>Facebook</a>
-                                                </div>
-                                                :
-                                                website.category === 5
-                                                    ?
-                                                    <div className={"website-container"}>
-                                                        <a href={website.url}>Twitter</a>
-                                                    </div>
-                                                    :
-                                                    website.category === 6
-                                                        ?
-                                                        <div className={"website-container"}>
-                                                            <a href={website.url}>twitch</a>
-                                                        </div>
-                                                        :
-                                                        website.category === 7
-                                                            ?
-                                                            <div className={"website-container"}>
-                                                                <a href={website.url}>???</a>
-                                                            </div>
-                                                            :
-                                                            website.category === 8
-                                                                ?
-                                                                <div className={"website-container"}>
-                                                                    <a href={website.url}>instagram</a>
-                                                                </div>
-                                                                :
-                                                                website.category === 9
-                                                                    ?
-                                                                    <div className={"website-container"}>
-                                                                        <a href={website.url}>youtube</a>
-                                                                    </div>
-                                                                    :
-                                                                    website.category === 11
-                                                                        ?
-                                                                        <div className={"website-container"}>
-                                                                            <a href={website.url}>Ipad</a>
-                                                                        </div>
-                                                                        :
-                                                                        website.category === 14
-                                                                            ?
-                                                                            <div className={"website-container"}>
-                                                                                <a href={website.url}>Reddit</a>
-                                                                            </div>
-                                                                            :
-                                                                            website.category === 18
-                                                                                ?
-                                                                                <div className={"website-container"}>
-                                                                                    <a href={website.url}>Discord</a>
-                                                                                </div>
-                                                                                : null
-                            )}
-                        </div>
-                        Shop Links
-                        <div className={"shop-websites"}>
+                        <div className={"rec-container"}>
+                            <div className={"cat-title"}>Recommendations</div>
+                            <RecomCarousel themes={info.themes} genres={info.genres} gameName={info.key}/>
 
-                            {info.websites.slice(0,info.websites.length).map(website=>
-                                website.category === 10
-                                    ?
-                                    <div className={"website-container"}>
-                                        <a href={website.url}>Iphone</a>
-                                    </div>
-                                    :
-                                website.category === 12
-                                    ?
-                                    <div className={"website-container"}>
-                                        <a href={website.url}>Android</a>
-                                    </div>
-                                    :
-                                website.category === 13
-                                    ?
-                                    <div className={"website-container steam"}>
-
-                                        <a href={website.url}><img className={"website-logo "} src={require("../../../images/company_logos/steam_logo.png")}/></a>
-                                    </div>
-                                    :
-                                website.category === 15
-                                    ?
-                                    <div className={"website-container itch"}>
-                                        <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/itchio_logo.png")}/></a>
-                                    </div>
-                                    :
-                                website.category === 16
-                                    ?
-                                    <div className={"website-container"}>
-                                        <a href={website.url}>Epic</a>
-                                    </div>
-                                    :
-                                website.category === 17
-                                    ?
-                                    <div className={"website-container gog"}>
-
-                                        <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/gog_logo.jpg")}/></a>
-                                    </div>
-                                    :
-                                 null
-
-
-
-
-
-
-
-
-                            )}
-                            {console.log(info.websites)}
                         </div>
 
                     </div>

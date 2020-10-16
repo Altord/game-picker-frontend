@@ -55,6 +55,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\images\icons" />
       <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\images\company_logos" />
       <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\components\Layouts" />
     </key>
@@ -85,6 +86,7 @@
       <workItem from="1602521518955" duration="21325000" />
       <workItem from="1602606263147" duration="22589000" />
       <workItem from="1602683010673" duration="26540000" />
+      <workItem from="1602767178574" duration="31200000" />
     </task>
     <servers />
   </component>
@@ -116,13 +118,43 @@
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
     <state x="2186" y="781" key="FileChooserDialogImpl/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1602629192108" />
-    <state x="2263" y="557" key="run.anything.popup" timestamp="1602732767836">
+    <state x="2263" y="557" key="run.anything.popup" timestamp="1602814292649">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2263" y="557" key="run.anything.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1602732767836" />
+    <state x="2263" y="557" key="run.anything.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1602814292649" />
     <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup" timestamp="1602639065992">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
     <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1602639065992" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Layouts/Game/GameMain.js</url>
+          <line>121</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Layouts/Game/GameMain.js</url>
+          <line>246</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Layouts/Game/GameMain.js</url>
+          <line>123</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Search/Anticipated.js</url>
+          <line>36</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

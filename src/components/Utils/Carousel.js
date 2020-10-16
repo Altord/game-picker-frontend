@@ -8,22 +8,22 @@ import "slick-carousel/slick/slick-theme.css";
 const Carousel = ({videos, screenshots, artworks}) =>{
     var renderVideos = (videoArray) =>{
         return(videoArray.map(video=>(
-            <div>
+            <div className={"gallery-item-cont"}>
                  <img className={"vjs-poster"} src={`https://i.ytimg.com/vi/${video}/sddefault.jpg`}/>
             </div>
         )))
     };
     var renderScreens = (screenShotArray) =>{
         return(screenShotArray.map(image=>(
-            <div>
-                <img className={"vjs-poster"} src={image}/>
+            <div className={"gallery-item-cont"}>
+                <img className={"gallery-item"} src={image}/>
             </div>
         )))
     };
     var renderArt = (artworksArray) =>{
         return(artworksArray.map(image=>(
-            <div>
-                <img className={"vjs-poster"} src={image}/>
+            <div className={"gallery-item-cont"}>
+                <img className={"gallery-item"} src={image}/>
             </div>
         )))
     };
