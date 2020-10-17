@@ -20,12 +20,10 @@ const RecomCarousel = ({themes, genres, gameName}) =>{
             .then(returnedResponse =>{
                 let dataCopy = []
                 //Bunch of looping to get desired information quickly
-                console.log(returnedResponse.data)
                 //Push to array that will then have information set its state too
-                for (let i = 0; i < 12; i++){
+                for (let i = 0; i < 16; i++){
                     dataCopy.push({key: returnedResponse.data[0][i].id, name: returnedResponse.data[0][i].name, summary: returnedResponse.data[0][i].summary, aggregated_rating: returnedResponse.data[0][i].aggregated_rating, genres: returnedResponse.data[0][i].genres, platforms: returnedResponse.data[0][i].platforms, cover: returnedResponse.data[0][i].cover === undefined ? imageB : returnedResponse.data[0][i].cover.url ? returnedResponse.data[0][i].cover.url.replace("t_thumb", "t_cover_big") : null})
                 }
-                console.log(dataCopy)
                 setInformation(dataCopy);
 
 
@@ -37,14 +35,13 @@ const RecomCarousel = ({themes, genres, gameName}) =>{
     },[themes,genres])
 
     var renderRecs = (array) =>{
-        console.log(array)
         return array.map(info=>(
             <div>
-                <a className={"cover"} href={`games/${info.key}`} id={`cover + ${info.key}`}  >
+                <a className={"rec-cover"} href={`${info.key}`} id={`cover + ${info.key}`}  >
                     <img className={"recommend-img"} src={`${info.cover}`}/>
-                    <div className={"more-details"}>
-                        <div  className={"clearing"} id={`clearing + ${info.key}`}  >
-                            <div>{info.name}</div>
+                    <div className={"rec-more-details"}>
+                        <div  className={"rec-clearing"} id={`rec-clearing + ${info.key}`}  >
+
                             {info.summary === undefined ? null :
                                 <p className={"summary"}
                                    id={`summary + ${info.key}`}>{`${info.summary.substring(0, 200)}...`}</p>
@@ -55,6 +52,7 @@ const RecomCarousel = ({themes, genres, gameName}) =>{
 
                     </div>
                 </a>
+                <div className={"rec-title"}><a  href={`${info.key}`}>{info.name}</a></div>
             </div>
         ))
     };
@@ -68,7 +66,7 @@ const RecomCarousel = ({themes, genres, gameName}) =>{
 
 
     return(
-        <Slider{...settings}>
+        <Slider className={"rec-gallery"} {...settings}>
 
             {renderRecs(information)}
         </Slider>

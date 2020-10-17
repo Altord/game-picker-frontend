@@ -41,7 +41,7 @@ const Carousel = ({videos, screenshots, artworks}) =>{
 
 
     return(
-            <Slider{...settings}>
+            <Slider className={"carousel-gallery"}{...settings}>
 
                 {videos === undefined ? null : renderVideos(videos)}
                 {screenshots === undefined ? null : renderScreens(screenshots)}
