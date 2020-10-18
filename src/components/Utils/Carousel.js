@@ -1,6 +1,6 @@
 import React from "react"
 import Slider from "react-slick";
-
+import ReactPlayer from 'react-player'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -9,7 +9,8 @@ const Carousel = ({videos, screenshots, artworks}) =>{
     var renderVideos = (videoArray) =>{
         return(videoArray.map(video=>(
             <div className={"gallery-item-cont"}>
-                 <img className={"vjs-poster"} src={`https://i.ytimg.com/vi/${video}/sddefault.jpg`}/>
+
+                 <ReactPlayer controls={true} width={'320px'} height={'189px'} url={`https://www.youtube.com/watch?v=${video}`}/>
             </div>
         )))
     };

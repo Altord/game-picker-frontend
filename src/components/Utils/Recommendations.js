@@ -4,7 +4,7 @@ import imageB from "../../images/icons/183a53.png"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
-const RecomCarousel = ({themes, genres, gameName}) =>{
+const RecomCarousel = ({themes, genres, gameId}) =>{
 
     //Set state
     const [information, setInformation] = useState([])
@@ -12,7 +12,7 @@ const RecomCarousel = ({themes, genres, gameName}) =>{
         axios({
             method: 'post',
             url: `http://localhost:3001/games/rec`,
-            data: {genres: genres, themes: themes, gameName: gameName}
+            data: {genres: genres, themes: themes, gameId: gameId}
 
 
         })

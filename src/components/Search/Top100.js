@@ -30,7 +30,6 @@ const Top100 = ({mouseIn, mouseOut, emoji}) => {
                         DACresColor: returnedResponse.data[1][i][2].DAC
                     })
                 }
-                console.log(dataCopy)
                 setInformation(dataCopy);
                 colorCopy.push(information.SQACresColor)
             })

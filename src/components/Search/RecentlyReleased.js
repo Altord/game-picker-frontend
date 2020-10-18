@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios"
 import './FrontPageSearch.scss'
 import LoaderMapped from "../Utils/SkeletonBasic";
-
+import imageB from '../../images/icons/183a53.png'
 
 
 
@@ -19,7 +19,6 @@ const RecentlyReleased = ({mouseIn, mouseOut, emoji}) =>{
         })
 
             .then(returnedResponse =>{
-                console.log(returnedResponse.data)
                 let dataCopy = []
                 let colorCopy = []
                 for (let i = 0; i < 7; i++){

@@ -22,7 +22,6 @@ const Anticipated = ({mouseIn, mouseOut, emoji}) =>{
                     dataCopy.push({key: returnedResponse.data[0][i].id, name: returnedResponse.data[0][i].name, summary: returnedResponse.data[0][i].summary, aggregated_rating: returnedResponse.data[0][i].aggregated_rating, genres: returnedResponse.data[0][i].genres, platforms: returnedResponse.data[0][i].platforms, cover: returnedResponse.data[0][i].cover.url ? returnedResponse.data[0][i].cover.url.replace("t_thumb", "t_cover_big") : null, resColor: returnedResponse.data[1][i][0].SAC})
                 }
                 setInformation(dataCopy);
-                console.log(dataCopy)
                 colorCopy.push(information.resColor)
             })
             .catch(err => {
