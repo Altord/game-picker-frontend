@@ -1,10 +1,35 @@
-import React from 'react'
+import React,{useState} from 'react'
+import { makeStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import Fade from '@material-ui/core/Fade';
+import SearchBar from "../Search/SearchModal/MainSearch";
 import './header.scss'
 
+
+const useStyles = makeStyles((theme) => ({
+    modal: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+}));
 
 //Header for navigation
 
 const Header = () => {
+    const classes = useStyles();
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
     return(
 
             <div className={"nav-container"} id={"nav-container"}>
@@ -17,7 +42,7 @@ const Header = () => {
                                 <a href={"/game-picker-main"}>Game Picker</a>
                                 <a href={"/help"}>Help</a>
                         </div>
-                        <div className={"search"}>
+                        <div className={"search"} onClick={handleOpen}>
                             <svg className={"svg-icon"} viewBox="0 0 20 20">
                                 <path fill="none" d="M19.129,18.164l-4.518-4.52c1.152-1.373,1.852-3.143,1.852-5.077c0-4.361-3.535-7.896-7.896-7.896
                             c-4.361,0-7.896,3.535-7.896,7.896s3.535,7.896,7.896,7.896c1.934,0,3.705-0.698,5.078-1.853l4.52,4.519
@@ -29,6 +54,18 @@ const Header = () => {
                             <a href={"/users/new"} className={"new"}>Sign Up</a>
                             <a href={"/users/login"}>Log In</a>
                         </div>
+                        <Modal
+                               open={open}
+                               onClose={handleClose}
+                               closeAfterTransition
+                              >
+                            <Fade in={open}>
+                                <div>
+                                    <SearchBar/>
+                                </div>
+                            </Fade>
+
+                        </Modal>
                 </div>
             </div>
 

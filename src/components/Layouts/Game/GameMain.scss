@@ -50,7 +50,7 @@
             position: static;
             height: 100%;
             .cover{
-              background-color: rgba(212,230,245,.5);
+              background-color: #1e3d6a;
               border-radius: 2px;
               box-shadow: 0 0 29px rgba(49,54,68,.25);
               margin-top: 15px;
@@ -205,13 +205,10 @@
       max-width: 1040px;
       margin-top: -10px;
       margin-left: 30px;
-      .body-text{
-        font-size: 2rem;
-        text-align: left;
-      }
       img{
         border-radius: 5px;
       }
+
       .carousel-container{
       .carousel-gallery{
         padding-left: 20px;
@@ -238,10 +235,56 @@
         max-height: 100%;
 
       }
-      .body-text{
-        background: #183053;
-        border-radius: 3px;
-        padding: 20px;
+      .storyline-container{
+        .body-text{
+          font-size: 2rem;
+          text-align: left;
+          background: #183053;
+          border-radius: 3px;
+          padding: 20px;
+        }
+      }
+      .articles-container{
+        display: block;
+        .signifyer-holder{
+          text-align: right;
+          .cat-title{
+            margin: 10px 0 0 0;
+          }
+          .view{
+            display: block;
+
+            text-align: right;
+            font-size: 1.4rem;
+            font-weight: 600;
+          }
+        }
+        .article-container{
+          img{
+            max-width: 100px;
+            border-radius: 5px 0px 0px 5px;
+          }
+          font-size: 1.3rem;
+          margin-top: 10px;
+          display: grid;
+          border-radius: 4px;
+          grid-column-gap: 30px;
+          grid-template-columns: auto auto auto;
+          background-color: #183053;
+
+
+          .art-info{
+            margin: auto 0;
+            .art-title{
+              font-weight: 700;
+            }
+          }
+          .pub-info{
+            text-align: right;
+            margin-top: 25px;
+            padding-right: 10px;
+          }
+        }
       }
       .rec-container{
         margin-top: 30px;
@@ -337,7 +380,7 @@
         margin: 10px 0 20px 0;
         text-align: left;
         font-size: 2.6rem;
-        font-weight: 700;
+        font-weight: 600;
       }
     }
 

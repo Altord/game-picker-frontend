@@ -6,6 +6,9 @@ import RecomCarousel from "../../Utils/Recommendations";
 import imageB from "../../../images/icons/183a53.png"
 
 // Displays main game information
+
+
+
 const GameMain = ({match}) =>{
     // Captures the id and send it to the backend
     const {
@@ -45,25 +48,46 @@ const GameMain = ({match}) =>{
                 name: game.name,
                 summary: game.summary,
                 screenShots: screenShotArray,
-                cover: game.cover === undefined ? imageB : game.cover.url ? game.cover.url.replace("t_thumb", "t_cover_big") : null,
+                cover: game.cover === undefined ? imageB : game.cover.url ? game.cover.url.replace("t_thumb", "t_cover_big") : [],
                 aggregated_rating: game.aggregated_rating,
                 genres: game.genres,
                 platforms: game.platforms,
                 websites: game.websites,
                 websiteCategory: websiteCatArray,
             });
+
             console.log(dataCopy)
             setInformation(dataCopy);
         }
 
         // since we just defined the function, now call it
         fetchData();
+
     }, [gameId]);
 
-
+    let mediaWebsiteLookup = {
+        1 : <img className={"website-logo"} src={require("../../../images/company_logos/external-link-symbol.png")}/>,
+        2 : <img className={"website-logo"} src={require("../../../images/company_logos/wikia_logo.png")}/>,
+        3 : <img className={"website-logo"} src={require("../../../images/company_logos/wikipedia.png")}/>,
+        4 : <img className={"website-logo"} src={require("../../../images/company_logos/facebook-icon.svg")}/>,
+        5 : <img className={"website-logo"} src={require("../../../images/company_logos/twitter.png")}/>,
+        6 : <img className={"website-logo"} src={require("../../../images/company_logos/twitch.png")}/>,
+        8 : <img className={"website-logo"} src={require("../../../images/company_logos/instagram.png")}/>,
+        9 : <img className={"website-logo"} src={require("../../../images/company_logos/youtube.png")}/>,
+        14 :<img className={"website-logo"} src={require("../../../images/company_logos/Reddit-Icon.png")}/>,
+        18 :<img className={"website-logo"} src={require("../../../images/company_logos/discord-seeklogo.com.svg")}/>
+    }
+    let shopWebsiteLookup = {
+        10 : <img className={"website-logo "} src={require("../../../images/company_logos/app-store.png")}/>,
+        12 : <img className={"website-logo"} src={require("../../../images/company_logos/google-play.png")}/>,
+        13 : <img className={"website-logo"} src={require("../../../images/company_logos/steam_logo.png")}/>,
+        15 : <img className={"website-logo"} src={require("../../../images/company_logos/itchio_logo.png")}/>,
+        16 : <img className={"website-logo"} src={require("../../../images/company_logos/epicgames_logo.png")}/>,
+        17 : <img className={"website-logo"} src={require("../../../images/company_logos/gog_logo.jpg")}/>
+    }
     return(
         //Initial rendering of the page
-        information.length === 0 ? <div>hello</div> : !("articles" in information[0]) ? null :
+
         information.map(info=>
             <div className={"game-page-content"}>
                 {console.log(information)}
@@ -115,172 +139,64 @@ const GameMain = ({match}) =>{
                                     <div className={"type"}>Total Rating</div>
                                     <div className={"value"}>{Math.round(info.total_rating)}</div>
                                 </div>}
-                            {info.franchises === undefined ? null :
+                            {info.franchises === undefined ? [] :
                                 <div className={"data-set"}>
                                     <div className={"type"}>Franchises</div>
                                     <div className={"value"}>{info.franchises.slice(0,info.franchises.length).map(names=>names.name)}</div>
                                 </div>
                             }
-                            {info.involved_companies === undefined ? null :
+                            {info.involved_companies === undefined ? [] :
                                     <div className={"data-set"}>
                                         <div className={"type"}>Companies</div>
                                         <div className={"value"}>{info.involved_companies.slice(0,info.involved_companies.length).map(names=>`${names.company.name},`.replace(/,(?=[^,]*$)/ ,"\n"))}</div>
                                     </div>
                             }
-
-                            {info.platforms === undefined ? null:
+                            {info.platforms === undefined ? []:
                                 <div className={"data-set"}>
                                     <div className={"type"}>Platforms</div>
                                     <div className={"value"}>{info.platforms.slice(0,info.platforms.length).map(names=>`${names.name},`.replace(/,(?=[^,]*$)/ ,"\n"))}</div>
                                 </div>
                             }
-                            {info.date === "Invalid Date" ? null :
+                            {info.date === "Invalid Date" ? [] :
                                 <div className={"data-set"} >
                                     <div className={"type"}>Release Date</div>
                                     <div className={"value"} >{(info.date).toLocaleDateString('en-US',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</div>
                                 </div>
                             }
-                            {info.themes === undefined ? null :
+                            {info.themes === undefined ? [] :
                                 <div className={"data-set"}>
                                     <div className={"type"}>Themes</div>
                                     <div className={"value"}>{info.themes.slice(0,info.themes.length).map(names=>`${names.name},`.replace(/,(?=[^,]*$)/ ,"\n"))}</div>
                                 </div>
 
                             }
-                            {info.genres === undefined ? null :
+                            {info.genres === undefined ? [] :
                                 <div className={"data-set"} >
                                     <div className={"type"}>Genres</div>
                                     <div className={"value"}>{info.genres.slice(0,info.genres.length).map(names=>`${names.name},`.replace(/,(?=[^,]*$)/ ,"\n"))}</div>
                                 </div>
 
                             }
-                            {info.websites === undefined ? null :
+                            {info.websites === undefined ? [] :
                                 <div>
                                     <div className={"media-websites"}>
-
                                         {info.websites.slice(0,info.websites.length).map((website,index)=>
-                                            website.category === 1
-                                                ?
-                                                <div className={"website-container external"} key={`${index}`}>
-                                                    <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/external-link-symbol.png")}/></a>
-                                                </div>
-                                                :
-                                                website.category === 2
-                                                    ?
-                                                    <div className={"website-container wikia"} key={`${index}`}>
-                                                        <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/wikia_logo.png")}/></a>
-                                                    </div>
-                                                    :
-                                                    website.category === 3
-                                                        ?
-                                                        <div className={"website-container wiki"} key={`${index}`}>
-                                                            <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/wikipedia.png")}/></a>
-                                                        </div>
-                                                        :
-                                                        website.category === 4
-                                                            ?
-                                                            <div className={"website-container facebook"} key={`${index}`}>
-                                                                <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/facebook-icon.svg")}/></a>
-                                                            </div>
-                                                            :
-                                                            website.category === 5
-                                                                ?
-                                                                <div className={"website-container twitter"} key={`${index}`}>
-                                                                    <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/twitter.png")}/></a>
-                                                                </div>
-                                                                :
-                                                                website.category === 6
-                                                                    ?
-                                                                    <div className={"website-container twitch"} key={`${index}`}>
-                                                                        <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/twitch.png")}/></a>
-                                                                    </div>
-                                                                    :
-                                                                    website.category === 8
-                                                                        ?
-                                                                        <div className={"website-container instagram"} key={`${index}`}>
-                                                                            <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/instagram.png")}/></a>
-                                                                        </div>
-                                                                        :
-                                                                        website.category === 9
-                                                                            ?
-                                                                            <div className={"website-container youtube"} key={`${index}`}>
-                                                                                <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/youtube.png")}/></a>
-                                                                            </div>
-                                                                            :
-                                                                            website.category === 14
-                                                                                ?
-                                                                                <div className={"website-container reddit"} key={`${index}`}>
-                                                                                    <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/Reddit-Icon.png")}/></a>
-                                                                                </div>
-                                                                                :
-                                                                                website.category === 18
-                                                                                    ?
-                                                                                    <div className={"website-container discord"} key={`${index}`}>
-                                                                                        <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/discord-seeklogo.com.svg")}/></a>
-                                                                                    </div>
-                                                                                    : null
-                                        )}
+                                            website.category in mediaWebsiteLookup ?
+                                                    <div className={"website-container external"} key={`${index}`}>
+                                                        <a href={website.url}>{mediaWebsiteLookup[website.category]}</a>
+                                                    </div> : [])
+                                        }
                                     </div>
                                     <div className={"shop-websites"}>
 
                                         {info.websites.slice(0,info.websites.length).map((website, index)=>
-                                            website.category === 10
-                                                ?
-
-                                                    <div className={"website-container apple"} key={`${index}`}>
-                                                        <a href={website.url}> <img className={"website-logo "} src={require("../../../images/company_logos/app-store.png")}/></a>
-                                                    </div>
-
-                                                :
-                                                website.category === 12
-                                                    ?
-
-                                                        <div className={"website-container google"} key={`${index}`}>
-                                                            <a href={website.url}> <img className={"website-logo"} src={require("../../../images/company_logos/google-play.png")}/> </a>
-                                                        </div>
-
-                                                    :
-                                                    website.category === 13
-                                                        ?
-                                                            <div className={"website-container steam"} key={`${index}`}>
-                                                                <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/steam_logo.png")}/> </a>
-                                                            </div>
-
-                                                        :
-                                                        website.category === 15
-                                                            ?
-                                                            <div className={"website-container itch"} key={`${index}`}>
-                                                                <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/itchio_logo.png")}/></a>
-                                                            </div>
-                                                            :
-                                                            website.category === 16
-                                                                ?
-                                                                <div className={"website-container epic"} key={`${index}`}>
-                                                                    <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/epicgames_logo.png")}/></a>
-                                                                </div>
-                                                                :
-                                                                website.category === 17
-                                                                    ?
-                                                                    <div className={"website-container gog"} key={`${index}`}>
-                                                                        <a href={website.url}><img className={"website-logo"} src={require("../../../images/company_logos/gog_logo.jpg")}/></a>
-                                                                    </div>
-                                                                    :
-                                                                    null
-
-
-
-
-
-
-
-
-
-                                        )}
+                                           website.category in shopWebsiteLookup ?
+                                               <div className={"website-container apple"} key={`${index}`}>
+                                                   <a href={website.url}> {shopWebsiteLookup[website.category]}</a>
+                                               </div> : [])}
                                     </div>
                                 </div>
                             }
-
-
                         </div>
                     </div>
                     <div className={"overview"}>
@@ -298,7 +214,7 @@ const GameMain = ({match}) =>{
 
 
                         <div className={"storyline-container"}>
-                            {info.storyline === undefined ? null :
+                            {info.storyline === undefined ? [] :
                                 <div>
                                     <div className={"cat-title"}>Storyline</div>
                                     <div className={"body-text"} >{info.storyline}</div>
@@ -307,9 +223,30 @@ const GameMain = ({match}) =>{
 
                         </div>
                         <div className={"articles-container"}>
-                            {console.log(info.articles)}
 
-                            {info.articles.length === 0 ? console.log('hello') : console.log('this one works')}
+                            {info.articles.length === 0 ? [] :
+                                <div className={"articles-container"}>
+                                    <div className={"signifyer-holder"}>
+                                        <div className={"cat-title"}>News (GameSpot)</div>
+                                        {info.articles.length > 3 ? <a className={"view"}>View all</a> : []}
+                                    </div>
+                                    {info.articles.slice(0,3).map((articles, index)=>
+                                        <div className={ "article-container"}>
+                                            {console.log(articles)}
+                                            <img src={articles.image.square_small} alt={'news-cover'}></img>
+                                            <div className={"art-info"}>
+                                                <div className={"art-title"}>{articles.title}</div>
+                                                <div className={"art-brief"}>{articles.deck}</div>
+                                            </div>
+                                            <div className={"pub-info"}>
+                                                <div className={"auth-name"}>{articles.authors}</div>
+                                                <div className={"pub-date"}>{articles.publish_date}</div>
+                                            </div>
+                                        </div>
+
+                                    )}
+                                </div>
+                            }
 
                         </div>
                             <div className={"rec-container"}>

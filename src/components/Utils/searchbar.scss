@@ -1,0 +1,70 @@
+.input{
+  align-items: center;
+  background: #183053;
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: 46px 1fr 46px;
+  justify-items: center;
+  left: calc(50% - 330px);
+  position: absolute;
+  top: 80px;
+  transition: 1s;
+  width: 660px;
+  z-index: 1;
+
+  .icon{
+   fill: lightslategrey;
+    transition: color .15s ease;
+    z-index: 2;
+  }
+  .exit{
+    fill: lightslategrey;
+    :hover{
+     fill: #00bfff;
+     cursor: pointer;
+   }
+  }
+  input{
+    background: 0 0;
+    border: none;
+    color: rgb(var(--color-text));
+    font-family: Overpass,-apple-system,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    margin-left: 0;
+    outline: 0;
+    padding: 16px 0;
+    padding-top: 18px;
+    position: relative;
+    text-transform: capitalize;
+    width: 100%;
+    z-index: 2;
+  }
+}
+
+.search-results{
+  display: grid;
+  grid-gap: 60px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin: 0 auto;
+  max-width: 1700px;
+  padding: 200px 60px;
+  text-align: center;
+  .result-col{
+    background: #1e3d6a;
+    border-radius: 4px;
+    color: rgb(var(--color-text));
+    position: relative;
+    .results-title{
+      font-size: 1.4rem;
+      font-weight: 700;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      text-transform: capitalize;
+      top: -24px;
+    }
+  }
+}

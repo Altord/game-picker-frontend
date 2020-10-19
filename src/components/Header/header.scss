@@ -46,6 +46,11 @@
                   }
               }
           }
+      .search{
+        &:hover{
+          cursor: pointer;
+        }
+      }
       .user{
         display: inline-flex;
         font-family: "Josefin Sans", sans-serif;

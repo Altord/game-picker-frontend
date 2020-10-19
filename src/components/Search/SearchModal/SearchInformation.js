@@ -1,4 +1,5 @@
 import React from "react";
+import BasicSearch from "./BasicSearch";
 
 const SearchInformation = ({name, platforms, genres, score, cover}) => {
 

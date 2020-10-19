@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios"
-import './FrontPageSearch.scss'
+import './SearchModal/FrontPageSearch.scss'
 import LoaderMapped from "../Utils/SkeletonBasic";
 import imageB from '../../images/icons/183a53.png'
 
