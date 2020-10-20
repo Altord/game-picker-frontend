@@ -5,8 +5,8 @@ import BasicSearch from "./BasicSearch";
 
 const SearchBar = () =>{
     const [searchValue, setSearchValue] = useState({value:''})
-
-    let handleChange =(e)=>{setSearchValue({value: e.target.value}); console.log(e.target.value.length); console.log(searchValue)}
+    //Look into debouncing react hooks
+    let handleChange =(e)=>{e.target.value.length > 2 ? setSearchValue({value: e.target.value}) : console.log(`The length of the word is less than 3, ` + e.target.value.length)}
 
     return(
         <div>

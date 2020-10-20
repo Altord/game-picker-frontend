@@ -93,6 +93,7 @@
       <workItem from="1603028999355" duration="5699000" />
       <workItem from="1603043945306" duration="19445000" />
       <workItem from="1603073854911" duration="3052000" />
+      <workItem from="1603128164966" duration="10156000" />
     </task>
     <servers />
   </component>
@@ -158,6 +159,12 @@
           <url>file://$PROJECT_DIR$/src/components/Search/Anticipated.js</url>
           <line>34</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Search/Top100.js</url>
+          <line>47</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
