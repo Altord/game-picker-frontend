@@ -32,13 +32,13 @@ const RecomCarousel = ({themes, genres, gameId}) =>{
                 console.error(err +" check maping or routes");
 
             })
-    },[themes,genres])
+    },[themes,genres,gameId])
 
     var renderRecs = (array) =>{
         return array.map(info=>(
             <div>
                 <a className={"rec-cover"} href={`${info.key}`} id={`cover + ${info.key}`}  >
-                    <img className={"recommend-img"} src={`${info.cover}`}/>
+                    <img className={"recommend-img"} src={`${info.cover}`} alt={"cover"}/>
                     <div className={"rec-more-details"}>
                         <div  className={"rec-clearing"} id={`rec-clearing + ${info.key}`}  >
 

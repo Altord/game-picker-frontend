@@ -1,5 +1,5 @@
-import React,{useState,useEffect} from 'react'
-import '../../Utils/searchbar.scss'
+import React,{useState} from 'react'
+import './searchbar.scss'
 import BasicSearch from "./BasicSearch";
 
 

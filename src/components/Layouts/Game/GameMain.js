@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
-import './GameMain.scss'
+import {CircleToBlockLoading} from 'react-loadingg'
 import Carousel from "../../Utils/Carousel";
 import RecomCarousel from "../../Utils/Recommendations";
 import imageB from "../../../images/icons/183a53.png"
-
+import './GameMain.scss'
 // Displays main game information
-
 
 
 const GameMain = ({match}) =>{
@@ -64,28 +63,28 @@ const GameMain = ({match}) =>{
     }, [gameId]);
 
     let mediaWebsiteLookup = {
-        1 : <img className={"website-logo"} src={require("../../../images/company_logos/external-link-symbol.png")}/>,
-        2 : <img className={"website-logo"} src={require("../../../images/company_logos/wikia_logo.png")}/>,
-        3 : <img className={"website-logo"} src={require("../../../images/company_logos/wikipedia.png")}/>,
-        4 : <img className={"website-logo"} src={require("../../../images/company_logos/facebook-icon.svg")}/>,
-        5 : <img className={"website-logo"} src={require("../../../images/company_logos/twitter.png")}/>,
-        6 : <img className={"website-logo"} src={require("../../../images/company_logos/twitch.png")}/>,
-        8 : <img className={"website-logo"} src={require("../../../images/company_logos/instagram.png")}/>,
-        9 : <img className={"website-logo"} src={require("../../../images/company_logos/youtube.png")}/>,
-        14 :<img className={"website-logo"} src={require("../../../images/company_logos/Reddit-Icon.png")}/>,
-        18 :<img className={"website-logo"} src={require("../../../images/company_logos/discord-seeklogo.com.svg")}/>
+        1 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/external-link-symbol.png")}/>,
+        2 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/wikia_logo.png")}/>,
+        3 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/wikipedia.png")}/>,
+        4 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/facebook-icon.svg")}/>,
+        5 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/twitter.png")}/>,
+        6 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/twitch.png")}/>,
+        8 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/instagram.png")}/>,
+        9 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/youtube.png")}/>,
+        14 :<img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/Reddit-Icon.png")}/>,
+        18 :<img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/discord-seeklogo.com.svg")}/>
     }
     let shopWebsiteLookup = {
-        10 : <img className={"website-logo "} src={require("../../../images/company_logos/app-store.png")}/>,
-        12 : <img className={"website-logo"} src={require("../../../images/company_logos/google-play.png")}/>,
-        13 : <img className={"website-logo"} src={require("../../../images/company_logos/steam_logo.png")}/>,
-        15 : <img className={"website-logo"} src={require("../../../images/company_logos/itchio_logo.png")}/>,
-        16 : <img className={"website-logo"} src={require("../../../images/company_logos/epicgames_logo.png")}/>,
-        17 : <img className={"website-logo"} src={require("../../../images/company_logos/gog_logo.jpg")}/>
+        10 : <img alt={"website logo"}className={"website-logo "} src={require("../../../images/company_logos/app-store.png")}/>,
+        12 : <img alt={"website logo"}className={"website-logo"} src={require("../../../images/company_logos/google-play.png")}/>,
+        13 : <img alt={"website logo"}className={"website-logo"} src={require("../../../images/company_logos/steam_logo.png")}/>,
+        15 : <img alt={"website logo"}className={"website-logo"} src={require("../../../images/company_logos/itchio_logo.png")}/>,
+        16 : <img alt={"website logo"}className={"website-logo"} src={require("../../../images/company_logos/epicgames_logo.png")}/>,
+        17 : <img alt={"website logo"}className={"website-logo"} src={require("../../../images/company_logos/gog_logo.jpg")}/>
     }
     return(
         //Initial rendering of the page
-
+        information.length === 0 ? <CircleToBlockLoading/> :
         information.map(info=>
             <div className={"game-page-content"}>
                 {console.log(information)}
@@ -96,7 +95,7 @@ const GameMain = ({match}) =>{
                         <div className={"container"}>
                             <div className={"cover-wrap overelap-banner"}>
                                 <div className={"cover-wrap-inner"}>
-                                    <img src={info.cover} className={"cover"}/>
+                                    <img src={info.cover} className={"cover"} alt={"cover"}/>
                                     <div className={"actions"}>
                                         <div className={"list"}>
                                             <div className={"add"}>

@@ -37,7 +37,7 @@ const RecentlyReleased = ({mouseIn, mouseOut, emoji}) =>{
         information.map(info=>
             <div onMouseEnter={(evt)=>{mouseIn(evt, info.resColor, info.key)}} onMouseLeave={(evt)=>{mouseOut(evt,info.key)}} className={"media-card"} key={info.key}  id={`media-card + ${info.key}`}  >
                 <a className={"cover"} href={`games/${info.key}`} id={`cover + ${info.key}`}  >
-                    <img className={"image-loaded"} src={info.cover}  id={`image-loaded + ${info.key}`}/>
+                    <img className={"image-loaded"} src={info.cover}  id={`image-loaded + ${info.key}`} alt={"cover"}/>
                     <div onMouseEnter={(evt)=>{mouseIn(evt, info.resColor, info.key)}} onMouseLeave={(evt)=>{mouseOut(evt,info.key)}} className={"more-details"}  id={`more-details + ${info.key}`} >
                         <div  className={"clearing"} id={`clearing + ${info.key}`}  >
                             <div className={"rating"} id={`rating + ${info.key}`}  >
@@ -45,7 +45,7 @@ const RecentlyReleased = ({mouseIn, mouseOut, emoji}) =>{
                                 <div className={"emoji"} id={`emoji + ${info.key}`} >{emoji(Math.round(info.aggregated_rating),info.resColor, info.key)}</div>
                             </div>
                             {info.genres === undefined ? <div key={info.key} id={"gen-index"}>
-                                <h2 className={"genre-info"} id={`genre-info + ${info.key}`}></h2>
+                                <div className={"genre-info"} id={`genre-info + ${info.key}`}></div>
                             </div>
                                 : info.genres.slice(0,1).map((gen,index)=>
                                 <div key={index} id={"gen-index"}>

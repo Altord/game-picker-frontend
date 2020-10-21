@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 // Debouncer hook so that search doesn't push every time input is changed
 export default function useDebounce(value, delay) {
@@ -20,7 +20,7 @@ export default function useDebounce(value, delay) {
         // Only re-call effect if value changes
         // You could also add the "delay" var to inputs array if you ...
         // ... need to be able to change that dynamically.
-        [value]
+        [value, delay]
     );
 
     return debouncedValue;

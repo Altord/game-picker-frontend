@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import './LandPage.scss'
 import PopSearch from "../Search/PopSearch";
 import Trending from "../Search/Trending";
@@ -52,7 +52,7 @@ const LandingPage = () =>{
                     <div className={"content-container"} id={"content-container"}>
                         <div className={"base-landing"} id={"base-landing"}>
                             <div className={"landing-section popular-30"}>
-                                <div className={"title link"}><a><h3>Popular</h3></a><div className={"expand"}>View All</div></div>
+                                <div className={"title link"}><div><h3>Popular</h3></div><div className={"expand"}>View All</div></div>
                                 <div className={"results"}>
 
                                     <PopSearch mouseIn={mouseInMain} mouseOut={mouseOutMain} emoji={emojiDisplay} />
@@ -60,25 +60,25 @@ const LandingPage = () =>{
 
                             </div>
                             <div  className={"landing-section trending"}>
-                                <div className={"title link"}><a><h3>Trending</h3></a><div className={"expand"}>View All</div></div>
+                                <div className={"title link"}><div><h3>Trending</h3></div><div className={"expand"}>View All</div></div>
                                 <div className={"results"}>
                                     <Trending mouseIn={mouseInMain} mouseOut={mouseOutMain} emoji={emojiDisplay}/>
                                 </div>
                             </div>
                             <div  className={"landing-section upcomming"}>
-                                <div className={"title link"}><a><h3>Recently Released</h3></a><div className={"expand"}>View All</div></div>
+                                <div className={"title link"}><div><h3>Recently Released</h3></div><div className={"expand"}>View All</div></div>
                                 <div className={"results"}>
                                     <RecentlyReleased mouseIn={mouseInMain} mouseOut={mouseOutMain} emoji={emojiDisplay}/>
                                 </div>
                             </div>
                             <div  className={"landing-section all-time-pop"}>
-                                <div className={"title link"}><a><h3>Anticipated</h3></a><a className={"expand"}>View All</a></div>
+                                <div className={"title link"}><div><h3>Anticipated</h3></div><div className={"expand"}>View All</div></div>
                                 <div className={"results"}>
                                     <Anticipated mouseIn={mouseInMain} mouseOut={mouseOutMain} emoji={emojiDisplay}/>
                                 </div>
                             </div>
                             <div  className={"top-100"}>
-                                <div className={"title link"}><a><h3>Top 100</h3></a><a className={"expand"}>View All</a></div>
+                                <div className={"title link"}><div><h3>Top 100</h3></div><div className={"expand"}>View All</div></div>
                                 <div className={"top-100-results"}>
                                     <Top100 emoji={emojiDisplay} mouseIn={mouseIn100} mouseOut={mouseOut100}/>
                                 </div>

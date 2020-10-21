@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useRef,useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -11,7 +11,11 @@ const useStyles = makeStyles((theme) => ({
     modal: {
         display: 'flex',
         justifyContent: 'center',
-        overflowY: 'auto',
+        overflow: 'auto',
+        height: '100vh',
+        width: '100vw',
+        position: 'fixed',
+
     },
     fadeInContent:{
         overflowY: 'auto'
@@ -23,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
         setOpen(true);
@@ -33,6 +37,16 @@ const Header = () => {
         setOpen(false);
     };
 
+    const descriptionElementRef = useRef(null);
+    useEffect(() => {
+        if (open) {
+            const { current: descriptionElement } = descriptionElementRef;
+            if (descriptionElement !== null) {
+                descriptionElement.focus();
+            }
+        }
+    }, [open]);
+
     return(
 
             <div className={"nav-container"} id={"nav-container"}>
@@ -40,7 +54,6 @@ const Header = () => {
                         <a href={"https://www.igdb.com/discover"}><img className={"igdb-icon"} alt="" src={require('../../images/icons/IDGBicon.png')}/></a>
                         <div className={"links"}>
                                 <a href={"/"}>Home</a>
-                                <a href={"/games"}>Games</a>
                                 <a href={"/browse"}>Browse</a>
                                 <a href={"/game-picker-main"}>Game Picker</a>
                                 <a href={"/help"}>Help</a>
@@ -57,23 +70,22 @@ const Header = () => {
                             <a href={"/users/new"} className={"new"}>Sign Up</a>
                             <a href={"/users/login"}>Log In</a>
                         </div>
-                        <Modal
-                            className={classes.modal}
-                               open={open}
-                               onClose={handleClose}
-                               closeAfterTransition
-                               BackdropComponent={Backdrop}
-                               BackdropProps={{
-                                   timeout: 500,
-                               }}
-                              >
-                                <Fade in={open} >
-                                    <div>
-                                        <SearchBar onClose={handleClose}/>
-                                    </div>
-                                </Fade>
 
-                        </Modal>
+                    <Modal
+                        className={classes.modal}
+                        open={open}
+                        onClose={handleClose}
+                        closeAfterTransition
+                        BackdropComponent={Backdrop}
+                        BackdropProps={{
+                            timeout: 500,
+                        }}
+                    >
+                        <Fade in={open}>
+                            <SearchBar onClose={handleClose}/>
+                        </Fade>
+
+                    </Modal>
                 </div>
             </div>
 

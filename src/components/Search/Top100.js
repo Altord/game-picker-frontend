@@ -45,9 +45,9 @@ const Top100 = ({mouseIn, mouseOut, emoji}) => {
                 <div className={"rank-box"}>
                     <span className={"hash"}>#</span>{index + 1}
                 </div>
-                <a className={"cover"}>
-                    <img className={"image-loaded"} src={info.cover}/>
-                </a>
+                <div className={"cover"}>
+                    <img className={"image-loaded"} src={info.cover} alt={"cover"}/>
+                </div>
                 <div className={"content"}>
                     <div className={"row title"}>
                         <div className={"title-wrap"}>
@@ -55,9 +55,9 @@ const Top100 = ({mouseIn, mouseOut, emoji}) => {
                         </div>
                         <div id={"genres"}>
                         {info.genres === undefined ?
-                                <a className={"genre"} id={`genre-info + ${info.key}`} style={{backgroundColor: `rgb(${info.SQACresColor[0]},${info.SQACresColor[1]},${info.SQACresColor[2]})`}}></a>
+                                <div className={"genre"} id={`genre-info + ${info.key}`} style={{backgroundColor: `rgb(${info.SQACresColor[0]},${info.SQACresColor[1]},${info.SQACresColor[2]})`}}></div>
                         : info.genres.slice(0,3).map((gen,index)=>
-                                <a className={"genre"} id={`genre-info + ${info.key}`} style={{backgroundColor: `rgb(${info.SQACresColor[0]},${info.SQACresColor[1]},${info.SQACresColor[2]})`}}>{gen.name === undefined ? `Unknown`: gen.name}</a>)}
+                                <div className={"genre"} id={`genre-info + ${info.key}`} style={{backgroundColor: `rgb(${info.SQACresColor[0]},${info.SQACresColor[1]},${info.SQACresColor[2]})`}}>{gen.name === undefined ? `Unknown`: gen.name}</div>)}
                         </div>
                     </div>
                     <div className={"row score"}>
@@ -68,7 +68,7 @@ const Top100 = ({mouseIn, mouseOut, emoji}) => {
                     <div className={"row plat"}>
                         {info.platforms.slice(0,2).map((plat,index)=>
                             <div key={index} id={"100-plat-index"}>
-                                <a key={index} className={"100-platform-info"} id={`plat + ${info.key}`}>{plat.abbreviation}</a>
+                                <div key={index} className={"100-platform-info"} id={`plat + ${info.key}`}>{plat.abbreviation}</div>
                             </div>
                         )}
 

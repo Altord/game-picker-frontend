@@ -17,14 +17,14 @@ const Carousel = ({videos, screenshots, artworks}) =>{
     var renderScreens = (screenShotArray) =>{
         return(screenShotArray.map(image=>(
             <div className={"gallery-item-cont"}>
-                <img className={"gallery-item"} src={image}/>
+                <img className={"gallery-item"} src={image} alt={"array"}/>
             </div>
         )))
     };
     var renderArt = (artworksArray) =>{
         return(artworksArray.map(image=>(
             <div className={"gallery-item-cont"}>
-                <img className={"gallery-item"} src={image}/>
+                <img className={"gallery-item"} src={image} alt={"array"}/>
             </div>
         )))
     };

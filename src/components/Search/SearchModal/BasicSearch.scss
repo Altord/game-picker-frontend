@@ -1,14 +1,63 @@
 .result-col{
   height: 500px;
-  .result:first-of-type{
+  .result-game:first-of-type{
     padding-top: 15px;
     border-radius: 4px 4px 0 0;
   }
-  .result:last-of-type{
+  .result-game:last-of-type{
     padding-bottom: 15px;
     border-radius: 0 0 4px 4px;
   }
-  .result{
+  .result-game{
+    cursor: pointer;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    position: relative;
+    transition: background-color .15s ease,color .15s;
+    &:hover{
+      background-color: #00bfff;
+    }
+    .search-details{
+      align-items: center;
+      display: grid;
+      grid-template-columns: 40px auto auto;
+      transition: color .15s;
+      .result-image{
+        border-radius: 3px;
+        display: inline-block;
+        height: 50px;
+        vertical-align: top;
+        width: 50px;
+
+      }
+      .result-game-title{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding: 0 20px;
+        text-align: left;
+        font-weight: 700;
+        .game-category{
+          font-weight: 500;
+        }
+      }
+      .result-extra{
+        text-align: right;
+
+        font-size: 1.6rem;
+      }
+    }
+  }
+  .result-company:first-of-type{
+    padding-top: 15px;
+    border-radius: 4px 4px 0 0;
+  }
+  .result-company:last-of-type{
+    padding-bottom: 15px;
+    border-radius: 0 0 4px 4px;
+  }
+  .result-company{
     cursor: pointer;
     font-size: 1.3rem;
     font-weight: 600;
