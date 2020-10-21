@@ -10,9 +10,12 @@ import './header.scss'
 const useStyles = makeStyles((theme) => ({
     modal: {
         display: 'flex',
-        alignItems: 'center',
         justifyContent: 'center',
+        overflowY: 'auto',
     },
+    fadeInContent:{
+        overflowY: 'auto'
+    }
 
 }));
 
@@ -55,7 +58,7 @@ const Header = () => {
                             <a href={"/users/login"}>Log In</a>
                         </div>
                         <Modal
-                                className={classes.modal}
+                            className={classes.modal}
                                open={open}
                                onClose={handleClose}
                                closeAfterTransition
@@ -64,11 +67,11 @@ const Header = () => {
                                    timeout: 500,
                                }}
                               >
-                            <Fade in={open}>
-                                <div>
-                                    <SearchBar/>
-                                </div>
-                            </Fade>
+                                <Fade in={open} >
+                                    <div>
+                                        <SearchBar onClose={handleClose}/>
+                                    </div>
+                                </Fade>
 
                         </Modal>
                 </div>

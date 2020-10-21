@@ -55,8 +55,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\components\Search\SearchModal" />
       <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\images\icons" />
+      <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\components\Search\SearchModal" />
       <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\images\company_logos" />
       <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\components\Layouts" />
     </key>
@@ -94,6 +94,8 @@
       <workItem from="1603043945306" duration="19445000" />
       <workItem from="1603073854911" duration="3052000" />
       <workItem from="1603128164966" duration="10156000" />
+      <workItem from="1603203833128" duration="17416000" />
+      <workItem from="1603232885222" duration="6237000" />
     </task>
     <servers />
   </component>
@@ -137,22 +139,22 @@
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
     <state x="2263" y="557" key="run.anything.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603075033371" />
-    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup" timestamp="1603074320887">
+    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup" timestamp="1603207271241">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603074320887" />
+    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603207271241" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Layouts/Game/GameMain.js</url>
-          <line>189</line>
+          <line>187</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Layouts/Game/GameMain.js</url>
-          <line>125</line>
+          <line>123</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -163,7 +165,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Search/Top100.js</url>
           <line>47</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

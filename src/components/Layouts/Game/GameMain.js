@@ -32,7 +32,6 @@ const GameMain = ({match}) =>{
             const videosArray = game.videos === undefined ? [] : game.videos.map(video => video.video_id);
             const screenShotArray = game.screenshots === undefined ? [] : game.screenshots.map(screenshot => screenshot.url.replace("t_thumb","t_1080p"))
             const artWorkArray = game.artworks === undefined ? [] : game.artworks.map(artwork => artwork.url.replace("t_thumb","t_1080p"))
-            const websiteCatArray = game.websites === undefined ? [] : game.websites.map(website => website.category)
             dataCopy.push({
                 age: game.age_ratings,
                 artworks: artWorkArray,
@@ -46,6 +45,7 @@ const GameMain = ({match}) =>{
                 videos : videosArray,
                 key: game.id,
                 name: game.name,
+                similar_games: game.similar_games,
                 summary: game.summary,
                 screenShots: screenShotArray,
                 cover: game.cover === undefined ? imageB : game.cover.url ? game.cover.url.replace("t_thumb", "t_cover_big") : [],
@@ -53,14 +53,12 @@ const GameMain = ({match}) =>{
                 genres: game.genres,
                 platforms: game.platforms,
                 websites: game.websites,
-                websiteCategory: websiteCatArray,
             });
 
             console.log(dataCopy)
             setInformation(dataCopy);
         }
 
-        // since we just defined the function, now call it
         fetchData();
 
     }, [gameId]);
@@ -188,12 +186,15 @@ const GameMain = ({match}) =>{
                                         }
                                     </div>
                                     <div className={"shop-websites"}>
-
                                         {info.websites.slice(0,info.websites.length).map((website, index)=>
                                            website.category in shopWebsiteLookup ?
-                                               <div className={"website-container apple"} key={`${index}`}>
-                                                   <a href={website.url}> {shopWebsiteLookup[website.category]}</a>
-                                               </div> : [])}
+                                               <div>
+
+                                                   <div className={"website-container buy"} key={`${index}`}>
+                                                       <a href={website.url}> {shopWebsiteLookup[website.category]}</a>
+                                                   </div>
+                                               </div>
+                                               : [])}
                                     </div>
                                 </div>
                             }
@@ -228,9 +229,9 @@ const GameMain = ({match}) =>{
                                 <div className={"articles-container"}>
                                     <div className={"signifyer-holder"}>
                                         <div className={"cat-title"}>News (GameSpot)</div>
-                                        {info.articles.length > 3 ? <a className={"view"}>View all</a> : []}
+
                                     </div>
-                                    {info.articles.slice(0,3).map((articles, index)=>
+                                    {info.articles.slice(0,4).map((articles, index)=>
                                         <div className={ "article-container"}>
                                             {console.log(articles)}
                                             <img src={articles.image.square_small} alt={'news-cover'}></img>

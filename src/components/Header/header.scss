@@ -80,6 +80,13 @@
       }
 
     }
+  .fadeInContent{
+    overflow-y: auto;
+    ::-webkit-scrollbar {
+      width: 0px;
+      background: transparent; /* make scrollbar transparent */
+    }
+  }
 }
 
 
@@ -96,7 +103,6 @@
 
 
 }
-
 .svg-icon circle {
     stroke: #4691f6;
     stroke-width: 1;
@@ -104,3 +110,4 @@
 .content {
     text-align: center;
 }
+
