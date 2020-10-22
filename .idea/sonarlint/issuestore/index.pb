@@ -27,8 +27,6 @@ Y
 )src/components/Layouts/Game/GameMain.scss,9\b\9b80238003d2b92cbf2251fa1e17302898a26279
 W
 'src/components/Layouts/Game/GameMain.js,8\5\8563a11ba3f938bfc80078f7e2779dc79328ba76
-S
-#src/components/Utils/searchbar.scss,d\6\d65ca4c92cc89f27766705cb85a393a80bbde8ee
 f
 6src/components/Search/SearchModal/SearchInformation.js,c\0\c06ad2ff6b94e7e099edcdd6b73e2e62f58c6c43
 `
@@ -45,3 +43,13 @@ Q
 .src/components/Search/SearchModal/SearchBar.js,a\d\ad9c7cc83cda47011ab23d35d8a098422bf43fa5
 b
 2src/components/Search/SearchModal/BasicSearch.scss,e\4\e439bef0dd4ea8c581b1102f62b8488b0c7faf25
+b
+2src/components/Search/SearchModal/basicsearch.scss,4\6\46271eb184f3852ac5103e8b4e97b69bbad8e541
+P
+ src/components/Utils/Carousel.js,b\3\b34f4fd43978aa0c65ce843536e46ae50b85cdb9
+K
+src/components/App/App.scss,9\8\98d6892ff72dc13e65bf584c78cab8a30fd04adf
+_
+/src/components/Layouts/Company/CompanyMain.scss,0\8\0854ccc847946ef7cca4e9cf204f5a256d8b462a
+]
+-src/components/Layouts/Company/CompanyMain.js,b\c\bc35ccf8f0663b14eb1ee149e03c4b7c5e4e5d27

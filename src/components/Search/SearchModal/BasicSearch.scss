@@ -1,12 +1,8 @@
 .result-col{
-  height: 500px;
+  height: 495px;
   .result-game:first-of-type{
     padding-top: 15px;
     border-radius: 4px 4px 0 0;
-  }
-  .result-game:last-of-type{
-    padding-bottom: 15px;
-    border-radius: 0 0 4px 4px;
   }
   .result-game{
     cursor: pointer;
@@ -53,10 +49,7 @@
     padding-top: 15px;
     border-radius: 4px 4px 0 0;
   }
-  .result-company:last-of-type{
-    padding-bottom: 15px;
-    border-radius: 0 0 4px 4px;
-  }
+
   .result-company{
     cursor: pointer;
     font-size: 1.3rem;

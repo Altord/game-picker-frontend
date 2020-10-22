@@ -3,7 +3,7 @@ import axios from 'axios'
 import {CircleToBlockLoading} from 'react-loadingg'
 import Carousel from "../../Utils/Carousel";
 import RecomCarousel from "../../Utils/Recommendations";
-import imageB from "../../../images/icons/183a53.png"
+import imageB from "../../../images/icons/gamepad.png"
 import './GameMain.scss'
 // Displays main game information
 
@@ -145,7 +145,11 @@ const GameMain = ({match}) =>{
                             {info.involved_companies === undefined ? [] :
                                     <div className={"data-set"}>
                                         <div className={"type"}>Companies</div>
-                                        <div className={"value"}>{info.involved_companies.slice(0,info.involved_companies.length).map(names=>`${names.company.name},`.replace(/,(?=[^,]*$)/ ,"\n"))}</div>
+                                        <div className={"value"}>{info.involved_companies.slice(0,info.involved_companies.length).map(names=>
+                                            <a className={"link"} href={`/companies/${names.company.id}`}>
+                                                {names.company.name.replace(/,(?=[^,]*$)/ ,"\n")}
+                                            </a>)
+                                        }</div>
                                     </div>
                             }
                             {info.platforms === undefined ? []:
@@ -180,7 +184,7 @@ const GameMain = ({match}) =>{
                                         {info.websites.slice(0,info.websites.length).map((website,index)=>
                                             website.category in mediaWebsiteLookup ?
                                                     <div className={"website-container external"} key={`${index}`}>
-                                                        <a href={website.url}>{mediaWebsiteLookup[website.category]}</a>
+                                                        <a href={website.url} target={"_blank"}>{mediaWebsiteLookup[website.category]}</a>
                                                     </div> : [])
                                         }
                                     </div>
@@ -190,7 +194,7 @@ const GameMain = ({match}) =>{
                                                <div>
 
                                                    <div className={"website-container buy"} key={`${index}`}>
-                                                       <a href={website.url}> {shopWebsiteLookup[website.category]}</a>
+                                                       <a href={website.url} target={"_blank"}> {shopWebsiteLookup[website.category]}</a>
                                                    </div>
                                                </div>
                                                : [])}
@@ -231,7 +235,7 @@ const GameMain = ({match}) =>{
 
                                     </div>
                                     {info.articles.slice(0,4).map((articles, index)=>
-                                        <div className={ "article-container"}>
+                                        <a className={"article-container"} href={articles.site_detail_url} target={"_blank"}>
                                             {console.log(articles)}
                                             <img src={articles.image.square_small} alt={'news-cover'}></img>
                                             <div className={"art-info"}>
@@ -242,7 +246,7 @@ const GameMain = ({match}) =>{
                                                 <div className={"auth-name"}>{articles.authors}</div>
                                                 <div className={"pub-date"}>{articles.publish_date}</div>
                                             </div>
-                                        </div>
+                                        </a>
 
                                     )}
                                 </div>

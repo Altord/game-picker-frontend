@@ -3,6 +3,7 @@ import './App.scss';
 import Header from '../Header/Header'
 import LandingPage from "../Main/LandingPage";
 import GameMain from "../Layouts/Game/GameMain";
+import CompanyMain from "../Layouts/Company/CompanyMain"
 import {BrowserRouter as Router, Route} from "react-router-dom"
 
 var prevScrollpos = window.pageYOffset;
@@ -28,6 +29,7 @@ function App() {
                 <br/>
                 <Route exact path="/"  component={LandingPage}/>
                 <Route exact path="/games/:gameId" component={GameMain}/>
+                <Route exact path="/companies/:companyId" component={CompanyMain}/>
             </div>
         </Router>
 

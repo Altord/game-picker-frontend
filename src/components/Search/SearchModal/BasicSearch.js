@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from "axios"
 import useDebounce from "../../Utils/Debouncer";
 import { RotateCircleLoading } from 'react-loadingg';
-import './BasicSearch.scss'
+import './basicsearch.scss'
 
 const BasicSearch = ({searchInfo}) => {
     const [information, setInformation] = useState([])
@@ -78,13 +78,20 @@ const BasicSearch = ({searchInfo}) => {
                         )}
                     </div>}
                     {info.characters.length === 0 ? [] :
-                    <div className={"result-col"}><h3 className={'results-title'}>Character</h3> hi</div>}
-                    {info.themes.length === 0 ? [] :
-                    <div className={"result-col"}><h3 className={'results-title'}>Themes</h3> hi</div>}
-                    {info.franchises === 0 ? [] :
-                    <div className={"result-col"}><h3 className={'results-title'}>Franchises</h3> hello </div> }
-                    {info.platforms === 0 ? [] :
-                    <div className={"result-col"}><h3 className={'results-title'}>Platform</h3> hello</div>}
+                    <div className={"result-col"}><h3 className={'results-title'}>Character</h3>
+                        {info.characters.slice(0,info.characters.length).map((characterInfo, index)=>
+                            <div className={"result-company"}>
+                                <a className={"search-details"} href={`/companies/${characterInfo.id}`}>
+                                    <img className={'result-image'} src={`${characterInfo.mug_shot === undefined ? require('../../../images/icons/moustache.png') : characterInfo.mug_shot.url}`}/>
+                                    <div className={'result-game-title'}>
+                                        {characterInfo.name}
+                                        <div className={'game-category'}>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        )}
+                    </div>}
                 </div>
         )
 

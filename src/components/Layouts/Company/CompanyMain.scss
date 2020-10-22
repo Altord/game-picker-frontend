@@ -1,0 +1,61 @@
+img{
+  max-width: none;
+  max-height: none;
+}
+
+.company-header-wrap{
+  background-color: #183053;
+  height: 175px;
+  box-shadow: 0 8px 6px -6px black;
+  position: relative;
+  margin-bottom: 300px;
+  .banner{
+    background-position: 50% 35%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 350px;
+    margin-top: -58px;
+    filter: blur(4px);
+  }
+  .header{
+    background-color:  #3E6399;
+    width: 500px;
+    height: auto;
+    position: absolute;
+    margin: -150px auto 50px auto;
+    left: 0;
+    right: 0;
+    padding-bottom: 20px;
+    border-radius: 5px;
+    box-shadow:  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086);
+
+    .company-logo{
+
+      max-width: 250px;
+      max-height: 125px;
+      margin-top: 20px;
+
+
+
+
+    }
+    .company-name{
+
+      margin-top: 20px;
+      font-size: 3rem;
+      font-weight: 700;
+      text-shadow: 1px 1px 1px #000,
+      3px 3px 5px #215e7c;
+    }
+  }
+
+}
+.company-content-wrapper{
+ margin-top: 50px;
+}
+.cover{
+  max-width: 200px;
+}

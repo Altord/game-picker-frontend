@@ -6,7 +6,7 @@ import Fade from '@material-ui/core/Fade';
 import SearchBar from "../Search/SearchModal/SearchBar";
 import './header.scss'
 
-
+//Modal styles
 const useStyles = makeStyles((theme) => ({
     modal: {
         display: 'flex',
@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 //Header for navigation
-
 const Header = () => {
+//Set classes for modal and Set state for modal popup
     const classes = useStyles();
     const [open, setOpen] = useState(false);
 
@@ -37,16 +37,6 @@ const Header = () => {
         setOpen(false);
     };
 
-    const descriptionElementRef = useRef(null);
-    useEffect(() => {
-        if (open) {
-            const { current: descriptionElement } = descriptionElementRef;
-            if (descriptionElement !== null) {
-                descriptionElement.focus();
-            }
-        }
-    }, [open]);
-
     return(
 
             <div className={"nav-container"} id={"nav-container"}>
@@ -56,7 +46,6 @@ const Header = () => {
                                 <a href={"/"}>Home</a>
                                 <a href={"/browse"}>Browse</a>
                                 <a href={"/game-picker-main"}>Game Picker</a>
-                                <a href={"/help"}>Help</a>
                         </div>
                         <div className={"search"} onClick={handleOpen}>
                             <svg className={"svg-icon"} viewBox="0 0 20 20">
