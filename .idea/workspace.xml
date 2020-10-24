@@ -52,6 +52,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -99,6 +100,8 @@
       <workItem from="1603289560359" duration="18983000" />
       <workItem from="1603319487495" duration="104000" />
       <workItem from="1603320050050" duration="10967000" />
+      <workItem from="1603377341490" duration="28164000" />
+      <workItem from="1603459471182" duration="17598000" />
     </task>
     <servers />
   </component>
@@ -138,10 +141,10 @@
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
     <state x="0" y="0" width="1853" height="1112" key="dock-window-1/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603030602327" />
-    <state x="2263" y="557" key="run.anything.popup" timestamp="1603075033371">
+    <state x="2263" y="557" key="run.anything.popup" timestamp="1603408613231">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2263" y="557" key="run.anything.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603075033371" />
+    <state x="2263" y="557" key="run.anything.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603408613231" />
     <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup" timestamp="1603303896711">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
@@ -169,6 +172,22 @@
           <url>file://$PROJECT_DIR$/src/components/Search/Top100.js</url>
           <line>47</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Layouts/Company/CompanyMain.js</url>
+          <line>155</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Layouts/Company/CompanyMain.js</url>
+          <line>8</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Layouts/Browse/Browse.js</url>
+          <line>16</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

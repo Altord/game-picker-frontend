@@ -5,14 +5,19 @@
   text-decoration: none;
   color: white;
 }
-div{
-  display: block;
-}
+
 
 .page-content{
   display: block;
   min-height: 100vh;
+  .page-heading{
+    font-size: 8rem;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 10px;
+    margin-left: -4px;
 
+  }
 }
 
 
@@ -32,9 +37,9 @@ div{
   width: 100%;
 
 }
-@media(min-width: 1540px) {
+@media(min-width: 1600px) {
   .content-container {
-    max-width: 1520px;
+    max-width: 1600px;
     padding-left: 125px;
     padding-right: 125px;
   }
@@ -43,8 +48,20 @@ div{
 
 .landing-section{
   margin-bottom: 30px;
+  .section-title{
+    background-image: linear-gradient(0deg,hsla(0,0%,100%,0) 0,hsla(0,0%,100%,.4) 0,hsla(0,0%,100%,.4) 1px,hsla(0,0%,100%,0) 0);
+    display: inline;
+    margin-right: 8px;
+    font-weight: 700;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
 }
 
+//Formatting for titles
 .title{
   color: rgb(var(--color-gray-800));
   font-size: 1.6rem;
@@ -54,17 +71,11 @@ div{
   margin-bottom: 20px;
 
 }
+//Formatting for links
 .link{
   align-items: flex-end;
   display: flex;
-  .expand{
-    color: rgb(var(--color-gray-600));
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-left: auto;
-    text-transform: none;
-    transition: color .2s ease;
-  }
+
   }
 
 
@@ -77,7 +88,7 @@ div{
   }
 }
 
-
+//Results basic formatting
 .results{
   display: grid;
   grid-gap: 28px 30px;
@@ -206,7 +217,6 @@ div{
     }
     .title{
 
-      color: rgb(var(--color-gray-700));
       font-size: 1.4rem;
       font-weight: 600;
       line-height: 21px;
@@ -221,6 +231,19 @@ div{
   }
 }
 
+//Top 100 formatting
+.top-100{
+  .section-title{
+    background-image: linear-gradient(0deg,hsla(0,0%,100%,0) 0,hsla(0,0%,100%,.4) 0,hsla(0,0%,100%,.4) 1px,hsla(0,0%,100%,0) 0);
+    display: inline;
+    margin-right: 8px;
+    font-weight: 700;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
 .top-100-results{
   grid-template-columns: 1fr;
   grid-gap: 24px;

@@ -5,6 +5,7 @@ import LandingPage from "../Main/LandingPage";
 import GameMain from "../Layouts/Game/GameMain";
 import CompanyMain from "../Layouts/Company/CompanyMain"
 import {BrowserRouter as Router, Route} from "react-router-dom"
+import Browse from "../Layouts/Browse/Browse";
 
 var prevScrollpos = window.pageYOffset;
     window.onscroll = function(){
@@ -28,8 +29,10 @@ function App() {
                 <Header/>
                 <br/>
                 <Route exact path="/"  component={LandingPage}/>
+                <Route exact path="/browse" component={Browse}/>
                 <Route exact path="/games/:gameId" component={GameMain}/>
                 <Route exact path="/companies/:companyId" component={CompanyMain}/>
+
             </div>
         </Router>
 
