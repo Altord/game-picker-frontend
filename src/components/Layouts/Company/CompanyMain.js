@@ -6,11 +6,10 @@ import building from "../../../images/icons/building.png"
 import './CompanyMain.scss'
 // Displays main company information
 
-const backgroundHoverDev = (event, key, backgroundB) =>{
+const backgroundHoverDev = (event, key) =>{
     let background = document.getElementById('background-image dev' + key)
     let gameContainer = document.getElementById('game-container dev' + key)
     const backgroundStyles  = {
-        background: `url(${backgroundB}) no-repeat`,
         opacity: '1',
         backgroundSize: '1920px 1080px'
     }
@@ -37,11 +36,10 @@ const backgroundClearDev = (event, key) =>{
     Object.assign(gameContainer.style, gameStyles)
 
 }
-const backgroundHoverPub = (event, key, backgroundB) =>{
+const backgroundHoverPub = (event, key) =>{
     let background = document.getElementById('background-image pub' + key)
     let gameContainer = document.getElementById('game-container pub' + key)
     const backgroundStyles  = {
-        background: `url(${backgroundB}) no-repeat`,
         opacity: '1',
         backgroundSize: '1920px 1080px'
     }
@@ -130,9 +128,9 @@ const CompanyMain = ({match}) =>{
                                 <div className={"title"}>Developed Games</div>
                                 {info.developed.slice(0,5).map(game=>
                                     <a href={`/games/${game.id}`}>
-                                        <div className={"background-image"} id={'background-image dev' + game.id}/>
+                                        <div className={"background-image"} id={'background-image dev' + game.id} style={{background: `url(${(game.screenshots === undefined ? [] : game.screenshots[0].url.replace('t_thumb','t_1080p'))}) no-repeat`}}/>
                                         <div className={"background-static"}/>
-                                        <div className={"game-container"} id={'game-container dev' + game.id} onMouseLeave= {(evt)=>{backgroundClearDev(evt,game.id,game)}} onMouseEnter={(evt)=>{backgroundHoverDev(evt,game.id,(game.screenshots === undefined ? [] : game.screenshots[0].url.replace('t_thumb','t_1080p')))}}>
+                                        <div className={"game-container"} id={'game-container dev' + game.id} onMouseLeave= {(evt)=>{backgroundClearDev(evt,game.id,game)}} onMouseEnter={(evt)=>{backgroundHoverDev(evt,game.id)}}>
 
                                             <img className={"cover"} src={game.cover === undefined ? imageB : game.cover.url.replace("t_thumb","t_1080p")} alt={"published cover"}></img>
                                             <div className={"game-info"}>
@@ -157,9 +155,9 @@ const CompanyMain = ({match}) =>{
                                 <span className={"title"}>Published Games</span>
                                 {info.published.slice(0,5).map(game=>
                                     <a href={`/games/${game.id}`}>
-                                        <div className={"background-image"} id={'background-image pub' + game.id}/>
+                                        <div className={"background-image"} id={'background-image pub' + game.id} style={{background: `url(${(game.screenshots === undefined ? [] : game.screenshots[0].url.replace('t_thumb','t_1080p'))}) no-repeat`}}/>
                                         <div className={"background-static"}/>
-                                        <div className={"game-container"} id={'game-container pub' + game.id} onMouseLeave= {(evt)=>{backgroundClearPub(evt,game.id,game)}} onMouseEnter={(evt)=>{backgroundHoverPub(evt,game.id,game.screenshots === undefined ? [] : game.screenshots[0].url.replace('t_thumb','t_1080p'))}}>
+                                        <div className={"game-container"} id={'game-container pub' + game.id} onMouseLeave= {(evt)=>{backgroundClearPub(evt,game.id,game)}} onMouseEnter={(evt)=>{backgroundHoverPub(evt,game.id)}}>
 
                                             <img className={"cover"} src={game.cover === undefined ? imageB : game.cover.url.replace("t_thumb","t_1080p")} alt={"published cover"}></img>
                                             <div className={"game-info"}>

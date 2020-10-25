@@ -253,6 +253,7 @@ const GameMain = ({match}) =>{
                             }
 
                         </div>
+
                             <div className={"rec-container"}>
 
                                 <div className={"cat-title"}>Recommendations</div>

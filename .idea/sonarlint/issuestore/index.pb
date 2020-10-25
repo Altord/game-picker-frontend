@@ -53,3 +53,5 @@ _
 /src/components/Layouts/Company/CompanyMain.scss,0\8\0854ccc847946ef7cca4e9cf204f5a256d8b462a
 ]
 -src/components/Layouts/Company/CompanyMain.js,b\c\bc35ccf8f0663b14eb1ee149e03c4b7c5e4e5d27
+W
+'src/components/Layouts/Browse/Browse.js,0\1\01d3b2c8bc79abbf75108af6022b67fb7457be4e

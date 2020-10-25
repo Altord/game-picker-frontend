@@ -22,7 +22,7 @@ const RecomCarousel = ({themes, genres, gameId}) =>{
                 //Bunch of looping to get desired information quickly
                 //Push to array that will then have information set its state too
                 for (let i = 0; i < 16; i++){
-                    dataCopy.push({key: returnedResponse.data[0][i].id, name: returnedResponse.data[0][i].name, summary: returnedResponse.data[0][i].summary, aggregated_rating: returnedResponse.data[0][i].aggregated_rating, genres: returnedResponse.data[0][i].genres, platforms: returnedResponse.data[0][i].platforms, cover: returnedResponse.data[0][i].cover === undefined ? gamepad : returnedResponse.data[0][i].cover.url ? returnedResponse.data[0][i].cover.url.replace("t_thumb", "t_cover_big") : null})
+                     dataCopy.push(returnedResponse.data[0][i] === undefined ? [] :{key: returnedResponse.data[0][i].id, name: returnedResponse.data[0][i].name, summary: returnedResponse.data[0][i].summary, aggregated_rating: returnedResponse.data[0][i].aggregated_rating, genres: returnedResponse.data[0][i].genres, platforms: returnedResponse.data[0][i].platforms, cover: returnedResponse.data[0][i].cover === undefined ? gamepad : returnedResponse.data[0][i].cover.url ? returnedResponse.data[0][i].cover.url.replace("t_thumb", "t_cover_big") : null})
                 }
                 setInformation(dataCopy);
 
