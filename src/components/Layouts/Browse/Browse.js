@@ -27,7 +27,7 @@ const Browse = () =>{
 
                                 {info.platforms.results.slice(0, info.platforms.results.length).map(result =>
                                     <div className={"card-wrapper"}>
-                                        <div className={"card-template"} style={{backgroundImage: `linear-gradient(rgba(32, 32, 32, 0.5), rgb(32, 32, 32) 70%), url(${result.image_background})`}}>
+                                        <div className={"card-template"} style={{backgroundImage: `linear-gradient(rgba(24, 48, 83, 0.5), rgb(24, 48, 83) 70%), url(${result.image_background})`}}>
                                             <div className={"card-header"}>
                                                 <div className={"card-heading"}><a href={`platform/${result.id}`}className={"cat-link"}>{result.name}</a></div>
                                             </div>
@@ -55,7 +55,7 @@ const Browse = () =>{
 
                             {info.developers.slice(0, info.developers.length).map(dev =>
                                 <div className={"card-wrapper"}>
-                                    <div className={"card-template"} style={{backgroundImage: `linear-gradient(rgba(32, 32, 32, 0.5), rgb(32, 32, 32) 70%), url(${dev.developed[0].screenshots[0].url.replace('t_thumb','t_720p')})`}}>
+                                    <div className={"card-template"} style={{backgroundImage: `linear-gradient(rgba(24, 48, 83, 0.5), rgb(24, 48, 83) 70%), url(${dev.developed[0].screenshots[0].url.replace('t_thumb','t_720p')})`}}>
                                         <div className={"card-header"}>
                                             <div className={"card-heading"}><a href={`companies/${dev.id}`}className={"cat-link"}>{dev.name}</a></div>
                                         </div>
@@ -83,7 +83,7 @@ const Browse = () =>{
                             {info.publishers.slice(0, info.publishers.length).map(pub =>
                                 <div className={"card-wrapper"}>
 
-                                    <div className={"card-template"} style={{backgroundImage: `linear-gradient(rgba(32, 32, 32, 0.5), rgb(32, 32, 32) 70%), url(${pub.published[1].screenshots[0].url.replace('t_thumb', 't_720p')})`}}>
+                                    <div className={"card-template"} style={{backgroundImage: `linear-gradient(rgba(24, 48, 83, 0.5), rgb(24, 48, 83) 70%), url(${pub.published[1].screenshots[0].url.replace('t_thumb', 't_720p')})`}}>
                                         <div className={"card-header"}>
                                             <div className={"card-heading"}><a href={`companies/${pub.id}`}className={"cat-link"}>{pub.name}</a></div>
                                         </div>
@@ -110,7 +110,7 @@ const Browse = () =>{
 
                             {info.genres.results.slice(0, info.genres.results.length).map(result =>
                                 <div className={"card-wrapper"}>
-                                    <div className={"card-template"} style={{backgroundImage: `linear-gradient(rgba(32, 32, 32, 0.5), rgb(32, 32, 32) 70%), url(${result.image_background})`}}>
+                                    <div className={"card-template"} style={{backgroundImage: `linear-gradient(rgba(24, 48, 83, 0.5), rgb(24, 48, 83) 70%), url(${result.image_background})`}}>
                                         <div className={"card-header"}>
                                             <div className={"card-heading"}><a href={`genres/${result.id}`}className={"cat-link"}>{result.name}</a></div>
                                         </div>

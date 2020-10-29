@@ -253,14 +253,11 @@ const GameMain = ({match}) =>{
                             }
 
                         </div>
-
+                        {info.themes && info.genres === undefined ? [] :
                             <div className={"rec-container"}>
-
-                                <div className={"cat-title"}>Recommendations</div>
-                                <RecomCarousel themes={info.themes} genres={info.genres}  gameId={info.key}/>
-
-
-                            </div>
+                                    <div className={"cat-title"}>Recommendations</div>
+                                    <RecomCarousel themes={info.themes} genres={info.genres}  gameId={info.key}/>
+                            </div>}
 
 
                     </div>

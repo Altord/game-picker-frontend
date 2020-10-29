@@ -7,12 +7,12 @@ import './basicsearch.scss'
 const BasicSearch = ({searchInfo}) => {
     const [information, setInformation] = useState([])
     const [isSearching, setIsSearching] = useState(false)
+    //Grab the debounced function to stagger the search/change req, set dependancy to debounced
     const debouncedSearchTerm = useDebounce(searchInfo, 500);
     useEffect (()=>{
         const pullCall =  () =>{axios.post('http://localhost:3001/search', {searchValue: searchInfo}).then(res=> {
             setInformation(res.data)
             setIsSearching(false)
-            console.log(res.data)
         })}
             if(debouncedSearchTerm){
                 setIsSearching(true)

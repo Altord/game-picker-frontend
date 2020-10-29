@@ -6,9 +6,9 @@ import BasicSearch from "./BasicSearch";
 const SearchBar = ({onClose}) =>{
     const [searchValue, setSearchValue] = useState('')
 
-
+    //Handle the change for the search term
     let handleChange =(e)=>{setSearchValue( e.target.value)}
-
+    //SVG's are placed rather ugly here, I'm going to change this if I find a better way to do so
     return(
         <div>
             <div className={"input"}>
@@ -25,10 +25,6 @@ const SearchBar = ({onClose}) =>{
         </div>
 
     )
-
-
-
-
 }
 
 export default SearchBar;

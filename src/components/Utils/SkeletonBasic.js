@@ -1,6 +1,7 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
 
+//Loading skeleton for frong page
 const BasicLoader = (props) => (
     <ContentLoader
         speed={2}
@@ -16,6 +17,7 @@ const BasicLoader = (props) => (
     </ContentLoader>
 )
 
+//Maps it out to 7 cards
 const LoaderMapped = ()=>{
     const basicArray = []
     for (let i=0; i < 7; i++){

@@ -110,7 +110,6 @@ const CompanyMain = ({match}) =>{
         information.length === 0 ? <CircleToBlockLoading/> :
             information.map(info=>
                 <div className={"company-page-content"}>
-                    {console.log(information)}
                     <div className={"company-header-wrap"}>
                         <div className={"banner"} style={{backgroundImage: 'url(https://w.wallhaven.cc/full/96/wallhaven-965258.jpg)'}}></div>
                         <div className={"header"}>

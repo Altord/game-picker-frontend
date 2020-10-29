@@ -56,10 +56,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\images\company_logos" />
       <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\images\icons" />
+      <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\components\User\Login" />
+      <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\components\User\Registration" />
+      <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\images\company_logos" />
       <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\components\Search\SearchModal" />
-      <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\components\Layouts" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -106,6 +107,14 @@
       <workItem from="1603591869431" duration="250000" />
       <workItem from="1603592145181" duration="5000" />
       <workItem from="1603592243268" duration="5233000" />
+      <workItem from="1603639804746" duration="1178000" />
+      <workItem from="1603646715238" duration="1266000" />
+      <workItem from="1603729667740" duration="1166000" />
+      <workItem from="1603753502527" duration="8305000" />
+      <workItem from="1603814991020" duration="12499000" />
+      <workItem from="1603853386200" duration="1723000" />
+      <workItem from="1603894590859" duration="17459000" />
+      <workItem from="1603925364411" duration="3515000" />
     </task>
     <servers />
   </component>
@@ -125,14 +134,14 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2348" y="950" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602427953159">
+    <state x="2348" y="950" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603922038479">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2348" y="950" key="#com.intellij.fileTypes.FileTypeChooser/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1602427953159" />
-    <state x="2337" y="1417" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603073803034">
+    <state x="2348" y="950" key="#com.intellij.fileTypes.FileTypeChooser/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603922038479" />
+    <state x="2337" y="1417" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603842108985">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2337" y="1417" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603073803034" />
+    <state x="2337" y="1417" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603842108985" />
     <state x="2186" y="781" key="FileChooserDialogImpl" timestamp="1603073840437">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
@@ -145,14 +154,14 @@
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
     <state x="0" y="0" width="1853" height="1112" key="dock-window-1/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603030602327" />
-    <state x="2263" y="557" key="run.anything.popup" timestamp="1603580816308">
+    <state x="2263" y="557" key="run.anything.popup" timestamp="1603902486732">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2263" y="557" key="run.anything.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603580816308" />
-    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup" timestamp="1603303896711">
+    <state x="2263" y="557" key="run.anything.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603902486732" />
+    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup" timestamp="1603913180394">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603303896711" />
+    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603913180394" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -179,7 +188,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Layouts/Company/CompanyMain.js</url>
-          <line>153</line>
+          <line>152</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

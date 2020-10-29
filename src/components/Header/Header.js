@@ -25,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
 
 //Header for navigation
 const Header = () => {
+    // Captures the id and send it to the backend
+  let userState = window.location.pathname;
 //Set classes for modal and Set state for modal popup
     const classes = useStyles();
     const [open, setOpen] = useState(false);
@@ -55,10 +57,21 @@ const Header = () => {
                             s2.893-6.461,6.461-6.461c3.568,0,6.46,2.893,6.46,6.461S12.135,15.028,8.567,15.028z"></path>
                             </svg>
                         </div>
+                    {userState==='/users/login' ?
                         <div className={"user"}>
-                            <a href={"/users/new"} className={"new"}>Sign Up</a>
-                            <a href={"/users/login"}>Log In</a>
+                            <a href={"/users/register"} className={"new"}>Sign Up</a>
+
                         </div>
+                        : userState === '/users/register' ?
+                            <div className={"user"}>
+                                <a href={"/users/login"}>Log In</a>
+                            </div>
+                        :  <div className={"user"}>
+                                <a href={"/users/register"} className={"new"}>Sign Up</a>
+                                <a href={"/users/login"}>Log In</a>
+                            </div>
+                    }
+
 
                     <Modal
                         className={classes.modal}
