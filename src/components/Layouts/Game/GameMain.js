@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import axios from 'axios'
 import {CircleToBlockLoading} from 'react-loadingg'
+import {Link} from 'react-router-dom'
 import Carousel from "../../Utils/Carousel";
 import RecomCarousel from "../../Utils/Recommendations";
 import imageB from "../../../images/icons/gamepad.png"
@@ -17,6 +18,7 @@ const GameMain = ({match}) =>{
     //Set state
     const [information, setInformation] = useState([])
     useEffect(() => {
+        //Send multiple responses, 1 for the game itself, 1 for the game articles
         async function fetchData() {
             const returnedResponse = await axios.post('http://localhost:3001/games/id', {gameId});
             const game = returnedResponse.data[0][0];
@@ -24,13 +26,14 @@ const GameMain = ({match}) =>{
             let dataCopy = [];
             let articlesArray = [];
 
-
+            //If the article results are present, assign them to the articles array
             if (res.data.results) {
                 articlesArray = res.data.results;
             }
             const videosArray = game.videos === undefined ? [] : game.videos.map(video => video.video_id);
             const screenShotArray = game.screenshots === undefined ? [] : game.screenshots.map(screenshot => screenshot.url.replace("t_thumb","t_1080p"))
             const artWorkArray = game.artworks === undefined ? [] : game.artworks.map(artwork => artwork.url.replace("t_thumb","t_1080p"))
+            //Set up the keys for the objects taht will be assigned from the intial dataresponse
             dataCopy.push({
                 age: game.age_ratings,
                 artworks: artWorkArray,
@@ -132,9 +135,9 @@ const GameMain = ({match}) =>{
                                     <div className={"data-set"}>
                                         <div className={"type"}>Companies</div>
                                         <div className={"value"}>{info.involved_companies.slice(0,info.involved_companies.length).map(names=>
-                                            <a className={"link"} href={`/companies/${names.company.id}`}>
+                                            <Link className={"link"} to={`/companies/${names.company.id}`}>
                                                 {names.company.name.replace(/,(?=[^,]*$)/ ,"\n")}
-                                            </a>)
+                                            </Link>)
                                         }</div>
                                     </div>
                             }

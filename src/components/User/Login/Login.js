@@ -5,10 +5,10 @@ import { useHistory, Redirect } from "react-router-dom";
 import background from "../../../images/icons/24223373.png";
 import './login.scss'
 import qs from 'qs'
-import UserContext from "../../../Context/UserContext";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "../../Utils/Auhtorization/setAuthToken";
 
+//Basic login form to grab user data
 const UserLoginForm = ()=>{
     const history = useHistory();
     const initialState = {
@@ -16,7 +16,6 @@ const UserLoginForm = ()=>{
         password: "",
     }
     const[information, setInformation] = useState(initialState)
-    const{userData,setUserData,changeUserData} = useContext(UserContext)
     const token = localStorage.jwtToken;
 
     const handleChange = (event) =>{
@@ -77,8 +76,6 @@ const UserLoginForm = ()=>{
                 const {token} = response.data;
                 setAuthToken(token)
                 const decoded = jwt_decode(token)
-                setUserData(decoded)
-                console.log(userData)
                 localStorage.setItem("jwtToken", token)
 
              })

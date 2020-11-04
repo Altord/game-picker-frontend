@@ -4,6 +4,7 @@ import setAuthToken from "./setAuthToken";
 const logoutUsers = () =>{
 
     localStorage.removeItem("jwtToken");
+    localStorage.removeItem("games");
     setAuthToken(false);
 
 }

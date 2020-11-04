@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useContext,useRef} from 'react';
 import axios from 'axios'
-import UserContext from "../../../Context/UserContext";
+import {UserContext} from "../../../Context/UserContextProvider";
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { withStyles } from '@material-ui/core/styles';
@@ -8,16 +8,14 @@ const GameStatus = ({gameInfo}) => {
     const isMounted = useRef(false);
     const [status,setStatus] = useState('')
     const [focusedStatus,setFocusedStatus] = useState('');
-    const {userData,userDataUpdate} = useContext(UserContext)
+    const {userData} = useContext(UserContext)
     const [anchorEl, setAnchorEl] = useState(null);
     const userCall = () => (axios.post('http://localhost:3001/users/games/status', {userData, editedGameInfo, status}))
-
     const editedGameInfo = {
         gameTitle: gameInfo.name,
         gameId: gameInfo.key,
         score: gameInfo.aggregated_rating,
     }
-
 
     const StyledMenu = withStyles({
         paper: {
@@ -66,7 +64,6 @@ const GameStatus = ({gameInfo}) => {
 
     }
     useEffect(()=>{
-        console.log(userData)
         if(userData.games !== undefined){
             userData.games.forEach((game)=>{
                 if(game.gameId === gameInfo.key){
@@ -79,9 +76,8 @@ const GameStatus = ({gameInfo}) => {
     useEffect(()=>{
         if(isMounted.current){
             userCall().then(res=>{
-                let gamesArray = []
-                gamesArray.push(res.data)
-                userDataUpdate()
+                const{token} = res.data;
+                localStorage.setItem('games', token)
                 console.log(userData)
             }).catch(err=>console.log(err))
         }else{

@@ -8,7 +8,7 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
 import Browse from "../Layouts/Browse/Browse";
 import UserSignupForm from "../User/Registration/Register";
 import UserLoginForm from "../User/Login/Login";
-import UserContext from "../../Context/UserContext";
+import UserContextProvider from "../../Context/UserContextProvider"
 import jwt_decode from "jwt-decode";
 import setAuthToken from "../Utils/Auhtorization/setAuthToken";
 import logoutUsers from "../Utils/Auhtorization/authActions";
@@ -30,7 +30,7 @@ window.onscroll = function(){
 
 //I'm using react-router in order to switch out components on link clicks
 function App() {
-    const [userData, setUserData] = useState({});
+   /* const [userData, setUserData] = useState({});
     const changeUserData = (newUserData) =>setUserData(newUserData)
     useEffect(()=>{
         let checkLogged = async() =>{
@@ -40,7 +40,7 @@ function App() {
                 const decoded = jwt_decode(token)
                 setUserData(decoded)
            
-            } */
+            } 
             const currentTime = Date.now() / 1000
             if (userData.exp < currentTime) {
                 logoutUsers();
@@ -52,26 +52,31 @@ function App() {
         checkLogged();
 
     },[])
-
+    */
 
     return (
 
             <Router>
-                <UserContext.Provider value={{userData, setUserData,changeUserData}}>
-                     <div className="App">
-              
-                    <Header/>
-                    <Route exact path="/"  component={LandingPage}/>
-                    <Route exact path="/browse" component={Browse}/>
-                    <Route exact path="/games/:gameId" component={GameMain}/>
-                    <Route exact path="/companies/:companyId" component={CompanyMain}/>
-                    <Route path="/users/register" component = {UserSignupForm}/>
-                    <Route path="/users/login" component = {UserLoginForm}/>
-                    <Route path="/users/:id/profile" component={UserProfile}/>
+              {/*  <UserContext.Provider value={{userData, setUserData,changeUserData}}></UserContext.Provider>*/}
+                     <UserContextProvider>
+                                <div className="App">
+                            
+                            <Header/>
+                            <Route exact path="/"  component={LandingPage}/>
+                            <Route exact path="/browse" component={Browse}/>
+                            <Route exact path="/games/:gameId" component={GameMain}/>
+                            <Route exact path="/companies/:companyId" component={CompanyMain}/>
+                            <Route path="/users/register" component = {UserSignupForm}/>
+                            <Route path="/users/login" component = {UserLoginForm}/>
+                            <Route path="/users/:id/profile" component={UserProfile}/>
 
-               
-                </div>
-                </UserContext.Provider>
+
+                        
+                    
+                            </div>
+                     </UserContextProvider>
+                    
+      
 
             </Router>
 

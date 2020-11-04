@@ -5,7 +5,7 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import SearchBar from "../Search/SearchModal/SearchBar";
-import UserContext from "../../Context/UserContext";
+import {UserContext} from "../../Context/UserContextProvider"
 import profile from "../../images/icons/astronaut(1).png"
 import './header.scss'
 import UserLogOut from "../User/Logout/Logout";
@@ -30,10 +30,11 @@ const useStyles = makeStyles((theme) => ({
 //Header for navigation
 const Header = () => {
     const classes = useStyles();
+    //Set the search bar state (open/close)
     const [open, setOpen] = useState(false);
-    const{userData,setUserData} = useContext(UserContext)
+    //Set current userProfile from user data
+    const {userData,setUserData} = useContext(UserContext)
     const token = localStorage.jwtToken;
-    const [headerCheck, headerCheckSet] = useState(false)
 
     const handleOpen = () => {
         setOpen(true);
@@ -43,17 +44,7 @@ const Header = () => {
         setOpen(false);
     };
 
-    useEffect(()=>{
-        let userCheck = () =>{
-            setTimeout(()=>{
-                if (token !== undefined){
-                    headerCheckSet(true);
-                }
-            },500)
-        }
-       userCheck();
-    })
-
+    
     return(
 
             <nav className={"nav-container"} id={"nav-container"}>
@@ -62,7 +53,7 @@ const Header = () => {
                         <div className={"links"}>
                                 <Link to={"/"}>Home</Link>
                                 <Link to={"/browse"}>Browse</Link>
-                                <a href={"/game-picker-main"}>Game Picker</a>
+                                <Link to={"/game-picker-main"}>Game Picker</Link>
                         </div>
                         <div className={"search"} onClick={handleOpen}>
                             <svg className={"svg-icon"} viewBox="0 0 20 20">
@@ -79,7 +70,7 @@ const Header = () => {
                         </div>)
                         :
                         (<div className={"user"}>
-                            <div><a href={`/users/${userData.id}/profile`}><img className={"profile"} src={profile}/></a></div>
+                            <div><Link to={`/users/${userData.id}/profile`}><img className={"profile"} src={profile}/></Link></div>
                             <UserLogOut/>
                         </div>)
                     }
