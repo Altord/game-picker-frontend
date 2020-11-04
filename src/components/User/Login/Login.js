@@ -1,24 +1,28 @@
-import React, {useState} from 'react'
+import React, {useState,useContext} from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import { useHistory, Redirect } from "react-router-dom";
 import background from "../../../images/icons/24223373.png";
 import './login.scss'
 import qs from 'qs'
+import UserContext from "../../../Context/UserContext";
+import jwt_decode from "jwt-decode";
+import setAuthToken from "../../Utils/Auhtorization/setAuthToken";
 
 const UserLoginForm = ()=>{
-    const [user, setUser] = useState(null)
-    const[information, setInformation] = useState({
+    const history = useHistory();
+    const initialState = {
         email: "",
         password: "",
-    })
-
+    }
+    const[information, setInformation] = useState(initialState)
+    const{userData,setUserData,changeUserData} = useContext(UserContext)
+    const token = localStorage.jwtToken;
 
     const handleChange = (event) =>{
-
         setInformation({
             ...information,
             [event.target.id] : event.target.value })
-
     }
 
     const onSubmit = (event) => {
@@ -34,8 +38,8 @@ const UserLoginForm = ()=>{
                     email: "",
                     password: ""
                 })
-                console.log(response.data)
-
+                const {token} = response.data;
+                localStorage.setItem("jwtToken", token)
 
             })
 
@@ -43,11 +47,58 @@ const UserLoginForm = ()=>{
 
             });
 
+        setTimeout(()=>{
+            if(localStorage.jwtToken !== undefined){
+                history.go(0)
+            }
+        },600)
+
+
+
     }
 
+    const submitGuest = (event) => {
+        event.preventDefault()
 
+        axios({
+            method: 'post',
+            data: qs.stringify({
+                email: "guest@email.com",
+                password: "guestpw"
+            }),
+            headers: {'content-type': 'application/x-www-form-urlencoded'},
+            url: 'http://localhost:3001/api/users/login'
+        },[])
+            .then(response =>{
+                setInformation({
+                    email: "",
+                    password: ""
+                })
+                const {token} = response.data;
+                setAuthToken(token)
+                const decoded = jwt_decode(token)
+                setUserData(decoded)
+                console.log(userData)
+                localStorage.setItem("jwtToken", token)
+
+             })
+
+            .catch(err => {
+
+            });
+
+        setTimeout(()=>{
+            if(localStorage.jwtToken !== undefined){
+                history.go(0)
+            }
+        },600)
+
+
+
+    }
 
     return (
+        token === undefined ?
         <div className={"login-form-container"}>
             <div className={"form-image"} style={{background: `url(${background})`}}></div>
             <div className={"col2"}>
@@ -57,7 +108,7 @@ const UserLoginForm = ()=>{
                     </h4>
 
                 </div>
-                <form noValidate onSubmit={onSubmit} className={"form-inputs"}>
+                <form onSubmit={onSubmit} className={"form-inputs"}>
 
                     <div className={"input-field"}>
                         <label htmlFor="email">Email</label>
@@ -72,7 +123,7 @@ const UserLoginForm = ()=>{
                     </div>
 
                     <div className="button-container">
-                        <button type="submit" className="btn btn-large waves-effect waves-light hoverable blue accent-3">
+                       <button type="submit">
                             Log In
                         </button>
                     </div>
@@ -83,13 +134,14 @@ const UserLoginForm = ()=>{
                     </div>
                     <div className={"type-break"}/>
                     <div className={"guest-login"}>
-                        <button className={"guest-button"}>
+                        <button className={"guest-button"} onClick={submitGuest}>
                             Guest
                         </button>
                     </div>
                 </form>
             </div>
         </div>
+            : <Redirect to={"/"}/>
     );
 }
 

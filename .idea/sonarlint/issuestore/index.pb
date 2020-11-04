@@ -61,5 +61,15 @@ $src/components/User/Login/login.scss,b\c\bc8f1877a2a25b955690ef5767f1ddb38da72
 ,src/components/User/Registration/Register.js,4\e\4ed462767487621dd79e3585b8160486d6150df2
 R
 "src/components/User/Login/Login.js,1\5\157f45b6d34f6c585ca9ef500f2ff42479739f28
-S
-#src/components/Utils/AuthContext.js,6\9\690208f713dd00b6d5d22403ec2602b1e149b5ef
+b
+2src/components/Utils/Auhtorization/setAuthToken.js,1\2\12ee0b1b8c016323b41f0531b5591e9170c06fea
+a
+1src/components/Utils/Auhtorization/authActions.js,c\8\c8f4a032a5b736674245f7490eb024dc9c719209
+J
+src/Context/UserContext.js,e\e\eea4551b028544b3e29e01e608c3bdf25067c774
+T
+$src/components/User/Logout/Logout.js,e\6\e66fcdb7741f647e96c03158ceb806b40dd99f18
+W
+'src/components/User/Profile/UserMain.js,b\3\b391015d9c3de0b79b18168110f06025b3df4065
+Y
+)src/components/Layouts/Game/GameStatus.js,9\e\9ebc0e7f9d715f77be3f0ceaf61f649dd6fcf205

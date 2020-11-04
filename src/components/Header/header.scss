@@ -46,6 +46,7 @@
               }
           }
       .search{
+        margin-top: 5px;
         &:hover{
           cursor: pointer;
         }
@@ -56,6 +57,31 @@
         font-size: 1.1rem;
         text-align: center;
         min-width: 12%;
+
+        .profile{
+          width: 30px;
+          margin-top: 15px;
+
+          transition: .5s;
+          &:hover{
+            transform: scale(1.5);
+            cursor: pointer;
+
+          }
+
+        }
+        .log-out{
+          background-color: #162c4c;
+          border-radius: 6px;
+          transition: transform 1s;
+
+          padding: 10px;
+          &:hover{
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: .5s;
+          }
+        }
         .new{
           background-color: #162c4c;
           border-radius: 6px;

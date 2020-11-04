@@ -5,6 +5,7 @@ import Carousel from "../../Utils/Carousel";
 import RecomCarousel from "../../Utils/Recommendations";
 import imageB from "../../../images/icons/gamepad.png"
 import './GameMain.scss'
+import GameStatus from "./GameStatus";
 // Displays main game information
 
 
@@ -20,7 +21,6 @@ const GameMain = ({match}) =>{
             const returnedResponse = await axios.post('http://localhost:3001/games/id', {gameId});
             const game = returnedResponse.data[0][0];
             const res = await axios.post('http://localhost:3001/games/rec/articles', {gameName: game.name});
-            console.log(game)
             let dataCopy = [];
             let articlesArray = [];
 
@@ -54,7 +54,6 @@ const GameMain = ({match}) =>{
                 websites: game.websites,
             });
 
-            console.log(dataCopy)
             setInformation(dataCopy);
         }
 
@@ -87,7 +86,6 @@ const GameMain = ({match}) =>{
         information.length === 0 ? <CircleToBlockLoading/> :
         information.map(info=>
             <div className={"game-page-content"}>
-                {console.log(information)}
                 <div className={"header-wrap"}>
                     {info.screenShots.length === 0 ? <div className={"banner"} style={{backgroundImage: `url(https://w.wallhaven.cc/full/45/wallhaven-453xr1.jpg)`}}/> :
                     <div className={"banner"} style={{backgroundImage: `url(${info.screenShots[0]})`}}/>}
@@ -96,19 +94,7 @@ const GameMain = ({match}) =>{
                             <div className={"cover-wrap overelap-banner"}>
                                 <div className={"cover-wrap-inner"}>
                                     <img src={info.cover} className={"cover"} alt={"cover"}/>
-                                    <div className={"actions"}>
-                                        <div className={"list"}>
-                                            <div className={"add"}>
-                                                Add to List
-                                            </div>
-                                            <div className={"dropdown"}>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" fill="white" height="24" viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>
-                                            </div>
-                                        </div>
-                                        <div className={"favorite"}>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z"/></svg>
-                                        </div>
-                                    </div>
+                                  <GameStatus gameInfo={info} />
                                 </div>
                             </div>
                             <div className={"content"}>
@@ -236,7 +222,6 @@ const GameMain = ({match}) =>{
                                     </div>
                                     {info.articles.slice(0,4).map((articles, index)=>
                                         <a className={"article-container"} href={articles.site_detail_url} target={"_blank"}>
-                                            {console.log(articles)}
                                             <img src={articles.image.square_small} alt={'news-cover'}></img>
                                             <div className={"art-info"}>
                                                 <div className={"art-title"}>{articles.title}</div>

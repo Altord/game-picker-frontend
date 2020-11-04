@@ -4,6 +4,7 @@ import gamepad from "../../images/icons/gamepad.png"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import axios from "axios";
+import {Link} from 'react-router-dom'
 const RecomCarousel = ({themes, genres, gameId}) =>{
 
     //Set state

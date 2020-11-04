@@ -1,10 +1,14 @@
-import React,{useState} from 'react'
+import React,{useState,useContext,useEffect} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
+import {Link} from 'react-router-dom'
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import SearchBar from "../Search/SearchModal/SearchBar";
+import UserContext from "../../Context/UserContext";
+import profile from "../../images/icons/astronaut(1).png"
 import './header.scss'
+import UserLogOut from "../User/Logout/Logout";
 
 //Modal styles
 const useStyles = makeStyles((theme) => ({
@@ -25,11 +29,11 @@ const useStyles = makeStyles((theme) => ({
 
 //Header for navigation
 const Header = () => {
-    // Captures the id and send it to the backend
-  let userState = window.location.pathname;
-//Set classes for modal and Set state for modal popup
     const classes = useStyles();
     const [open, setOpen] = useState(false);
+    const{userData,setUserData} = useContext(UserContext)
+    const token = localStorage.jwtToken;
+    const [headerCheck, headerCheckSet] = useState(false)
 
     const handleOpen = () => {
         setOpen(true);
@@ -39,14 +43,25 @@ const Header = () => {
         setOpen(false);
     };
 
+    useEffect(()=>{
+        let userCheck = () =>{
+            setTimeout(()=>{
+                if (token !== undefined){
+                    headerCheckSet(true);
+                }
+            },500)
+        }
+       userCheck();
+    })
+
     return(
 
-            <div className={"nav-container"} id={"nav-container"}>
+            <nav className={"nav-container"} id={"nav-container"}>
                 <div className={"wrap"}>
                         <a href={"https://www.igdb.com/discover"}><img className={"igdb-icon"} alt="" src={require('../../images/icons/IDGBicon.png')}/></a>
                         <div className={"links"}>
-                                <a href={"/"}>Home</a>
-                                <a href={"/browse"}>Browse</a>
+                                <Link to={"/"}>Home</Link>
+                                <Link to={"/browse"}>Browse</Link>
                                 <a href={"/game-picker-main"}>Game Picker</a>
                         </div>
                         <div className={"search"} onClick={handleOpen}>
@@ -57,19 +72,16 @@ const Header = () => {
                             s2.893-6.461,6.461-6.461c3.568,0,6.46,2.893,6.46,6.461S12.135,15.028,8.567,15.028z"></path>
                             </svg>
                         </div>
-                    {userState==='/users/login' ?
-                        <div className={"user"}>
-                            <a href={"/users/register"} className={"new"}>Sign Up</a>
-
-                        </div>
-                        : userState === '/users/register' ?
-                            <div className={"user"}>
-                                <a href={"/users/login"}>Log In</a>
-                            </div>
-                        :  <div className={"user"}>
-                                <a href={"/users/register"} className={"new"}>Sign Up</a>
-                                <a href={"/users/login"}>Log In</a>
-                            </div>
+                    {token === undefined ?
+                        ( <div className={"user"}>
+                            <Link to={"/users/register"} className={"new"}>Sign Up</Link>
+                            <Link to={"/users/login"}>Log In</Link>
+                        </div>)
+                        :
+                        (<div className={"user"}>
+                            <div><a href={`/users/${userData.id}/profile`}><img className={"profile"} src={profile}/></a></div>
+                            <UserLogOut/>
+                        </div>)
                     }
 
 
@@ -89,7 +101,7 @@ const Header = () => {
 
                     </Modal>
                 </div>
-            </div>
+            </nav>
 
     )
 }

@@ -1,5 +1,4 @@
 
-Xjavascript:S1481	"5Remove the declaration of the unused 'user' variable.(üüœ€8ô†‚…×.
-Xjavascript:S1854	"5Remove this useless assignment to variable "setUser".(üüœ€8ô†‚…×.
-Ujavascript:S1854	"2Remove this useless assignment to variable "user".(üüœ€8ô†‚…×.
-[javascript:S1481	"8Remove the declaration of the unused 'setUser' variable.(üüœ€8ô†‚…×.
+Wjavascript:S1117K"/'token' is already declared in the upper scope.(ŠÀ¡™ıÿÿÿÿ8úÊíƒÙ.
+Rjavascript:S1128"*Remove this unused import of 'useContext'.(®¢Ì£úÿÿÿÿ8¡˜ğƒÙ.
+Wjavascript:S1117'"/'token' is already declared in the upper scope.(ŠÀ¡™ıÿÿÿÿ8úÊíƒÙ.

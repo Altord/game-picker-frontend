@@ -47,7 +47,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Header" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -55,12 +55,15 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\IntelliJ IDEA 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\components\Header" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\images\icons" />
+      <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\components\Utils\Auhtorization" />
       <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\components\User\Login" />
       <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\components\User\Registration" />
       <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\images\company_logos" />
-      <recent name="C:\Users\Josh\Documents\Work\Projects\unfinished\gamepicker-frontend\src\components\Search\SearchModal" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -114,7 +117,17 @@
       <workItem from="1603814991020" duration="12499000" />
       <workItem from="1603853386200" duration="1723000" />
       <workItem from="1603894590859" duration="17459000" />
-      <workItem from="1603925364411" duration="3515000" />
+      <workItem from="1603925364411" duration="8847000" />
+      <workItem from="1603984045175" duration="6496000" />
+      <workItem from="1604109746015" duration="2672000" />
+      <workItem from="1604154000192" duration="4629000" />
+      <workItem from="1604194788021" duration="8159000" />
+      <workItem from="1604239963178" duration="15990000" />
+      <workItem from="1604276487046" duration="1074000" />
+      <workItem from="1604331365010" duration="22728000" />
+      <workItem from="1604416985263" duration="8559000" />
+      <workItem from="1604435125199" duration="8029000" />
+      <workItem from="1604446784338" duration="83000" />
     </task>
     <servers />
   </component>
@@ -134,10 +147,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2348" y="950" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603922038479">
+    <state x="2348" y="950" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604196305958">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2348" y="950" key="#com.intellij.fileTypes.FileTypeChooser/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603922038479" />
+    <state x="2348" y="950" key="#com.intellij.fileTypes.FileTypeChooser/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1604196305958" />
     <state x="2337" y="1417" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603842108985">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
@@ -154,26 +167,30 @@
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
     <state x="0" y="0" width="1853" height="1112" key="dock-window-1/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603030602327" />
+    <state x="2662" y="780" width="585" height="530" key="find.popup" timestamp="1604428255181">
+      <screen x="0" y="0" width="3840" height="2160" />
+    </state>
+    <state x="2662" y="780" width="585" height="530" key="find.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1604428255181" />
     <state x="2263" y="557" key="run.anything.popup" timestamp="1603902486732">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
     <state x="2263" y="557" key="run.anything.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603902486732" />
-    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup" timestamp="1603913180394">
+    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup" timestamp="1604431535936">
       <screen x="0" y="0" width="3840" height="2160" />
     </state>
-    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1603913180394" />
+    <state x="2270" y="1174" width="672" height="678" key="search.everywhere.popup/-2560.0.2560.1440/0.0.3840.2160@0.0.3840.2160" timestamp="1604431535936" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Layouts/Game/GameMain.js</url>
-          <line>190</line>
+          <line>176</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Layouts/Game/GameMain.js</url>
-          <line>122</line>
+          <line>108</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -195,6 +212,20 @@
           <url>file://$PROJECT_DIR$/src/components/Layouts/Company/CompanyMain.js</url>
           <line>8</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/App/App.js</url>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Layouts/Game/GameStatus.js</url>
+          <line>30</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Layouts/Game/GameStatus.js</url>
+          <line>14</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
