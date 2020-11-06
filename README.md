@@ -1,4 +1,5 @@
 # Game Picker 
+Click on this link if you want to see the app > https://gamepickerbase.herokuapp.com/
 
 Front end portion of app that utilizes react, scss and react-router. 
 
