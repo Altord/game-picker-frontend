@@ -28,14 +28,14 @@ The files in this branch will be using localhost:3001 as the server address, the
 2. Install it inside whichever directory you so please
 3. Use npm run start
 
-##Built with 
+## Built with 
 * React - Framework used
 * React-Router - For dynamic pages
 * SASS
 * Material UI - Aesthetics and modals
 * React Player - for youtube videos
 
-##What needs to be done
+## What needs to be done
 * Proper commenting
 * Clean and sanitize the code
 * **Fix browse**, it's slow as hell because of the async function in the backend
