@@ -5,7 +5,7 @@ Front end portion of app that utilizes react, scss and react-router.
 Multiple other libraries are used but mostly for aesthetic purposes.
 
 
-A basic website. I'm hosting the entire website on heroku, the files for both the backend and front are being placed seperately on github.
+A basic website, I'm hosting the entire website on heroku, the files for both the backend and front are being placed seperately on github.
 
 This is a personal project for me to somewhat understand how I should be building a website.
 
@@ -37,4 +37,5 @@ The files in this branch will be using localhost:3001 as the server address, the
 
 ##What needs to be done
 * Proper commenting
-* Efficient code
+* Clean and sanitize the code
+* **Fix browse**, it's slow as hell because of the async function in the backend
