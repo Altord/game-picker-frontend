@@ -40,3 +40,5 @@ The files in this branch will be using localhost:3001 as the server address, the
 * Proper commenting
 * Clean and sanitize the code
 * **Fix browse**, it's slow as hell because of the async function in the backend
+* Add in the actual gamepicker component
+* Add in the advanced search features
