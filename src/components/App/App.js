@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from 'react';
+import React from 'react';
 import './App.scss';
 import Header from '../Header/Header'
 import LandingPage from "../Main/LandingPage";
@@ -9,11 +9,10 @@ import Browse from "../Layouts/Browse/Browse";
 import UserSignupForm from "../User/Registration/Register";
 import UserLoginForm from "../User/Login/Login";
 import UserContextProvider from "../../Context/UserContextProvider"
-import jwt_decode from "jwt-decode";
-import setAuthToken from "../Utils/Auhtorization/setAuthToken";
-import logoutUsers from "../Utils/Auhtorization/authActions";
+
 import UserProfile from "../User/Profile/UserMain";
 
+//Scrolling for the header
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function(){
         var currentScrollPos = window.pageYOffset;
@@ -30,37 +29,11 @@ window.onscroll = function(){
 
 //I'm using react-router in order to switch out components on link clicks
 function App() {
-   /* const [userData, setUserData] = useState({});
-    const changeUserData = (newUserData) =>setUserData(newUserData)
-    useEffect(()=>{
-        let checkLogged = async() =>{
-          /*  if (localStorage.jwtToken){
-                const token = localStorage.jwtToken;
-                setAuthToken(token)
-                const decoded = jwt_decode(token)
-                setUserData(decoded)
-           
-            } 
-            const currentTime = Date.now() / 1000
-            if (userData.exp < currentTime) {
-                logoutUsers();
-                setUserData({});    // Redirect to login
-                window.location.href = "./login";
-            }
-        }
-
-        checkLogged();
-
-    },[])
-    */
-
     return (
 
             <Router>
-              {/*  <UserContext.Provider value={{userData, setUserData,changeUserData}}></UserContext.Provider>*/}
                      <UserContextProvider>
-                                <div className="App">
-                            
+                        <div className="App">
                             <Header/>
                             <Route exact path="/"  component={LandingPage}/>
                             <Route exact path="/browse" component={Browse}/>
@@ -69,11 +42,7 @@ function App() {
                             <Route path="/users/register" component = {UserSignupForm}/>
                             <Route path="/users/login" component = {UserLoginForm}/>
                             <Route path="/users/:id/profile" component={UserProfile}/>
-
-
-                        
-                    
-                            </div>
+                        </div>
                      </UserContextProvider>
                     
       

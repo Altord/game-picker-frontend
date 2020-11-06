@@ -1,4 +1,4 @@
-import React,{useState,useContext,useEffect} from 'react'
+import React,{useState,useContext} from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import {Link} from 'react-router-dom'
 import Modal from '@material-ui/core/Modal';
@@ -36,6 +36,7 @@ const Header = () => {
     const {userData,setUserData} = useContext(UserContext)
     const token = localStorage.jwtToken;
 
+    //Handling the close and open of the search bar
     const handleOpen = () => {
         setOpen(true);
     };
@@ -70,7 +71,7 @@ const Header = () => {
                         </div>)
                         :
                         (<div className={"user"}>
-                            <div><Link to={`/users/${userData.id}/profile`}><img className={"profile"} src={profile}/></Link></div>
+                            <div><a href={`/users/${userData.id}/profile`}><img className={"profile"} src={profile}/></a></div>
                             <UserLogOut/>
                         </div>)
                     }

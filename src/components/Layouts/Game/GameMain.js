@@ -33,7 +33,7 @@ const GameMain = ({match}) =>{
             const videosArray = game.videos === undefined ? [] : game.videos.map(video => video.video_id);
             const screenShotArray = game.screenshots === undefined ? [] : game.screenshots.map(screenshot => screenshot.url.replace("t_thumb","t_1080p"))
             const artWorkArray = game.artworks === undefined ? [] : game.artworks.map(artwork => artwork.url.replace("t_thumb","t_1080p"))
-            //Set up the keys for the objects taht will be assigned from the intial dataresponse
+            //Set up the keys for the objects that will be assigned from the initial dataresponse
             dataCopy.push({
                 age: game.age_ratings,
                 artworks: artWorkArray,
@@ -56,14 +56,18 @@ const GameMain = ({match}) =>{
                 platforms: game.platforms,
                 websites: game.websites,
             });
-
+            //Set the state of information based on the data saved to the array
             setInformation(dataCopy);
         }
 
         fetchData();
 
     }, [gameId]);
-
+    //A temporary function for clearing state if need be
+    const clearState = () =>{
+        setInformation([])
+    }
+    //Refrence objects/mini-db that allows for specific calls for specific websites
     let mediaWebsiteLookup = {
         1 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/external-link-symbol.png")}/>,
         2 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/wikia_logo.png")}/>,
@@ -87,6 +91,7 @@ const GameMain = ({match}) =>{
     return(
         //Initial rendering of the page
         information.length === 0 ? <CircleToBlockLoading/> :
+        //If information is populated
         information.map(info=>
             <div className={"game-page-content"}>
                 <div className={"header-wrap"}>

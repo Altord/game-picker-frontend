@@ -5,21 +5,29 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { withStyles } from '@material-ui/core/styles';
 const GameStatus = ({gameInfo}) => {
+    //To run function only when the app is mounted
     const isMounted = useRef(false);
+    //Saving the status
     const [status,setStatus] = useState('')
+    //Saving the status and delaying the render
     const [focusedStatus,setFocusedStatus] = useState('');
+    //Calling user data
     const {userData} = useContext(UserContext)
+    //Anchor for the menu
     const [anchorEl, setAnchorEl] = useState(null);
+    //Call for the request to backend
     const userCall = () => (axios.post('http://localhost:3001/users/games/status', {userData, editedGameInfo, status}))
+    
     const editedGameInfo = {
         gameTitle: gameInfo.name,
+        gameCover: gameInfo.cover,
         gameId: gameInfo.key,
         score: gameInfo.aggregated_rating,
     }
-
+    //Material ui menu
     const StyledMenu = withStyles({
         paper: {
-            border: '1px solid #d3d4d5',
+           
             background: '#183053'
 
         },
@@ -36,7 +44,7 @@ const GameStatus = ({gameInfo}) => {
             },
             background: '#183053',
             color: '#e8ebef',
-            width: '150px',
+            width: '200px',
             fontSize: '1.5rem'
         },
     }))(MenuItem);
@@ -46,6 +54,7 @@ const GameStatus = ({gameInfo}) => {
         setAnchorEl(event.currentTarget)
 
     }
+    //Event for when a menu item is pressed
     const handleStatusClose =(event)=>{
         setAnchorEl(null)
         setStatus(event.currentTarget.textContent)
@@ -59,10 +68,12 @@ const GameStatus = ({gameInfo}) => {
         })
 
     }
+    //Clicking anywhere else when menu is open
     const handleClose = () =>{
         setAnchorEl(null)
 
     }
+    //Setting the focused game based on userData game (if present)
     useEffect(()=>{
         if(userData.games !== undefined){
             userData.games.forEach((game)=>{
@@ -108,9 +119,7 @@ const GameStatus = ({gameInfo}) => {
                 <StyledMenuItem onClick={handleStatusClose}>Played</StyledMenuItem>
                 <StyledMenuItem onClick={handleStatusClose}>Dropped</StyledMenuItem>
             </StyledMenu>
-            <div className={"favorite"}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M18 1l-6 4-6-4-6 5v7l12 10 12-10v-7z"/></svg>
-            </div>
+            
         </div>
     )
 }

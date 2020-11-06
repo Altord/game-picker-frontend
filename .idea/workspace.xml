@@ -128,6 +128,7 @@
       <workItem from="1604416985263" duration="8559000" />
       <workItem from="1604435125199" duration="8029000" />
       <workItem from="1604446784338" duration="83000" />
+      <workItem from="1604587030169" duration="26812000" />
     </task>
     <servers />
   </component>
@@ -185,12 +186,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Layouts/Game/GameMain.js</url>
-          <line>176</line>
+          <line>184</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Layouts/Game/GameMain.js</url>
-          <line>108</line>
+          <line>116</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
@@ -205,12 +206,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Layouts/Company/CompanyMain.js</url>
-          <line>152</line>
+          <line>134</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/Layouts/Company/CompanyMain.js</url>
-          <line>8</line>
+          <line>9</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

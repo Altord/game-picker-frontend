@@ -6,6 +6,7 @@ import building from "../../../images/icons/building.png"
 import './CompanyMain.scss'
 // Displays main company information
 
+//Change the backgrounds of each game on hover
 const backgroundHoverDev = (event, key) =>{
     let background = document.getElementById('background-image dev' + key)
     let gameContainer = document.getElementById('game-container dev' + key)
@@ -21,6 +22,7 @@ const backgroundHoverDev = (event, key) =>{
     Object.assign(background.style, backgroundStyles)
 
 }
+//Reverse it on out
 const backgroundClearDev = (event, key) =>{
     let background = document.getElementById('background-image dev' + key)
     let gameContainer = document.getElementById('game-container dev' + key)
@@ -67,6 +69,7 @@ const backgroundClearPub = (event, key) =>{
 
 }
 
+//Render component
 const CompanyMain = ({match}) =>{
     // Captures the id and send it to the backend
     const {
@@ -74,6 +77,7 @@ const CompanyMain = ({match}) =>{
     } = match;
     //Set state
     const [information, setInformation] = useState([])
+    //Call the api
     useEffect(() => {
         let dataCopy = []
              axios.post('http://localhost:3001/companies/id', {companyId})
@@ -82,28 +86,6 @@ const CompanyMain = ({match}) =>{
                 setInformation(dataCopy);
             })
     }, [companyId]);
-
-
-    let mediaWebsiteLookup = {
-        1 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/external-link-symbol.png")}/>,
-        2 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/wikia_logo.png")}/>,
-        3 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/wikipedia.png")}/>,
-        4 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/facebook-icon.svg")}/>,
-        5 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/twitter.png")}/>,
-        6 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/twitch.png")}/>,
-        8 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/instagram.png")}/>,
-        9 : <img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/youtube.png")}/>,
-        14 :<img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/Reddit-Icon.png")}/>,
-        18 :<img alt={"website logo"} className={"website-logo"} src={require("../../../images/company_logos/discord-seeklogo.com.svg")}/>
-    }
-    let shopWebsiteLookup = {
-        10 : <img alt={"website logo"}className={"website-logo "} src={require("../../../images/company_logos/app-store.png")}/>,
-        12 : <img alt={"website logo"}className={"website-logo"} src={require("../../../images/company_logos/google-play.png")}/>,
-        13 : <img alt={"website logo"}className={"website-logo"} src={require("../../../images/company_logos/steam_logo.png")}/>,
-        15 : <img alt={"website logo"}className={"website-logo"} src={require("../../../images/company_logos/itchio_logo.png")}/>,
-        16 : <img alt={"website logo"}className={"website-logo"} src={require("../../../images/company_logos/epicgames_logo.png")}/>,
-        17 : <img alt={"website logo"}className={"website-logo"} src={require("../../../images/company_logos/gog_logo.jpg")}/>
-    }
 
     return(
         //Initial rendering of the page

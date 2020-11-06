@@ -5,8 +5,6 @@ import { useHistory, Redirect } from "react-router-dom";
 import background from "../../../images/icons/24223373.png";
 import './login.scss'
 import qs from 'qs'
-import jwt_decode from "jwt-decode";
-import setAuthToken from "../../Utils/Auhtorization/setAuthToken";
 
 //Basic login form to grab user data
 const UserLoginForm = ()=>{
@@ -15,6 +13,7 @@ const UserLoginForm = ()=>{
         email: "",
         password: "",
     }
+    //Form input information setting
     const[information, setInformation] = useState(initialState)
     const token = localStorage.jwtToken;
 
@@ -23,7 +22,7 @@ const UserLoginForm = ()=>{
             ...information,
             [event.target.id] : event.target.value })
     }
-
+    //On submit for form
     const onSubmit = (event) => {
         event.preventDefault()
         axios({
@@ -37,6 +36,7 @@ const UserLoginForm = ()=>{
                     email: "",
                     password: ""
                 })
+                //Grab the token and then save to localstorage
                 const {token} = response.data;
                 localStorage.setItem("jwtToken", token)
 
@@ -45,7 +45,7 @@ const UserLoginForm = ()=>{
             .catch(err => {
 
             });
-
+        //Setting a timeout so that the page doesn't immediatly jump to the landing page
         setTimeout(()=>{
             if(localStorage.jwtToken !== undefined){
                 history.go(0)
@@ -55,7 +55,7 @@ const UserLoginForm = ()=>{
 
 
     }
-
+    //Guest login 
     const submitGuest = (event) => {
         event.preventDefault()
 
@@ -73,9 +73,8 @@ const UserLoginForm = ()=>{
                     email: "",
                     password: ""
                 })
+                //Grab the token and then save to localstorage
                 const {token} = response.data;
-                setAuthToken(token)
-                const decoded = jwt_decode(token)
                 localStorage.setItem("jwtToken", token)
 
              })
@@ -83,7 +82,7 @@ const UserLoginForm = ()=>{
             .catch(err => {
 
             });
-
+        //Setting a timeout so that the page doesn't immediatly jump to the landing page
         setTimeout(()=>{
             if(localStorage.jwtToken !== undefined){
                 history.go(0)

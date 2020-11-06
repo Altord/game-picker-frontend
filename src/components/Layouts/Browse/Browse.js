@@ -4,7 +4,9 @@ import {CircleToBlockLoading} from 'react-loadingg'
 import "./Browse.scss"
 
 const Browse = () =>{
+    //Information state set
     const[information, setInfomation] = useState()
+    //Run api call on render
     useEffect(()=>{
         axios.post('http://localhost:3001/browse').then(res=>{
 
@@ -12,7 +14,7 @@ const Browse = () =>{
         })
 
     },[])
-
+    //Render application
     return(
 
         information === undefined ? <CircleToBlockLoading/> : information.map(info=>
